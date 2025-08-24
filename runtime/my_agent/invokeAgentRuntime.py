@@ -4,7 +4,7 @@ import json
 client = boto3.client('bedrock-agentcore', region_name="us-east-1")
 
 # Prepare the payload
-payload = json.dumps({"prompt": "Hello"}).encode()
+payload = json.dumps({"prompt": "こんにちは！"}).encode()
 
 response = client.invoke_agent_runtime(
     contentType='application/json',

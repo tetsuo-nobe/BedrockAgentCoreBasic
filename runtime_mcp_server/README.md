@@ -12,6 +12,10 @@ python my_mcp_server.py
 ```
 
 ```
+pip install bedrock-agentcore-starter-toolkit
+```
+
+```
 agentcore configure -e my_mcp_server.py --protocol MCP
 ```
 

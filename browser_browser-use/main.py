@@ -24,6 +24,9 @@ logging.basicConfig(
 logger = logging.getLogger("browser_agent")
 
 region = "us-east-1"
+model_id = "us.anthropic.claude-3-7-sonnet-20250219-v1:0"
+#model_id="us.amazon.nova-lite-v1:0",
+
 
 SYSTEM_PROMPT = """あなたはWeb自動化のアシスタントです。
 
@@ -76,7 +79,7 @@ async def run_browser_task(instruction: str, starting_page: str = "https://www.y
         logger.info("Browser session started successfully")
 
         bedrock_chat = ChatBedrockConverse(
-            model_id="us.amazon.nova-lite-v1:0",
+            model_id = model_id,
             region_name=region
         )
 
@@ -124,7 +127,7 @@ if __name__ == "__main__":
     user_input = "「京都の観光名所」と検索して、その結果を要約して提示してください。"
 
     model = BedrockModel(
-    model_id="us.amazon.nova-lite-v1:0",
+    model_id=model_id,
     params={"max_tokens": 2048, "temperature": 0.2},
     region=region,
     read_timeout=600,

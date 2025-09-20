@@ -1,3 +1,4 @@
+# AgentCore Gateway のコンソールに表示されているコード
 from strands import Agent
 import logging
 from strands.models import BedrockModel

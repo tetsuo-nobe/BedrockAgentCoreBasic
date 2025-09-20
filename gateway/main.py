@@ -10,6 +10,9 @@ from dotenv import load_dotenv
 # .envファイルの内容を読み込見込む
 load_dotenv()
 
+# Gatewayのページに表示されている
+gateway_url = os.environ.get("GATEWAY_URL") 
+
 def get_access_token():
     # 環境変数から値を取得
     client_id = os.environ.get("CLIENT_ID")
@@ -51,7 +54,7 @@ access_token = get_access_token()
 streamable_http_mcp_client = MCPClient(
     lambda: streamablehttp_client(
         # AgentCore Gateway resource URL
-        "https://gateway-20250920-9e5zferjbc.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp",
+        gateway_url,
         headers={"Authorization": f"Bearer {access_token}"},
     )
 )

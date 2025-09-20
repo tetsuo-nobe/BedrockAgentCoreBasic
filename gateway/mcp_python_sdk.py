@@ -1,3 +1,4 @@
+# AgentCore Gateway のコンソールに表示されているコード
 import requests
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client

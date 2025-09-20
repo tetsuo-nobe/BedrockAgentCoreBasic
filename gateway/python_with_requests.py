@@ -1,3 +1,4 @@
+# AgentCore Gateway のコンソールに表示されているコード
 import requests
 import json
 import os

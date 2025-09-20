@@ -1,4 +1,3 @@
-# AgentCore Gateway のコンソールに表示されているコード
 import json
 
 def get_weather(location):

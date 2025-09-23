@@ -13,7 +13,7 @@
 
 ## Inbound Auth
 
-  * Cognito のトークンによる認証が必要な
+  * Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイ
     - ```
       agentcore configure --entrypoint agent_example.py \
         --name hello_agent \
@@ -39,7 +39,7 @@
 
 *  OAuth token を使用して呼び出し
 
-  - Agent ARNに含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードする必要があります
+  - Agent ARNに含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードする必要あり
 
   - ```
     export PAYLOAD='{"prompt": "こんにちは、 1+1の答えは?"}'

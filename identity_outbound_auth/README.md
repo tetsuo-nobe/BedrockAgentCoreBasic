@@ -1,18 +1,22 @@
-# AgentCore Identity
+# AgentCore Identity (Outbound Auth)
 
 * 下記のブログ記事のコードを参考にしています。
   - https://qiita.com/moritalous/items/6c822e68404e93d326a4
 
-* AgentCore Identity の 2つのユースケース
+* AgentCore Identity のユースケース
 
-1. AgentCore Identity を使用し Agent が外部サービスを呼び出すときと API キーを取得する
-2. AgentCore Identity を使用し Agent が AgentCore Gateway で外部サービスを呼び出すときとの Bearer トークンを取得する
+1. Inbound Auth
+    - AgentCore Runtime で動作する Agent の呼び出しに Bearer トークンが必要という構成にした場合、AgentCore Indetity を使用し、Bearer トークンを取得する
+2. Outbound Auth
+    1. AgentCore Identity を使用し Agent が外部サービスを呼び出すときと API キーを取得する
+    2. AgentCore Identity を使用し Agent が AgentCore Gateway で外部サービスを呼び出すときとの Bearer トークンを取得する
 
-## 1. AgentCore Identity を使用し Agent が外部サービスを呼び出すときと API キーを取得する
+## Outbound Auth
+### 1. AgentCore Identity を使用し Agent が外部サービスを呼び出すときと API キーを取得する
 
 * サンプルコードでは Agent ではなく通常の Python コードから API キーを取得し、Anthropic SDK を使用して Claude を呼び出す
 
-### 準備
+#### 準備
 
 1. AWS マネジメントコンソールで AgentCore Identity の API キーを作成
 
@@ -23,13 +27,13 @@
     ```
 ---
 
-## ２. AgentCore Identity を使用し Agent が外部サービスを呼び出すときと API キーを取得する
+### ２. AgentCore Identity を使用し Agent が外部サービスを呼び出すときと API キーを取得する
 
 * サンプルコードでは Agent ではなく通常の Python コードから Bearer トークンを取得し、AgentCore Gateway で weather を呼び出す。
     - このリポジトリの gateway フォルダのサンプルで作成した weather を呼び出す前提
     - gateway サンプルでは Cognito から Bearer トークンを取得したが、このサンプルでは AgentCore Identity の機能を使用して Bearer トークン を取得する
 
-### 準備
+#### 準備
 
 1. AWS マネジメントコンソールで AgentCore Identity の OAuth クライアントを作成
     - カスタムプロバイダを選択して下記を入力 

@@ -19,7 +19,7 @@
 ## Gateway
 * gateway
     - Lambda 関数を Gateway により MCP のツールとして使用する
-    - このサンプルは、Identity の Outbound auth のサンプルでも使用するs
+        - (このサンプルは、Identity の Outbound auth のサンプルでも使用する)
 
 ## Identity
 * identity_inbound_auth

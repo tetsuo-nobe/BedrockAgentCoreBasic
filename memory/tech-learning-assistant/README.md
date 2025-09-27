@@ -69,7 +69,7 @@
             - この時ストラテジーの指定が必要
             - 長期メモリを作成すると短期メモリも使用でき、短期メモリの内容が非同期で抽出される
         - 短期メモリを作成する create_memory にストラテジーを指定して長期メモリを作成することも可能？
-            - このコードではそうしている
+            - 元の記事ではそうしている
         - [この AWS Blog](https://aws.amazon.com/jp/blogs/news/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/) では、短期メモリを create_memory_and_wait で作成している例もある?
         - **おそらく、create_memory_and_wait は、メモリ作成完了まで待機するというだけでしかない**
             - 長期メモリ作成には時間がかかるので、create_memory_and_wait を使うのではないか

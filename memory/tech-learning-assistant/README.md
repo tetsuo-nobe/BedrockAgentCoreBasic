@@ -63,7 +63,7 @@
 ---
 ## メモ
 
-    - 参考ドキュメント:[Getting started with AgentCore Memory](https://docs.aws.amazon.com/ja_jp/bedrock-agentcore/latest/devguide/memory-getting-started.html)
+* 参考ドキュメント:[Getting started with AgentCore Memory](https://docs.aws.amazon.com/ja_jp/bedrock-agentcore/latest/devguide/memory-getting-started.html)
     - ドキュメントでのメモリの作成方法の記述
         - 短期メモリの作成は create_memory
         - 長期メモリの作成は、create_memory_and_wait

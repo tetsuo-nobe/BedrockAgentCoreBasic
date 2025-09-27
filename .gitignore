@@ -1,2 +1,9 @@
 # .envファイルをgitの管理対象から外す
 .env
+
+# AgentCore Runtime へデプロイ時に生成される bedrock_agentcore.yaml 
+.bedrock_agentcore.yaml
+
+# AgentCore Runtime へデプロイ時に生成される Docker 関連
+Dockerfile
+.dockerignore

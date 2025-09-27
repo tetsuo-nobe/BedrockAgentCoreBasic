@@ -19,8 +19,8 @@ agents:
       observability:
         enabled: true
     bedrock_agentcore:
-      agent_id: tech_learning_assistant-txSINFDmHt
-      agent_arn: arn:aws:bedrock-agentcore:us-west-2:068048081706:runtime/tech_learning_assistant-txSINFDmHt
+      agent_id: tech_learning_assistant-FZBhpo4nns
+      agent_arn: arn:aws:bedrock-agentcore:us-west-2:068048081706:runtime/tech_learning_assistant-FZBhpo4nns
       agent_session_id: null
     codebuild:
       project_name: bedrock-agentcore-tech_learning_assistant-builder

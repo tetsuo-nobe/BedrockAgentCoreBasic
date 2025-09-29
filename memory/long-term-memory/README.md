@@ -12,5 +12,5 @@ python create_memory_and_wait.py
 ```
 
 ```
-python main.py
+python chat.py
 ```

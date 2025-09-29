@@ -1,5 +1,2 @@
-# Agent の Tool から CodeInterpreter の機能を簡単に試すサンプル
+# Bedrock AgentCore Runtime にデプロイした Strands Agent の Tool から CodeInterpreter の機能を使用するサンプル
 
-```
-python main.py
-```

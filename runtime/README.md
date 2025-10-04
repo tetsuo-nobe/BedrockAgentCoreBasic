@@ -1,6 +1,10 @@
-# AgentCore Basic Examples
+# AgentCore Runtime
 
 * https://docs.aws.amazon.com/bedrock-agentcore/
+
+---
+
+## 準備
 
 * 前提
     - ポート 8080 を利用できること
@@ -20,12 +24,6 @@
     pip install strands-agents-tools
     ```
 
----
-## Runtime
-
-* Getting started with Amazon Bedrock AgentCore Runtime
-    - https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-getting-started.html
- 
 * Agent をローカルで実行
 
     ```
@@ -37,6 +35,13 @@
     -H "Content-Type: application/json" \
     -d '{"prompt": "こんにちは！京都で有名な観光地を10箇所挙げてください。"}'
     ```
+
+---
+## AgentCore Runtime にエージェントをデプロイ
+
+* Getting started with Amazon Bedrock AgentCore Runtime
+    - https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-getting-started.html
+ 
 
 * Agent のデプロイ（Agent Runtime の作成）
   - 方法 1. boto3 で作成する

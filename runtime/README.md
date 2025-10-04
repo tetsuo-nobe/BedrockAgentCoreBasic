@@ -26,7 +26,7 @@
 * Getting started with Amazon Bedrock AgentCore Runtime
     - https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-getting-started.html
  
-* ローカルで実行
+* Agent をローカルで実行
 
     ```
     python my_agent.py
@@ -39,42 +39,11 @@
     ```
 
 * Agent のデプロイ（Agent Runtime の作成）
-  - 方法 1. boto3 で作成する場合
-    - 作成した Agent のコンテナイメージをビルドしておく
-    - ECR リポジトリを作成し、Agent のイメージを push しておく
-    - boto3 の　bedrock-agentcore-control クライアントを作成し、create_agent_runtime で作成する
+  - 方法 1. boto3 で作成する
+    - my_agent_boto3 フォルダ
 
-  - 方法 2. boto3 で作成する場合
-    - Runtime をインポート
-    - Runtime オブジェクト の configure メソッドで構成を指定する
-    - Runtime オブジェクト の launch メソッドでデプロイする
+  - 方法 2. boto3 で作成する
+    - my_agent_toolkit フォルダ
 
-  - 方法 3. agentcore configure コマンドで作成する場合
-    - プロジェクトフォルダを作成
-
-    ```
-    pip install bedrock-agentcore-starter-toolkit
-    ```
-
-    - ローカルモードで起動する場合もあるので、Docker を起動しておく
-
-    - AgentCore Runtime が assume する role を作成しておく
-        - https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-permissions.html
-    
-    ```
-    agentcore configure --entrypoint my_agent.py -er arn:aws:iam::068048081706:role/my-AgentCore-runtime-role
-
-    ```
-
-   ```
-   agentcore launch -l
-   ```
-
-
-    ```
-    agentcore launch
-    ```
-
-    ```
-    agentcore invoke '{"prompt": "こんにちは"}'
-    ```
+  - 方法 3. agentcore configure コマンドで作成する
+    - my_agent_cli フォルダ

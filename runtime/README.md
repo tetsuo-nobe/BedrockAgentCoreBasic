@@ -43,8 +43,13 @@
     - 作成した Agent のコンテナイメージをビルドしておく
     - ECR リポジトリを作成し、Agent のイメージを push しておく
     - boto3 の　bedrock-agentcore-control クライアントを作成し、create_agent_runtime で作成する
-  
-  - 方法 2. agentcore configure コマンドで作成する場合
+
+  - 方法 2. boto3 で作成する場合
+    - Runtime をインポート
+    - Runtime オブジェクト の configure メソッドで構成を指定する
+    - Runtime オブジェクト の launch メソッドでデプロイする
+
+  - 方法 3. agentcore configure コマンドで作成する場合
     - プロジェクトフォルダを作成
 
     ```

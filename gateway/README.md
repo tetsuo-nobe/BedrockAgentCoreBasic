@@ -1,14 +1,15 @@
-# AgentCore Gateway を使用して Lambda 関数を MCP のツールとして使用する
+# AgentCore Gateway で Lambda 関数を MCP のツールとして使用する
 
 * 下記のブログ記事のコードをベースにしています。
   - https://tech.nri-net.com/entry/implement_gateway_and_try_it_out
 
 ## 手順
 
-1. AWS Lambda 関数の作成
+1. ツールとして使用する AWS Lambda 関数の作成
+    - lambda_function.py
 
 1. AWS マネジメントコンソールで AgentCore Gateway を作成
-    - Cognito を使用する QuickStart を選択
+    - 「Cognito を利用した設定のクイック作成 」 を選択
         - これにより Cognito の M2M タイプのユーザープールが自動的に作成される
     - ロールの自動作成を指定
         - ターゲットに指定する Lambda 関数を呼び出すポリシーが付与されたロールが自動作成される
@@ -41,7 +42,7 @@
         - マネコンのアプリケーションクライアントの [**ログインページ**] タブに表示されている
     - Discovery URL
         - マネコンで Gateway のページの [**Inbound Identity**] に表示されている
-        - または Cognitoのページの [**概要**] で [**トークン署名キー URL**] として表示されている URL の末尾を `/openid-configuration` に変更したもの
+        - または Cognito のページの [**概要**] で [**トークン署名キー URL**] として表示されている URL の末尾を `/openid-configuration` に変更したもの
 
 1. Strands Agents SDK を使用して Tool として呼び出す
     - モデルはデフォルトの Claude Sonnet 4 を使用。
@@ -54,8 +55,8 @@
       CUSTOM_SCOPE=xxxxxxxxxxxxxxxx/genesis-gateway:invoke
       ```
     
-1. マネージメントコンソールで作成した AgentCore Gateway のページの **View invocation code** にもGateway を使用してツールのリストを取得するコードの例が表示されている。
-    - この例には、アプリクライアントやシークレット以外で、環境に応じた値（GatewayやCognitoのURLの値）が設定されているが、環境変数から取得するように変更した。
+1. マネージメントコンソールで作成した AgentCore Gateway のページの **View invocation code** にも Gateway を使用してツールのリストを取得するコードの例が表示されている。
+    - この例には、アプリクライアントやシークレット以外で、環境に応じた値（Gateway や Cognito の URL の値）が設定されているが、環境変数から取得するように変更した。
     - .env の内容
     - ```
       CLIENT_ID=xxxxxxxxxxxxxxxxxxxxxxx

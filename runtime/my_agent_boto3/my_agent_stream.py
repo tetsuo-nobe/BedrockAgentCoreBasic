@@ -13,7 +13,7 @@ async def agent_invocation(payload):
     stream = agent.stream_async(user_message)
     async for event in stream:
         #print(event)
-        yield (event) # eventは辞書型出ないので特定部分だけを取り出すには工夫が必要
+        yield (event) # eventは辞書型ではないので特定部分だけを取り出すには工夫が必要
 
 if __name__ == "__main__":
     app.run()

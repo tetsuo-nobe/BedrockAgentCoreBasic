@@ -1,13 +1,14 @@
 # AgentCore Runtime
 
 ## 方法 3. agentcore configure コマンドで作成する場合
-    - プロジェクトフォルダを作成
+
+1. プロジェクトフォルダを作成
 
     ```
     pip install bedrock-agentcore-starter-toolkit
     ```
 
-    - ローカルモードで起動する場合もあるので、Docker を起動しておく
+1. ローカルモードで起動する場合もあるので、Docker を起動しておく
 
     - AgentCore Runtime が assume する role を作成しておく
         - https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-permissions.html
@@ -29,4 +30,3 @@
     ```
     agentcore invoke '{"prompt": "こんにちは"}'
     ```
-S

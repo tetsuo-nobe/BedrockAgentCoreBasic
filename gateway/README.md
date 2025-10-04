@@ -1,7 +1,5 @@
 # AgentCore Gateway で Lambda 関数を MCP のツールとして使用する
 
-* 下記のブログ記事のコードをベースにしています。
-  - https://tech.nri-net.com/entry/implement_gateway_and_try_it_out
 
 ## 手順
 
@@ -47,7 +45,7 @@
 
 1. Strands Agents SDK を使用して Tool として呼び出す
     - モデルはデフォルトの Claude Sonnet 4 を使用。
-    - Nova Lite でも試してみたが、うまく動作しなかった。
+    - (Nova Lite でも試してみたが、うまく動作しなかった。)
     - .env の内容
     - ```
       CLIENT_ID=xxxxxxxxxxxxxxxxxxxxxxx
@@ -65,4 +63,7 @@
       TOKEN_URL=https://my-domain-xxxxxxxx.auth.us-west-2.amazoncognito.com/oauth2/token
       GATEWAY_URL=https://xxxxxxxxxxxxxxxxxxxx.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp
       ```
+---
 
+* 参考情報
+  - https://tech.nri-net.com/entry/implement_gateway_and_try_it_out

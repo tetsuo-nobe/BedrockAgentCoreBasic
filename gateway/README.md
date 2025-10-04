@@ -7,6 +7,7 @@
 
 1. ツールとして使用する AWS Lambda 関数の作成
     - lambda_function.py
+    - デモ用としてダミーの天気情報を返す実装にしている
 
 1. AWS マネジメントコンソールで AgentCore Gateway を作成
     - 「Cognito を利用した設定のクイック作成 」 を選択

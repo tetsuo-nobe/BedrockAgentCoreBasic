@@ -1,5 +1,11 @@
 # AgentCore Memory を使用した技術学習アシスタントの作成
 
+## 概要
+
+* Agent と対話して技術の学習を行う。
+* 自分の学習の進捗や苦手分野、学習内容のサマリを Long-term memory から取得する。
+
+![example](images/memory_example.png)
 
 ---
 ## 手順

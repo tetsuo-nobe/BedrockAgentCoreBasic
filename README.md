@@ -36,9 +36,10 @@
     - tech-learning-assistant
         - Long-term memory を使用した技術学習アシスタント
 
-## runtime
-* Strands Agents の Agent を AgentCore Runtime でデプロイ
+## Runtime
 
-## runtime_mcp_server
-* MCP Server を AgentCore Runtime でデプロイする
+* runtime
+    - Strands Agents の Agent を AgentCore Runtime でデプロイ
+* runtime_mcp_server
+    - MCP Server を AgentCore Runtime でデプロイする
 

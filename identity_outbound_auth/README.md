@@ -1,9 +1,6 @@
 # AgentCore Identity (Outbound Auth)
 
-* 下記のブログ記事のコードを参考にしています。
-  - https://qiita.com/moritalous/items/6c822e68404e93d326a4
-
-* AgentCore Identity のユースケース
+## AgentCore Identity のユースケース
 
 1. Inbound Auth
     - AgentCore Runtime で動作する Agent の呼び出しに Bearer トークンが必要という構成にする
@@ -11,7 +8,11 @@
     1. AgentCore Identity を使用し Agent が外部サービスを呼び出すときと API キーを取得する
     2. AgentCore Identity を使用し Agent が AgentCore Gateway で外部サービスを呼び出すときとの Bearer トークンを取得する
 
+---
 ## Outbound Auth
+
+
+
 ### 1. AgentCore Identity を使用し Agent が外部サービスを呼び出すときと API キーを取得する
 
 * サンプルコードでは Agent ではなく通常の Python コードから API キーを取得し、Anthropic SDK を使用して Claude を呼び出す
@@ -42,5 +43,8 @@
         - AgentCore Gateway の Discovery URL
     - 作成した OAuth クライアントの名前をメモしておく
 
+---
+* 参考にしたブログ記事
+  - https://qiita.com/moritalous/items/6c822e68404e93d326a4
 
 

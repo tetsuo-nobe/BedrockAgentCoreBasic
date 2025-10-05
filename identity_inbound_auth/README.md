@@ -12,7 +12,7 @@
 ---
 ## Inbound Auth
 
-![inbound](images/Identity_Inbound.png)
+![inbound](images/Identity_in.png)
 
 
   * Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイ

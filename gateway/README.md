@@ -1,6 +1,6 @@
 # AgentCore Gateway で Lambda 関数を MCP のツールとして使用する
 
-![概要](images/gateway-overview.png)
+![概要](images/gateway_overview.png)
 
 ## 手順
 

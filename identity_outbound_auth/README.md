@@ -15,9 +15,12 @@
 
 ### 1. AgentCore Identity を使用し Agent が外部サービスを呼び出すときと API キーを取得する
 
+* **main-apiKey.py**
 * サンプルコードでは Agent ではなく通常の Python コードから API キーを取得し、Anthropic SDK を使用して Claude を呼び出す
 
 #### 準備
+
+1. Anthropic の API キーを入手しておく
 
 1. AWS マネジメントコンソールで AgentCore Identity の API キーを作成
 
@@ -30,6 +33,7 @@
 
 ### ２. AgentCore Identity を使用し Agent が AgentCore Gateway で外部サービスを呼び出すときと API キーを取得する
 
+* **main-bearerToken.py**
 * サンプルコードでは Agent ではなく通常の Python コードから Bearer トークンを取得し、AgentCore Gateway で weather を呼び出す。
     - このリポジトリの gateway フォルダのサンプルで作成した weather を呼び出す前提
     - gateway サンプルでは Cognito から Bearer トークンを取得したが、このサンプルでは AgentCore Identity の機能を使用して Bearer トークン を取得する

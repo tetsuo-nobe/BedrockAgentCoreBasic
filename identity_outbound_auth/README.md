@@ -14,6 +14,8 @@
 
 ### 1. AgentCore Identity を使用し Agent が外部サービスを呼び出すときと API キーを取得する
 
+![in1](images/Identity_outbound1.png)
+
 * **main-apiKey.py**
 * サンプルコードでは Agent ではなく通常の Python コードから API キーを取得し、Anthropic SDK を使用して Claude を呼び出す
 
@@ -40,6 +42,8 @@
 ---
 
 ### ２. AgentCore Identity を使用し Agent が AgentCore Gateway で外部サービスを呼び出すときと API キーを取得する
+
+![in2](images/Identity_outbound2.png)
 
 * **main-bearerToken.py**
 * サンプルコードでは Agent ではなく通常の Python コードから Bearer トークンを取得し、AgentCore Gateway で weather を呼び出す。

@@ -1,9 +1,7 @@
 # AgentCore Identity (Inbound Auth)
 
-* 下記のドキュメントを参考にしています。
-  - https://docs.aws.amazon.com/ja_jp/bedrock-agentcore/latest/devguide/runtime-oauth.html
-
-* AgentCore Identity のユースケース
+---
+## AgentCore Identity のユースケース
 
 1. Inbound Auth
     - AgentCore Runtime で動作する Agent の呼び出しに Bearer トークンが必要という構成にする
@@ -11,6 +9,7 @@
     1. AgentCore Identity を使用し Agent が外部サービスを呼び出すときと API キーを取得する
     2. AgentCore Identity を使用し Agent が AgentCore Gateway で外部サービスを呼び出すときとの Bearer トークンを取得する
 
+---
 ## Inbound Auth
 
   * Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイ
@@ -51,4 +50,6 @@
     -H "Content-Type: application/json" \
     -d ${PAYLOAD}
     ```
-
+---
+* 参考ドキュメント
+  - https://docs.aws.amazon.com/ja_jp/bedrock-agentcore/latest/devguide/runtime-oauth.html

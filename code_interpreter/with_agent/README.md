@@ -2,3 +2,6 @@
 
 ![interpreter1](images/code-interpreter2.png)
 
+```
+python main.py
+```

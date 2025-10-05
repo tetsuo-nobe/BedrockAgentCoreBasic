@@ -67,12 +67,12 @@
 ---
 ## AgentCore Gateway のコンソールに表示されているサンプルコード
 
-    - **mcp_python_sdk.py**
-        - mcp パッケージを使用してツールのリストを取得する
-    - **python_with_requests.py**
-        - requests パッケージを使用してツールのリストを取得する
-    - **strands_mcp_client.py**
-        - Strands Agent が MCP Client としてツールのリストを取得する
+- **mcp_python_sdk.py**
+  - mcp パッケージを使用してツールのリストを取得する
+- **python_with_requests.py**
+  - requests パッケージを使用してツールのリストを取得する
+- **strands_mcp_client.py**
+  - Strands Agent が MCP Client としてツールのリストを取得する
 
 ---
 * 参考情報

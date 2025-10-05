@@ -1,5 +1,8 @@
 # AgentCore Browser に Playwright で接続して Web ページのスクリーンショットを取得する
 
+![browser-playwright](images/browser-playwright.png)
+
+---
 
 ```
 uv init

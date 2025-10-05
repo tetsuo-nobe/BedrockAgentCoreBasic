@@ -47,7 +47,7 @@
   - 方法 1. boto3 で作成する
     - my_agent_boto3 フォルダ
 
-  - 方法 2. boto3 で作成する
+  - 方法 2. bedrock_agentcore_starter_toolkit で作成する
     - my_agent_toolkit フォルダ
 
   - 方法 3. agentcore configure コマンドで作成する

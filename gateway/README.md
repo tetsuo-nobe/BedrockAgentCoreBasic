@@ -4,7 +4,7 @@
 ## 手順
 
 1. ツールとして使用する AWS Lambda 関数の作成
-    - lambda_function.py
+    - **lambda_function.py**
     - デモ用としてダミーの天気情報を返す実装にしている
 
 1. AWS マネジメントコンソールで AgentCore Gateway を作成
@@ -44,9 +44,10 @@
         - または Cognito のページの [**概要**] で [**トークン署名キー URL**] として表示されている URL の末尾を `/openid-configuration` に変更したもの
 
 1. Strands Agents SDK を使用して Tool として呼び出す
+    - **main.py**
     - モデルはデフォルトの Claude Sonnet 4 を使用。
     - (Nova Lite でも試してみたが、うまく動作しなかった。)
-    - .env の内容
+    - .env を用意し、下記の内容を記述しておく
     - ```
       CLIENT_ID=xxxxxxxxxxxxxxxxxxxxxxx
       CLIENT_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

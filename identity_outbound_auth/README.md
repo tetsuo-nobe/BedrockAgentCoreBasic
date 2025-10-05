@@ -48,6 +48,8 @@
 
 #### 準備
 
+1. このリポジトリの AgentCore Gateway のサンプルを構成しておく
+
 1. AWS マネジメントコンソールで AgentCore Identity の OAuth クライアントを作成
     - カスタムプロバイダを選択して下記を入力 
         - AgentCore Gateway の Cognito ユーザープールの Client Id

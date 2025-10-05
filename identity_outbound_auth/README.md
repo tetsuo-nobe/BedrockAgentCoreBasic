@@ -12,7 +12,6 @@
 ## Outbound Auth
 
 
-
 ### 1. AgentCore Identity を使用し Agent が外部サービスを呼び出すときと API キーを取得する
 
 * **main-apiKey.py**
@@ -47,6 +46,12 @@
         - AgentCore Gateway の Discovery URL
     - 作成した OAuth クライアントの名前をメモしておく
 
+---
+
+#### その他のサンプル
+
+* **create-api-key.py**
+    - コードから AgentCore Identity で管理するキーを作成する
 ---
 * 参考にしたブログ記事
   - https://qiita.com/moritalous/items/6c822e68404e93d326a4

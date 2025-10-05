@@ -1,6 +1,9 @@
 # AgentCore Browser に Browser-use で接続して、Yahoo の検索を使用する
 
 
+![browser](images/browser-browser-use.png)
+
+---
 * Python 3.11 以上が必要
 
 * Claude でクロスリージョン可能な基盤モデルを使用する

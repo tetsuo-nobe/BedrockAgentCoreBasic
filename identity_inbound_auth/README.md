@@ -12,6 +12,9 @@
 ---
 ## Inbound Auth
 
+![inbound](images/Identity_Inbound.png)
+
+
   * Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイ
     - ```
       agentcore configure --entrypoint agent_example.py \

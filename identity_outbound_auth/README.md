@@ -28,7 +28,7 @@
     ```
 ---
 
-### ２. AgentCore Identity を使用し Agent が外部サービスを呼び出すときと API キーを取得する
+### ２. AgentCore Identity を使用し Agent が AgentCore Gateway で外部サービスを呼び出すときと API キーを取得する
 
 * サンプルコードでは Agent ではなく通常の Python コードから Bearer トークンを取得し、AgentCore Gateway で weather を呼び出す。
     - このリポジトリの gateway フォルダのサンプルで作成した weather を呼び出す前提

@@ -1,7 +1,6 @@
 # Amazon Bedrock AgentCore の基本的なサンプル
 
-* AgentCore の各機能をローカル環境からシンプルに試すサンプル
-    - 一部のサンプルは AgentCore Runtime へのデプロイが必要
+* AgentCore の各機能をシンプルに試すサンプル
 
 ## Browser
 * browser_browser-use

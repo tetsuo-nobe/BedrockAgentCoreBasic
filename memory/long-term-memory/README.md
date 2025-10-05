@@ -4,6 +4,9 @@
     - 他の ConversationManager の使用も可能
 * **このサンプルでは、AgentCore Memory の Long-term memory を会話のサマリーの取得に使用する**
 
+![long](images/memory_long.png)
+
+---
 * 準備 .env ファイルを作成し、`MEMORY_ID=placeholder` を記述しておく
 
 

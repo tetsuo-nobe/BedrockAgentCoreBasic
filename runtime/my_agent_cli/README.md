@@ -2,6 +2,8 @@
 
 ## 方法 3. agentcore configure コマンドで作成する場合
 
+![cli](images/Runtime-cli.png)
+
 1. プロジェクトフォルダを作成
 
     ```

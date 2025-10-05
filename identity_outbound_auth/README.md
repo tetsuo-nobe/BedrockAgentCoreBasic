@@ -51,7 +51,9 @@
 #### その他のサンプル
 
 * **create-api-key.py**
-    - コードから AgentCore Identity で管理するキーを作成する
+    - コードから AgentCore Identity で管理するキーを作成するサンプル
+* **test-anthropic.py**
+    - スタンドアローンで Anthropic の API キーを使用するサンプル
 ---
 * 参考にしたブログ記事
   - https://qiita.com/moritalous/items/6c822e68404e93d326a4

@@ -6,14 +6,14 @@
 * browser_browser-use
     - Yahoo で検索を行う
 * browser_playwright
-    - 指定したURLにアクセスしてスクリーンショットを取得・保存する
+    - 指定した URL にアクセスしてスクリーンショットを取得・保存する
 
 ## Code Interpreter
 * code_interpreter
     - only_interpreter
-        - Python の簡単なコードを実行
+        - Python の固定的なコードを実行
     - with_agent
-        - Agent に指示した複数の値の平均値をコードを実行して求める
+        - Agent が質問の回答を得るために必要なコードを実行して求める
 
 ## Gateway
 * gateway
@@ -34,7 +34,7 @@
     - short-term-memory
         - Agent との対話履歴を Short-term memory で管理する
     - tech-learning-assistant
-        - Long-term memory を使用した技術学習アシスタント
+        - Long-term memory を使用した技術学習支援アシスタント
 
 ## Runtime
 

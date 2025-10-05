@@ -1,10 +1,6 @@
 # AgentCore Memory を使用した技術学習アシスタントの作成
 
- * 下記のブログ記事の内容を試したものです。
-    - [Amazon Bedrock AgentCore]Memory機能で会話履歴を記憶するエージェントを実装してみた](https://dev.classmethod.jp/articles/amazon-bedrock-agentcore-memory-sample-agent/)
-    - ただし IAM ロールに設定するポリシーの内容は下記のように変更しています。
-        - 変更前) bedrock:InvokeModel
-        - 変更後) bedrock:InvokeModel* 
+
 ---
 ## 手順
 
@@ -80,3 +76,11 @@
 * 短期メモリへの格納は create_event
 * 短期メモリからの取り出しは、list_events
 * 長期メモリからの取り出しは、retrieve_memories
+
+---
+
+ * 参考ブログ記事
+    - [Amazon Bedrock AgentCore]Memory機能で会話履歴を記憶するエージェントを実装してみた](https://dev.classmethod.jp/articles/amazon-bedrock-agentcore-memory-sample-agent/)
+    - ただし このリポジトリのサンプルでは、IAM ロールに設定するポリシーの内容は下記のように変更しています。
+        - 変更前) bedrock:InvokeModel
+        - 変更後) bedrock:InvokeModel*

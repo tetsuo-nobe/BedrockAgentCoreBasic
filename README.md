@@ -42,4 +42,7 @@
     - Strands Agents の Agent を AgentCore Runtime でデプロイ
 * runtime_mcp_server
     - MCP Server を AgentCore Runtime でデプロイする
+* streamlit
+    -  Streamlit で作成したチャットアプリケーションから AgentCore Runtime にデプロイしたエージェントを呼び出す
+
 

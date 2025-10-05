@@ -28,6 +28,15 @@
     ```
     pip install anthropic
     ```
+
+#### 実行
+
+1. サンプル実行
+
+    ```
+    python3 main-apiKey.py
+    ```
+
 ---
 
 ### ２. AgentCore Identity を使用し Agent が AgentCore Gateway で外部サービスを呼び出すときと API キーを取得する
@@ -45,6 +54,14 @@
         - AgentCore Gateway の Cognito ユーザープールの Client シークレッt 
         - AgentCore Gateway の Discovery URL
     - 作成した OAuth クライアントの名前をメモしておく
+
+#### 実行
+
+1. サンプル実行
+
+    ```
+    python3 main-bearerToken.py
+    ```
 
 ---
 

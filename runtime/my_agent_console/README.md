@@ -44,25 +44,25 @@
     - Agent 呼び出し時に session_id を指定
     - Agent 呼び出し時に qualifier の指定を削除
 
-``` 
-import boto3
-import json
-import secrets
+    ``` 
+    import boto3
+    import json
+    import secrets
 
-client = boto3.client('bedrock-agentcore', region_name='ap-northeast-1')
-payload = json.dumps({"prompt": "生成 AI についてを分かりやすく説明して下さい。"})
+    client = boto3.client('bedrock-agentcore', region_name='ap-northeast-1')
+    payload = json.dumps({"prompt": "生成 AI についてを分かりやすく説明して下さい。"})
 
-session_id = secrets.token_hex(17)
+    session_id = secrets.token_hex(17)
 
-response = client.invoke_agent_runtime(
-    agentRuntimeArn='arn:aws:bedrock-agentcore:ap-northeast-1:068048081706:runtime/hosted_agent_qfyms-i4HsycAHGS',
-    runtimeSessionId=session_id,
-    payload=payload
-)
-response_body = response['response'].read()
-response_data = json.loads(response_body)
-print("Agent Response:", response_data)se DEFAULT endpoint
-)
-```
+    response = client.invoke_agent_runtime(
+        agentRuntimeArn='arn:aws:bedrock-agentcore:ap-northeast-1:068048081706:runtime/hosted_agent_qfyms-i4HsycAHGS',
+        runtimeSessionId=session_id,
+        payload=payload
+    )
+    response_body = response['response'].read()
+    response_data = json.loads(response_body)
+    print("Agent Response:", response_data)se DEFAULT endpoint
+    )
+    ```
 
 1. 呼び出しコードを実行する

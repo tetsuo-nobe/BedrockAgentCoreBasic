@@ -44,11 +44,15 @@
  
 
 * Agent のデプロイ（Agent Runtime の作成）
-  - 方法 1. boto3 で作成する
+  - 方法 1. AWS マネジメントコンソールで作成する
+    - my_agent_console フォルダ
+
+  - 方法 2. boto3 で作成する
     - my_agent_boto3 フォルダ
 
-  - 方法 2. bedrock_agentcore_starter_toolkit で作成する
+  - 方法 3. bedrock_agentcore_starter_toolkit で作成する
     - my_agent_toolkit フォルダ
 
-  - 方法 3. agentcore configure コマンドで作成する
+  - 方法 4. agentcore configure コマンドで作成する
     - my_agent_cli フォルダ
+

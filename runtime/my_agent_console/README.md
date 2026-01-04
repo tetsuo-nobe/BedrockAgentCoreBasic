@@ -55,7 +55,7 @@
     session_id = secrets.token_hex(17)
 
     response = client.invoke_agent_runtime(
-        agentRuntimeArn='arn:aws:bedrock-agentcore:ap-northeast-1:068048081706:runtime/hosted_agent_qfyms-i4HsycAHGS',
+        agentRuntimeArn='arn:aws:bedrock-agentcore:ap-northeast-1:123456789012:runtime/hosted_agent_qfyms-i4HsycAHGS',
         runtimeSessionId=session_id,
         payload=payload
     )

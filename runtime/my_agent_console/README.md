@@ -38,11 +38,11 @@
 1. AWS アカウントで適切な権限を実行でき、boto3 が使用可能な開発環境でコピーした Python コードを保存する
 
 1. コードを下記の内容で置き換える
-  * 元のコードと違う箇所
-    - secrets パッケージのインポート
-    - session_id として 33 文字以上の文字列を生成
-    - Agent 呼び出し時に session_id を指定
-    - Agent 呼び出し時に qualifier の指定を削除
+    * 元のコードと違う箇所
+      - secrets パッケージのインポート
+      - session_id として 33 文字以上の文字列を生成
+      - Agent 呼び出し時に session_id を指定
+      - Agent 呼び出し時に qualifier の指定を削除
 
     ``` 
     import boto3

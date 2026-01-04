@@ -62,6 +62,7 @@
     ```
     agentcore invoke '{"prompt": "こんにちは！日本の首都はどこですか？"}'
     ```
-
+1. Agent のコード (main.py) を変更した場合は、再度 `agentcore deploy` を実施すればよい
+   
 * agentcore create で作成した Strands Agent のコードをデフォルトのままデプロイした場合は、コンソールで表示される呼び出しコードは使用できない。
     - レスポンスの方式が違うため

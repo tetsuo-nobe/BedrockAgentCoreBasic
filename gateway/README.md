@@ -46,6 +46,9 @@
         - マネコンで Gateway のページの [**Inbound Identity**] に表示されている
         - または Cognito のページの [**概要**] で [**トークン署名キー URL**] として表示されている URL の末尾を `/openid-configuration` に変更したもの
 
+1. ゲートウェイリソース URL をメモしておく
+    - 作成したゲートウェイの詳細のページに表示されている
+
 1. Strands Agents SDK を使用して Tool として呼び出す
     - **main.py**
     - モデルはデフォルトの Claude Sonnet 4 を使用。

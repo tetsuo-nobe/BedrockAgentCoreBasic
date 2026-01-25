@@ -59,6 +59,7 @@
       CLIENT_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
       DISCOVERY_URL=https://cognito-idp.us-west-2.amazonaws.com/us-west-2_xxxxxxxxx/.well-known/openid-configuration
       CUSTOM_SCOPE=xxxxxxxxxxxxxxxx/genesis-gateway:invoke
+      GATEWAY_URL=https://xxxxxxxxxxxxxxxxxxxx.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp
       ```
     
 1. マネージメントコンソールで作成した AgentCore Gateway のページの **View invocation code** にも Gateway を使用してツールのリストを取得するコードの例が表示されている。

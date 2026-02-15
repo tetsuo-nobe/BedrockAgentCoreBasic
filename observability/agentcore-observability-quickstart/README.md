@@ -24,8 +24,10 @@ pip install bedrock_agentcore_starter_toolkit
 
 * deploy_and_invoke.py を実行して Runtime にデプロイし、呼び出す
     - 動作しない場合は、マネコンからエンドポイントのセクションのログリンクからログを参照する
+    - **注意** Memory へのアクセス権限がなく初回呼出しは失敗するはず
+    - よって、作成されたロールに権限を付与して invoke_to_runtime.py を実行する
 
-* さらに呼び出す場合は、invoke_to_runtime.py を実行する
+* さらに何度か呼び出す場合は、invoke_to_runtime.py を実行する
 
 * その後、CloudWatch の AgentCore ダッシュボードを確認する
     - メトリクス、ログ、トレースが取得できているはず

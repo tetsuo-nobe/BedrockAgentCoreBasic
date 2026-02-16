@@ -66,3 +66,8 @@
    
 * agentcore create で作成した Strands Agent のコードをデフォルトのままデプロイした場合は、コンソールで表示される呼び出しコードは使用できない。
     - レスポンスの方式が違うため
+
+1. Agent のアンデプロイ
+   ```
+   agentcore destroy
+   ```

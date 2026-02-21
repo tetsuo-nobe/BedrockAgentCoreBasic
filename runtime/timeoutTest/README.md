@@ -4,6 +4,8 @@
 agentcore create
 ```
 
+* src の内容を編集
+
 ```
 export AWS_REGION=us-east-1
 ```
@@ -20,9 +22,16 @@ agentcore deploy
 agentcore invoke '{"prompt": "こんにちは！日本の首都はどこですか？"}'
 ```
 
+* 下記の場合だと boto3 の READ TIMEOUT になり Runtime のタイムアウトを確認できない
 ```
 agentcore invoke '{"prompt": "timeout"}'
 ```
+
+* boto3 の READ TIMEOUT を20分にして実行
+```
+python3 invokeAgent.py
+```
+
 
 
 * Runtimeの同期呼び出しの 15分 のタイムアウトエラー

@@ -16,7 +16,7 @@
 
   * Cognito ユーザープールの作成
     - ```
-      setup_cognito.sh
+      ./setup_cognito.sh
       source cognito.env
       ```
 

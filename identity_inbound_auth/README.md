@@ -17,6 +17,9 @@
 
 ![inbound](images/identity_in.png)
 
+---
+### agentcore CLI で Inbound 認証を構成したエージェントをデプロイする
+
   * Cognito ユーザープールの作成と環境変数の設定
     - ```
       ./setup_cognito.sh
@@ -80,8 +83,16 @@
     -H "Content-Type: application/json" \
     -d "${PAYLOAD}"
     ```
-
 ---
 * 環境のクリア
   - AgentCore のコンソールの「エージェントランタイム」からランタイムリソース: my_inbound_auth_agent を削除
   - Cognito のコンソールで「ユーザーエージェント」の MyUserPool を削除
+
+
+---
+### AWS マネジメントコンソール で Inbound 認証を構成したエージェントをデプロイする
+
+* ナビゲーションメニュー 「ラインタイムエージェント」からエージェントをデプロイする際に、「インバウンド認証」セクションで構成可能
+
+![inbound](images/agent-inbound-console.png)
+

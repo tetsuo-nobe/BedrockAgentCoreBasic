@@ -37,8 +37,22 @@ export BEARER_TOKEN=$(aws cognito-idp initiate-auth \
   --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
   --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
 
+export DISCOVERY_URL=https://cognito-idp.us-east-1.amazonaws.com/$POOL_ID/.well-known/openid-configuration
+
 # Output the required values
 echo "Pool id: $POOL_ID"
-echo "Discovery URL: https://cognito-idp.us-east-1.amazonaws.com/$POOL_ID/.well-known/openid-configuration"
+echo "Discovery URL: $DISCOVERY_URL"
 echo "Client ID: $CLIENT_ID"
 echo "Bearer Token: $BEARER_TOKEN"
+
+# Save to .env file for later use
+cat > cognito.env << EOF
+export POOL_ID="$POOL_ID"
+export DISCOVERY_URL="$DISCOVERY_URL"
+export CLIENT_ID="$CLIENT_ID"
+export BEARER_TOKEN="$BEARER_TOKEN"
+EOF
+
+echo ""
+echo "Environment variables saved to cognito.env"
+echo "To use them, run: source cognito.env"

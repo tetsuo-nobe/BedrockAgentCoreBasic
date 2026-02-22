@@ -1,7 +1,7 @@
 # AgentCore Identity (Inbound Auth)
 
 * 参考ドキュメント
-  - https://docs.aws.amazon.com/ja_jp/bedrock-agentcore/latest/devguide/runtime-oauth.html
+  - [https://docs.aws.amazon.com/ja_jp/bedrock-agentcore/latest/devguide/runtime-oauth.html](){:target="_blank"}
 
 ---
 ## AgentCore Identity のユースケース

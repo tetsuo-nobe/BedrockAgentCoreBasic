@@ -14,7 +14,7 @@
 
 ![inbound](images/identity_in.png)
 
-  * Cognito ユーザープールの作成
+  * Cognito ユーザープールの作成と環境変数の設定
     - ```
       ./setup_cognito.sh
       source cognito.env
@@ -23,12 +23,13 @@
   * Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイ
     - ```
       agentcore configure --entrypoint agent_example.py \
-        --name hello_agent \
+        --name my_inbound_auth_agent \
         --execution-role arn:aws:iam::068048081706:role/my-AgentCore-runtime-role \
         --disable-otel \
         --requirements-file requirements.txt \
         --authorizer-config "{\"customJWTAuthorizer\":{\"discoveryUrl\":\"$DISCOVERY_URL\",\"allowedClients\":[\"$CLIENT_ID\"]}}"
       ```
+    - リクエストヘッダーのallowListの構成は不要。メモリの設定も不要
 
     - ```
       agentcore launch
@@ -52,7 +53,7 @@
       --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
     ```
 
-*  OAuth token を使用して呼び出し
+*  Token を使用して呼び出し
 
 
 
@@ -63,8 +64,20 @@
     curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \
     -H "Authorization: Bearer ${TOKEN}" \
     -H "Content-Type: application/json" \
-    -d ${PAYLOAD}
+    -d "${PAYLOAD}"
     ```
+
+* 無効な Token の場合、エラーになることを確認
+
+    - ```
+    export TOKEN=xxx
+
+    curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \
+    -H "Authorization: Bearer ${TOKEN}" \
+    -H "Content-Type: application/json" \
+    -d "${PAYLOAD}"
+    ```
+
 ---
 * 参考ドキュメント
   - https://docs.aws.amazon.com/ja_jp/bedrock-agentcore/latest/devguide/runtime-oauth.html

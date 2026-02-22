@@ -17,8 +17,13 @@
 
 ![inbound](images/identity_in.png)
 
+### 構成方法の例
+
+* agentcore CLI で Inbound 認証を構成したエージェントをデプロイする例
+* AWS マネジメントコンソール で Inbound 認証を構成したエージェントをデプロイする例
+* 
 ---
-### agentcore CLI で Inbound 認証を構成したエージェントをデプロイする
+### agentcore CLI で Inbound 認証を構成したエージェントをデプロイする例
 
   * Cognito ユーザープールの作成と環境変数の設定
     - ```
@@ -90,9 +95,78 @@
 
 
 ---
-### AWS マネジメントコンソール で Inbound 認証を構成したエージェントをデプロイする
+### AWS マネジメントコンソール で Inbound 認証を構成したエージェントをデプロイする例
 
-* ナビゲーションメニュー 「ラインタイムエージェント」からエージェントをデプロイする際に、「インバウンド認証」セクションで構成可能
+* ナビゲーションメニュー 「ラインタイムエージェント」からエージェントをデプロイする際に、「インバウンド認証」セクションで構成してエージェントをデプロイ
 
 ![inbound](images/agent-inbound-console.png)
+
+* デプロイしたエージェントの「ランタイム ARN」の値を環境変数に設定しておく
+    - ARN に含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードする必要あり
+    - 下記は例
+    - arn:aws:bedrock-agentcore:us-east-1:068048081706:runtime/id_agent-uCz8otAJ0b の場合
+    - ```
+      export ESCAPED_AGENT_ARN=arn%3Aaws%3Abedrock-agentcore%3Aus-east-1%3A068048081706%3Aruntime%2Fmy_inbound_auth_agent-4CpCfb8Ukn 
+      ```
+
+* またデプロイ後、Cognito ユーザープールとのクライアントが作成されているので、環境変数で POOL_ID にユーザープール ID を、CLIENT_ID に アプリケーションクライアント ID を設定する
+
+```
+POOL_ID=us-east-1_IIvfidhXZ
+CLIENT_ID=4k8bv0dda0aou82q0mhh2fec5
+```
+
+* Congnito ユーザープールにユーザーを作成する
+
+```
+aws cognito-idp admin-create-user \
+  --user-pool-id $POOL_ID \
+  --username "testuser" \
+  --temporary-password "Test@1234" \
+  --region us-east-1 \
+  --message-action SUPPRESS > /dev/null
+```
+
+```
+aws cognito-idp admin-set-user-password \
+  --user-pool-id $POOL_ID \
+  --username "testuser" \
+  --password "Demo@1234" \
+  --region us-east-1 \
+  --permanent > /dev/null
+```
+
+*  Cognito で認証してトークンを取得
+
+```
+export TOKEN=$(aws cognito-idp initiate-auth \
+      --client-id "$CLIENT_ID" \
+      --auth-flow USER_PASSWORD_AUTH \
+      --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
+      --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
+```
+
+*  Token を使用して呼び出し
+
+```
+export PAYLOAD='{"prompt": "こんにちは、 1+1の答えは?"}'
+export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-east-1.amazonaws.com"
+
+curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \
+    -H "Authorization: Bearer ${TOKEN}" \
+    -H "Content-Type: application/json" \
+    -d "${PAYLOAD}"
+```
+
+* 無効な Token の場合、エラーになることを確認
+
+```
+export TOKEN=xxx
+
+curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \
+    -H "Authorization: Bearer ${TOKEN}" \
+    -H "Content-Type: application/json" \
+    -d "${PAYLOAD}"
+```
+
 

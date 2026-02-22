@@ -14,7 +14,11 @@
 
 ![inbound](images/identity_in.png)
 
-  * setup_cognito.sh を実行
+  * Cognito ユーザープールの作成
+    - ```
+      setup_cognito.sh
+      source cognito.env
+      ```
 
   * Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイ
     - ```

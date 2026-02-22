@@ -1,5 +1,8 @@
 # AgentCore Identity (Inbound Auth)
 
+* 参考ドキュメント
+  - https://docs.aws.amazon.com/ja_jp/bedrock-agentcore/latest/devguide/runtime-oauth.html
+
 ---
 ## AgentCore Identity のユースケース
 
@@ -79,5 +82,6 @@
     ```
 
 ---
-* 参考ドキュメント
-  - https://docs.aws.amazon.com/ja_jp/bedrock-agentcore/latest/devguide/runtime-oauth.html
+* 環境のクリア
+  - AgentCore のコンソールの「エージェントランタイム」からランタイムリソース: my_inbound_auth_agent を削除
+  - Cognito のコンソールで「ユーザーエージェント」の MyUserPool を削除

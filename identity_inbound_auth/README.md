@@ -14,6 +14,7 @@
 
 ![inbound](images/identity_in.png)
 
+  * setup_cognito.sh を実行
 
   * Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイ
     - ```
@@ -30,8 +31,6 @@
       ```
 
 *  Cognito で認証してトークンを取得
-
-  - setup_cognito.sh を実行
 
   - ```
     export TOKEN=$(aws cognito-idp initiate-auth \

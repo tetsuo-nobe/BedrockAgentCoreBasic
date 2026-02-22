@@ -31,6 +31,8 @@
 
 *  Cognito で認証してトークンを取得
 
+  - setup_cognito.sh を実行
+
   - ```
     export TOKEN=$(aws cognito-idp initiate-auth \
       --client-id "$CLIENT_ID" \

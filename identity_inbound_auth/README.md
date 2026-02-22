@@ -57,8 +57,6 @@
 
 *  Token を使用して呼び出し
 
-
-
   - ```
     export PAYLOAD='{"prompt": "こんにちは、 1+1の答えは?"}'
     export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-east-1.amazonaws.com"
@@ -71,7 +69,7 @@
 
 * 無効な Token の場合、エラーになることを確認
 
-    - ```
+  - ```
     export TOKEN=xxx
 
     curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \

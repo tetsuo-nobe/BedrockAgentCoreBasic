@@ -37,7 +37,7 @@
 
     - マネジメントコンソールでは、作成されたエージェントのインバウンド認証の設定は、「バージョン1」のリンクをクリックすることで確認できる
 
-    - 出力される Agent ARN の値を環境変数に設定しておく
+    - agentcore launch 実行により出力される Agent ARN の値を環境変数に設定しておく
         - Agent ARNに含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードする必要あり
     - 下記は例
     - arn:aws:bedrock-agentcore:us-east-1:068048081706:runtime/id_agent-uCz8otAJ0b の場合

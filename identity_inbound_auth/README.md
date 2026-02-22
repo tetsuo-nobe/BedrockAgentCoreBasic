@@ -51,7 +51,7 @@
     - agentcore launch 実行により出力される Agent ARN の値を環境変数に設定しておく
         - Agent ARNに含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードする必要あり
     - 下記は例
-    - arn:aws:bedrock-agentcore:us-east-1:068048081706:runtime/id_agent-uCz8otAJ0b の場合
+    - arn:aws:bedrock-agentcore:us-east-1:068048081706:runtime/my_inbound_auth_agent-4CpCfb8Ukn の場合
     - ```
       export ESCAPED_AGENT_ARN=arn%3Aaws%3Abedrock-agentcore%3Aus-east-1%3A068048081706%3Aruntime%2Fmy_inbound_auth_agent-4CpCfb8Ukn 
       ```
@@ -104,7 +104,7 @@
 * デプロイしたエージェントの「ランタイム ARN」の値を環境変数に設定しておく
     - ARN に含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードする必要あり
     - 下記は例
-    - arn:aws:bedrock-agentcore:us-east-1:068048081706:runtime/id_agent-uCz8otAJ0b の場合
+    - arn:aws:bedrock-agentcore:us-east-1:068048081706:runtime/my_inbound_auth_agent-4CpCfb8Ukn  の場合
     - ```
       export ESCAPED_AGENT_ARN=arn%3Aaws%3Abedrock-agentcore%3Aus-east-1%3A068048081706%3Aruntime%2Fmy_inbound_auth_agent-4CpCfb8Ukn 
       ```

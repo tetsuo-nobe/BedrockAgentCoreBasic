@@ -16,7 +16,7 @@
 
 ![in1](images/identity_out1.png)
 
-#### サンプル 21
+#### サンプル 1
 * **main-apiKey-OpenWeather.py**
 * このサンプルコードでは Agent ではなく通常の Python コードから OpenWeather の API キーを取得し、シアトルの天候情報を取得する
 

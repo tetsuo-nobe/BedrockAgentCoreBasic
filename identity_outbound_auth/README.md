@@ -16,10 +16,36 @@
 
 ![in1](images/identity_out1.png)
 
-* **main-apiKey.py**
-* サンプルコードでは Agent ではなく通常の Python コードから API キーを取得し、Anthropic SDK を使用して Claude を呼び出す
+#### サンプル 21
+* **main-apiKey-OpenWeather.py**
+* このサンプルコードでは Agent ではなく通常の Python コードから OpenWeather の API キーを取得し、シアトルの天候情報を取得する
 
-#### 準備
+##### 準備
+
+1. OpenWeather の API キーを入手しておく
+    - https://openweathermap.org/
+
+1. AWS マネジメントコンソールで AgentCore Identity の API キーを作成
+
+1. Anthropic の SDK のインストール
+
+    ```
+    pip3 install requests asyncio
+    ```
+
+##### 実行
+
+1. サンプル実行
+
+    ```
+    python3 main-apiKey-OpenWeatgher.py
+    ```
+
+#### サンプル 2 
+* **main-apiKey.py**
+* このサンプルコードでは Agent ではなく通常の Python コードから API キーを取得し、Anthropic SDK を使用して Claude を呼び出す
+
+##### 準備
 
 1. Anthropic の API キーを入手しておく
 
@@ -28,10 +54,10 @@
 1. Anthropic の SDK のインストール
 
     ```
-    pip install anthropic
+    pip3 install anthropic asyncio
     ```
 
-#### 実行
+##### 実行
 
 1. サンプル実行
 

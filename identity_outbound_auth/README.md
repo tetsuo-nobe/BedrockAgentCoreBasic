@@ -102,6 +102,9 @@
     ```
 
 1. サンプル実行
+    ```
+    pip3 install strands-agents mcp dotenv requests asyncio
+    ```
 
     ```
     python3 main-bearerToken.py

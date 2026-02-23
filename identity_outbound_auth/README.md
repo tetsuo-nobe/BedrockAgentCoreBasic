@@ -80,7 +80,7 @@
 
 1. このリポジトリの AgentCore Gateway のサンプルを構成しておく
 
-1. AWS マネジメントコンソールで AgentCore Identity の OAuth クライアントを作成
+1. AWS マネジメントコンソールで AgentCore Identity のアウトバウンド認証の OAuth クライアントを作成
     - 「プロバイダー」で「カスタムプロバイダ」を選択
     - 「プロバイダーの設定」で、「設定タイプ」に「検出 URL」を選択
         - 「クライアント ID」に、AgentCore Gateway の Cognito ユーザープールのクライアント ID を入力
@@ -91,7 +91,7 @@
 #### 実行
 
 1. .env を作成
-   - PROVIDER_NAME は、AgentCore Identity の OAuth クライアントの名前
+   - PROVIDER_NAME は、作成した AgentCore Identity のアウトバウンド認証の OAuth クライアントの名前
    - CUSTOM_SCOPE は、マネコンで Cognito のアプリケーションクライアントの [ログインページ] タブに表示されている
    - GATEWAY_URL は、AgentCore Gateway のページに表示されている
    - 例

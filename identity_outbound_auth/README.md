@@ -81,13 +81,25 @@
 1. このリポジトリの AgentCore Gateway のサンプルを構成しておく
 
 1. AWS マネジメントコンソールで AgentCore Identity の OAuth クライアントを作成
-    - カスタムプロバイダを選択して下記を入力 
-        - AgentCore Gateway の Cognito ユーザープールの Client Id
-        - AgentCore Gateway の Cognito ユーザープールの Client シークレッt 
-        - AgentCore Gateway の Discovery URL
+    - 「プロバイダー」で「カスタムプロバイダ」を選択
+    - 「プロバイダーの設定」で、「設定タイプ」に「検出 URL」を選択
+        - 「クライアント ID」に、AgentCore Gateway の Cognito ユーザープールのクライアント ID を入力
+        - 「クライアント シークレットに、AgentCore Gateway の Cognito ユーザープールのクライアントシークレットを入力
+        - 「検出 URL」に、AgentCore Gateway の検出 URL を入力
     - 作成した OAuth クライアントの名前をメモしておく
 
 #### 実行
+
+1. .env を作成
+   - PROVIDER_NAME は、AgentCore Identity の OAuth クライアントの名前
+   - CUSTOM_SCOPE は、マネコンで Cognito のアプリケーションクライアントの [ログインページ] タブに表示されている
+   - GATEWAY_URL は、AgentCore Gateway のページに表示されている
+   - 例
+    ```
+    PROVIDER_NAME=resource-provider-oauth-client-pasa8
+    CUSTOM_SCOPE=get-weather-gw/genesis-gateway:invoke
+    GATEWAY_URL=https://get-weather-gw-8risf7vrf6.gateway.bedrock-agentcore.us-east-1.amazonaws.com/mcp
+    ```
 
 1. サンプル実行
 

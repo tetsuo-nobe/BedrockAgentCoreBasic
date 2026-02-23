@@ -70,8 +70,12 @@
       python3 main.py
       ```
     
+---
+## AgentCore Gateway のコンソールに表示されているサンプルコード
+
 1. マネージメントコンソールで作成した AgentCore Gateway のページの **View invocation code** にも Gateway を使用してツールのリストを取得するコードの例が表示されている。
     - この例には、アプリクライアントやシークレット以外で、環境に応じた値（Gateway や Cognito の URL の値）が設定されているが、環境変数から取得するように変更した。
+    - TOKEN_URLは、マネジメントコンソールに表示されているコード例の中から参照できる
     - .env の内容
     - ```
       CLIENT_ID=xxxxxxxxxxxxxxxxxxxxxxx
@@ -79,13 +83,11 @@
       TOKEN_URL=https://my-domain-xxxxxxxx.auth.us-west-2.amazoncognito.com/oauth2/token
       GATEWAY_URL=https://xxxxxxxxxxxxxxxxxxxx.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp
       ```
----
-## AgentCore Gateway のコンソールに表示されているサンプルコード
-
-```
-pip3 install strands-agents mcp dotenv requests asyncio
-```
-
+      
+    - ```
+      pip3 install strands-agents mcp dotenv requests asyncio
+      ```
+      
 - **mcp_python_sdk.py**
   - mcp パッケージを使用してツールのリストを取得する
 - **python_with_requests.py**

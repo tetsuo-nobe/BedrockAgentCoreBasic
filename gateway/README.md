@@ -43,8 +43,8 @@
     - クライアントシークレット
     - カスタムスコープ
         - マネコンのアプリケーションクライアントの [**ログインページ**] タブに表示されている
-    - Discovery URL
-        - マネコンで Gateway のページの [**Inbound Identity**] に表示されている
+    - 検出 URL
+        - マネコンで Gateway のページの [**インバウンド ID**] に表示されている
         - または Cognito のページの [**概要**] で [**トークン署名キー URL**] として表示されている URL の末尾を `/openid-configuration` に変更したもの
 
 1. ゲートウェイリソース URL をメモしておく
@@ -74,6 +74,10 @@
       ```
 ---
 ## AgentCore Gateway のコンソールに表示されているサンプルコード
+
+```
+pip3 install mcp dotenv requests asyncio
+```
 
 - **mcp_python_sdk.py**
   - mcp パッケージを使用してツールのリストを取得する

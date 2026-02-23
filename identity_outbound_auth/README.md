@@ -22,7 +22,7 @@
 
 ##### 準備
 
-1. OpenWeather の API キーを入手しておく
+1. OpenWeather の API キーを入手しておく (無料)
     - https://openweathermap.org/
 
 1. AWS マネジメントコンソールで AgentCore Identity の API キーを作成
@@ -47,7 +47,7 @@
 
 ##### 準備
 
-1. Anthropic の API キーを入手しておく
+1. Anthropic の API キーを入手しておく (有料)
 
 1. AWS マネジメントコンソールで AgentCore Identity の API キーを作成
 

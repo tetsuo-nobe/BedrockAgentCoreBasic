@@ -67,7 +67,7 @@
 
 ---
 
-### ２. AgentCore Identity を使用し Agent が AgentCore Gateway で外部サービスを呼び出すときと API キーを取得する
+### ２. AgentCore Identity を使用し Agent が AgentCore Gateway で外部サービスを呼び出すときとの Bearer トークンを取得する
 
 ![in2](images/identity_out2.png)
 

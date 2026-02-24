@@ -71,7 +71,7 @@
 
 ![in2](images/identity_out2.png)
 
-* **main-bearerToken.py**
+* **main-local.py**
 * サンプルコードでは Agent ではなく通常の Python コードから Bearer トークンを取得し、AgentCore Gateway で weather を呼び出す。
     - このリポジトリの gateway フォルダのサンプルで作成した weather を呼び出す前提
     - gateway サンプルでは Cognito から Bearer トークンを取得したが、このサンプルでは AgentCore Identity の機能を使用して Bearer トークン を取得する
@@ -107,7 +107,7 @@
     ```
 
     ```
-    python3 main-bearerToken.py
+    python3 main-local.py
     ```
 
 ---

@@ -113,6 +113,9 @@
 ---
 
 #### その他のサンプル
+* **main.py**
+    - Outbound 認証で Gateway にアクセスするエージェントを Runtime にデプロイする場合の実装
+    - agentcore コマンドでデプロイできる  
 
 * **create-api-key.py**
     - コードから AgentCore Identity で管理するキーを作成するサンプル

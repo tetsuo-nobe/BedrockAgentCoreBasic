@@ -31,6 +31,7 @@
       ./setup_cognito.sh
       source cognito.env
       ```
+    - (参考）ユーザープールのクライアントでクライアントシークレットも作成する場合は、setup_cognito_with_secret.sh を参考にする
 
   * Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイ
     - ```

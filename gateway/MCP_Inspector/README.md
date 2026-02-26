@@ -29,8 +29,10 @@
 *　AgentCore Gateway のゲートウェイ URL をマネジメントコンソールからコピーする
 
 * **ポイント**
-    - Authorization のヘッダのトグルを有効化すること
-    - GATEWAY_URL とトークンだけ入力すること。
-    - その他の設定や入力は不要
+    - Transport Type に Streamable HTTP を選択する
+    - Authorization のヘッダのトグルを有効化する
+    - GATEWAY_URL とトークンだけ入力する
+      - その他の設定や入力は不要
 
 ![](images/MCP_Inspector.png)
+

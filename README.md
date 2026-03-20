@@ -36,6 +36,13 @@
     - tech-learning-assistant
         - Long-term memory を使用した技術学習支援アシスタント
 
+## Policy
+
+* agentcore-policy-quickstart
+    - AgentCore Policy を使用し、AgentCore Gateway への呼出しをリクエスト内容によって拒否・許可する
+  　    - 返金金額が 1000 以下なら許可
+        - 返金金額が 1000 を超える場合拒否
+
 ## Runtime
 
 * runtime

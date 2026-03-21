@@ -72,15 +72,15 @@
 1. オンデマンド評価用に下記を実行する
 
     ```
-    agentcore invoke '{"prompt": "Tokyoの天気をおしえてください"}'
+    agentcore invoke '{"prompt": "Tokyoの天気をおしえてください"}' --session-id $SESSION_ID
     ```
 
     ```
-    agentcore invoke '{"prompt": "new yorkの天気をおしえてください"}'
+    agentcore invoke '{"prompt": "new yorkの天気をおしえてください"}' --session-id $SESSION_ID
     ```
 
     ```
-    agentcore invoke '{"prompt": "北海道の天気をおしえてください"}'
+    agentcore invoke '{"prompt": "北海道の天気をおしえてください"}' --session-id $SESSION_ID
     ```
 
 1. オンデマンド評価を実行

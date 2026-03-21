@@ -95,11 +95,8 @@
         --evaluator "Builtin.ToolSelectionAccuracy"
     ```
 
-1. 結果を確認する。（下記を例）
-
-    ```
-    
-    ```
+1. 結果を確認する。
+    - このリポジトリの result_example.txt に出力例がある
 
    
 1. Agent のアンデプロイ

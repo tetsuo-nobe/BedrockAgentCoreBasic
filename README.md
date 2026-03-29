@@ -2,6 +2,11 @@
 
 * AgentCore の各機能をシンプルに試すサンプル
 
+## agentcore コマンドについて
+
+    - Starter Toolkit CLI (従来)：[https://aws.github.io/bedrock-agentcore-starter-toolkit/api-reference/cli.html]()
+    - AgentCore CLI（今後の推奨）：[https://github.com/aws/agentcore-cli/tree/main]()
+
 ## Browser
 * browser_browser-use
     - Yahoo で検索を行う

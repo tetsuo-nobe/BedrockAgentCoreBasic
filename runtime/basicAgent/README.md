@@ -26,13 +26,6 @@
 
     ```
     cd ${AGENT_NAME}
-    uv add mcp==1.25.0  strands-agents==1.20.0 nest-asyncio==1.6.0 streamlit==1.52.2
-    ```
-
-1. プロジェクトにパッケージをインストール
-
-    ```
-    cd ${AGENT_NAME}
     uv add mcp==1.25.0  strands-agents==1.20.0 nest-asyncio==1.6.0 bedrock-agentcore-starter-toolkit==0.2.5
     ```
 

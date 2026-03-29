@@ -1,30 +1,20 @@
 # MCP Server を AgentCore runtime でデプロイする
 
-* https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-mcp.html
+* S3 バケットからマークダウンファイルを取得して PowerPoint 形式のファイルに変換する MCP Server
 
 ```
-pip install mcp
-```
-
-
-```
-python my_mcp_server.py
+pip3 install -r requirements.txt
 ```
 
 ```
-pip install bedrock-agentcore-starter-toolkit
+agentcore configure -e convert_server.py --protocol MCP --disable-memory
 ```
 
-```
-agentcore configure -e my_mcp_server.py --protocol MCP
-```
+* .bedrock_agentcore/ppt_convert_server/Dockerfile に Node.js と Marp をインストールするコマンドを追加
+    - Dockerfile_add.txt の内容を ENV コマンドと COPY コマンドの間に追記
 
 ```
-agentcore launch
+agentcore deploy
 ```
 
-```
-export AGENT_ARN="agent_arn"
-
-export BEARER_TOKEN="bearer_token"
-```
+* デプロイ完了後、Runtime の該当バージョンのリンクからロール名を確認し、S3 バケットへのアクセス許可ポリシーを追加する

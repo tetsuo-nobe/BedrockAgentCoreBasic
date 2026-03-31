@@ -1,6 +1,7 @@
 # MCP Server を AgentCore runtime でデプロイする
 
-* S3 バケットからマークダウンファイルを取得して PowerPoint 形式のファイルに変換する MCP Server
+* S3 バケットからマークダウンファイルを取得して PowerPoint 形式のファイルに変換する MCP Server 
+    - S3 バケットは事前に作成する。（バケット名をコードで指定している）
 
 ```
 pip3 install -r requirements.txt

@@ -2,6 +2,8 @@
 
 ![概要](images/gateway_overview.png)
 
+### このサンプルは AgentCore Identity Inbound 認証のサンプルでもある
+
 ## 手順
 
 1. ツールとして使用する AWS Lambda 関数の作成

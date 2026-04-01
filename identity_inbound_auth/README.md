@@ -179,7 +179,7 @@ curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN
 
 ## 2. AgentCore Gateway と統合したツールの呼び出し時に Bearer トークンが必要という構成にする
 
-![in2](images/identity_out2.png)
+![in2](images/identity_in2.png)
 
 * **main-local.py**
 * サンプルコードでは Agent ではなく通常の Python コードから Bearer トークンを取得し、AgentCore Gateway で weather を呼び出す。

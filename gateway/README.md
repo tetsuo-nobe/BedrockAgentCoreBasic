@@ -40,7 +40,7 @@
         }
       ]
 
-1. AgentCore Gateway を作成時にインバウンド認証で JWT トークンを指定すると、Cognitoユーザープールが作成されるので、以下の値をメモしておく
+1. AgentCore Gateway を作成時にインバウンド認証で JWT トークンを指定すると、Cognitoユーザープール (AgentCoreIdentityQuickStartPool のような名前) が作成されるので、以下の値をメモしておく
     - アプリケーションクライアント ID
     - クライアントシークレット
     - カスタムスコープ

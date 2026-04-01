@@ -28,10 +28,10 @@
 ## Identity
 * identity_inbound_auth
     - AgentCore Runtime にデプロイした Agent 使用時に Cognito で認証したトークンを必要とする
+    - AgentCore Gateway と統合したツールにアクセス時に Cognito で認証したトークンを必要とする
 * identity_outbound_auth
     - 外部サービスにアクセス時に必要な API キーを取得する
-    - AgentCore Runtime にデプロイした Agent から Gateway へアクセス時に必要なトークンを取得する
-
+    
 ## Memory
 * memory
     - long-term-memory

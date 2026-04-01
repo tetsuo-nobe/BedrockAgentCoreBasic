@@ -4,8 +4,8 @@
 
 ## agentcore コマンドについて
 
-    - Starter Toolkit CLI (従来)：[https://aws.github.io/bedrock-agentcore-starter-toolkit/api-reference/cli.html]()
-    - AgentCore CLI（今後の推奨）：[https://github.com/aws/agentcore-cli/tree/main]()
+- Starter Toolkit CLI (従来)：[https://aws.github.io/bedrock-agentcore-starter-toolkit/api-reference/cli.html]()
+- AgentCore CLI（今後の推奨）：[https://github.com/aws/agentcore-cli/tree/main]()
 
 ## Browser
 * browser_browser-use
@@ -27,11 +27,11 @@
 
 ## Identity
 * identity_inbound_auth
-    - AgentCore Runtime にデプロイした Agent 使用時に Cognito で認証したトークンを必要とする
-    - AgentCore Gateway と統合したツールにアクセス時に Cognito で認証したトークンを必要とする
+    1. AgentCore Runtime にデプロイした Agent 使用時に Cognito で認証したトークンを必要とする
+    1. AgentCore Gateway と統合したツールにアクセス時に Cognito で認証したトークンを必要とする
 * identity_outbound_auth
-    - 外部サービスにアクセス時に必要な API キーを取得する
-    
+    1. 外部サービスにアクセス時に必要な API キーを取得する
+    1. 外部サービスにアクセス時に必要な JWT トークンを取得する
 ## Memory
 * memory
     - long-term-memory

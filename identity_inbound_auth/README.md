@@ -220,3 +220,9 @@ curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN
     python3 main-local.py
     ```
 
+---
+
+#### その他のサンプル
+* **main.py**
+    - Outbound 認証で Gateway にアクセスするエージェントを Runtime にデプロイする場合の実装
+    - agentcore コマンドでデプロイできる  

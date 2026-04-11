@@ -102,7 +102,7 @@
     ```
     PROVIDER_NAME=resource-provider-oauth-client-pasa8
     CUSTOM_SCOPE=get-weather-gw/genesis-gateway:invoke
-    GATEWAY_URL=https://get-weather-gw-8risf7vrf6.gateway.bedrock-agentcore.us-east-1.amazonaws.com/mcp
+    GATEWAY_URL=https://get-weather-gw-7fsir8frv5.gateway.bedrock-agentcore.us-east-1.amazonaws.com/mcp
     ```
 
 1. サンプル実行

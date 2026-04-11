@@ -39,7 +39,7 @@
     - ```
       agentcore configure --entrypoint agent_example.py \
         --name my_inbound_auth_agent \
-        --execution-role arn:aws:iam::068048081706:role/my-AgentCore-runtime-role \
+        --execution-role arn:aws:iam::123456789012:role/my-AgentCore-runtime-role \
         --disable-otel \
         --requirements-file requirements.txt \
         --authorizer-config "{\"customJWTAuthorizer\":{\"discoveryUrl\":\"$DISCOVERY_URL\",\"allowedClients\":[\"$CLIENT_ID\"]}}"
@@ -55,9 +55,9 @@
     - agentcore launch 実行により出力される Agent ARN の値を環境変数に設定しておく
         - Agent ARNに含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードする必要あり
     - 下記は例
-    - arn:aws:bedrock-agentcore:us-east-1:068048081706:runtime/my_inbound_auth_agent-4CpCfb8Ukn の場合
+    - arn:aws:bedrock-agentcore:us-east-1:123456789012:runtime/my_inbound_auth_agent-4CpCfb8Ukn の場合
     - ```
-      export ESCAPED_AGENT_ARN=arn%3Aaws%3Abedrock-agentcore%3Aus-east-1%3A068048081706%3Aruntime%2Fmy_inbound_auth_agent-4CpCfb8Ukn 
+      export ESCAPED_AGENT_ARN=arn%3Aaws%3Abedrock-agentcore%3Aus-east-1%3A123456789012%3Aruntime%2Fmy_inbound_auth_agent-4CpCfb8Ukn 
       ```
 
 *  Cognito で認証してトークンを取得
@@ -111,9 +111,9 @@
 * デプロイしたエージェントの「ランタイム ARN」の値を環境変数に設定しておく
     - ARN に含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードする必要あり
     - 下記は例
-    - arn:aws:bedrock-agentcore:us-east-1:068048081706:runtime/my_inbound_auth_agent-4CpCfb8Ukn  の場合
+    - arn:aws:bedrock-agentcore:us-east-1:123456789012:runtime/my_inbound_auth_agent-4CpCfb8Ukn  の場合
     - ```
-      export ESCAPED_AGENT_ARN=arn%3Aaws%3Abedrock-agentcore%3Aus-east-1%3A068048081706%3Aruntime%2Fmy_inbound_auth_agent-4CpCfb8Ukn 
+      export ESCAPED_AGENT_ARN=arn%3Aaws%3Abedrock-agentcore%3Aus-east-1%3A123456789012%3Aruntime%2Fmy_inbound_auth_agent-4CpCfb8Ukn 
       ```
 
 * またデプロイ後、Cognito ユーザープールとのクライアントが作成されているので、環境変数で POOL_ID にユーザープール ID を、CLIENT_ID に アプリケーションクライアント ID を設定する

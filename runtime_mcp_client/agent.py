@@ -7,7 +7,7 @@ from strands.tools.mcp import MCPClient
 from typing import List, Dict
 
 # AgentCore Runtime ARN
-AGENTCORE_RUNTIME_ARN = "arn:aws:bedrock-agentcore:us-west-2:068048081706:runtime/ppt_convert_server-3HP48F2nRh"
+AGENTCORE_RUNTIME_ARN = "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/ppt_convert_server-3HP48F2nRh"
 
 def create_stdio_mcp_client(command: str, args: List[str], env: Dict) -> MCPClient:
     """stdio MCPクライアントを作成する関数"""

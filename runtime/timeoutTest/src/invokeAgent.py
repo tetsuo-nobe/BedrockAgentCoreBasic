@@ -19,7 +19,7 @@ client = boto3.client('bedrock-agentcore', region_name='us-east-1', config=my_co
 payload = json.dumps({"prompt": prompt})
 
 response = client.invoke_agent_runtime(
-    agentRuntimeArn='arn:aws:bedrock-agentcore:us-east-1:068048081706:runtime/timeoutTest_Agent-xSlEd4GQ5b',
+    agentRuntimeArn='arn:aws:bedrock-agentcore:us-east-1:123456789012:runtime/timeoutTest_Agent-xSlEd4GQ5b',
     runtimeSessionId='C-1234567890-1234567890-1234567890', # Must be 33+ char. Every new SessionId will create a new MicroVM
     payload=payload
 )

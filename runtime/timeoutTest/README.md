@@ -43,7 +43,7 @@ botocore.errorfactory.RuntimeClientError: An error occurred (RuntimeClientError)
 * 下記は boto3の READ TIMEOUT 発生時のエラーなので、Runtime のタイムアウトではない
 
 ```
-botocore.exceptions.ReadTimeoutError: Read timeout on endpoint URL: "https://bedrock-agentcore.us-east-1.amazonaws.com/runtimes/arn%3Aaws%3Abedrock-agentcore%3Aus-east-1%3A068048081706%3Aruntime%2FtimeoutTest_Agent-xSlEd4GQ5b/invocations"
+botocore.exceptions.ReadTimeoutError: Read timeout on endpoint URL: "https://bedrock-agentcore.us-east-1.amazonaws.com/runtimes/arn%3Aaws%3Abedrock-agentcore%3Aus-east-1%3A123456789012%3Aruntime%2FtimeoutTest_Agent-xSlEd4GQ5b/invocations"
 ```
 
 boto3 の READ TIMEOUT の値は下記のように設定できる

@@ -52,7 +52,7 @@ if prompt := st.chat_input("質問を入力してください。"):
             # Agent への問い合わせ実行
             payload = json.dumps({"prompt": prompt}).encode()
             response = st.session_state.client.invoke_agent_runtime(
-              agentRuntimeArn='arn:aws:bedrock-agentcore:us-east-1:068048081706:runtime/my_agent-WQYg5iA14o',
+              agentRuntimeArn='arn:aws:bedrock-agentcore:us-east-1:123456789012:runtime/my_agent-WQYg5iA14o',
               payload=payload
             )
             response_body = response['response'].read()

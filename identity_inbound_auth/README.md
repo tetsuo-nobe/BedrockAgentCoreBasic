@@ -185,3 +185,8 @@ curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN
 ### AgentCore Gateway 作成時に インバウンド認証を指定することで、この構成にできる。
 
 ![in2](images/identity_in2.png)
+
+#### マネジメントコンソールで Cognito ユーザープールの同時作成または既存ユーザープールの選択も可能
+
+* 同時に作成するオプションを選択した場合、名前に「my-user-pool-」という接頭辞がついた Cognito ユーザープールとそのアプリケーションクライアントが自動作成される。
+    - このアプリケーションクライアントは、**M2M タイプ** であり、クライアントシークレットが設定されている

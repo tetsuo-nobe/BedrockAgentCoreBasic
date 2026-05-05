@@ -11,8 +11,8 @@
     2. AgentCore Gateway と統合したツールの呼び出し時に Bearer トークンが必要という構成にする
 
 2. Outbound Auth
-    1. AgentCore Identity を使用し Agent が外部サービスを呼び出すときと API キーを取得する
-    2. AgentCore Identity を使用し Agent が外部サービスを呼び出すときと JWT トークンを取得する
+    1. AgentCore Identity を使用し Agent が外部サービスを呼び出すときに API キーを取得する
+    2. AgentCore Identity を使用し Agent が外部サービスを呼び出すときに JWT トークンを取得する
 
 ---
 ## 1. AgentCore Runtime で動作する Agent の呼び出しに Bearer トークンが必要という構成にする

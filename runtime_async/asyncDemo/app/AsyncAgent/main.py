@@ -98,8 +98,15 @@ async def invoke(payload: Dict[str, Any], context=None):
     action = payload.get("action") if isinstance(payload, dict) else None
     log.info(f"[Entrypoint] action={action}")
 
-    # --- 状態確認: 実行中の非同期ジョブ (active_count / running_jobs) を返す ---
+    # --- 状態確認: 実行中の非同期ジョブを返す ---
     if action == "status":
+        # get_async_task_info() は SDK が管理する現在のタスク状態を返す。
+        #   - active_count: 実行中の非同期タスク数。1 以上なら HealthyBusy 維持中。
+        #   - running_jobs: 実行中タスクの一覧。各要素は
+        #       name     (add_async_task で付けた名前。ここでは "long_job")
+        #       duration (タスク開始からの経過秒数)
+        #     を持つ。
+        # 例: {"active_count": 1, "running_jobs": [{"name": "long_job", "duration": 3.5}]}
         return app.get_async_task_info()
 
     # --- ジョブ開始: 非同期タスクを登録し、即座に応答を返す ---

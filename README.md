@@ -55,6 +55,12 @@
     - Strands Agents の Agent を AgentCore Runtime でデプロイ
 * runtime_mcp_server
     - MCP Server を AgentCore Runtime でデプロイする
+* runtime_async
+    - asyncDemo
+        - 非同期で長時間実行するエージェントを AgentCore Runtime でデプロイする
+        - `add_async_task()` / `complete_async_task()` で `/ping` を HealthyBusy にし、アイドルタイムアウトを回避して実行環境を維持する
+        - エントリーポイントは即座にレスポンスを返し、処理はバックグラウンドで継続する
+        - `lifecycleConfiguration` (`idleRuntimeSessionTimeout` / `maxLifetime`) で実行環境を維持する時間を制御できる
 * streamlit
     -  Streamlit で作成したチャットアプリケーションから AgentCore Runtime にデプロイしたエージェントを呼び出す
 

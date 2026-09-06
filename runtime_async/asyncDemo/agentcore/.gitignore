@@ -1,0 +1,15 @@
+# Secrets (local environment files are never committed)
+.env.local
+
+# CDK Build Artifacts
+cdk/cdk.out/
+cdk/node_modules/
+
+# CLI Internals
+.cli/*
+
+# Ephemeral Staging
+.cache/*
+
+# deployed-state.json はアカウント ID を含む ARN を持つため、リポジトリに含めない
+# (デフォルトのテンプレートではコミット対象だが、意図的に除外している)

@@ -1,7 +1,7 @@
-# AgentCore Starter Toolkit を使用した Agent のデプロイ
+# AgentCore CLI を使用した Agent のデプロイ
 
 * 下記のドキュメントの手順に基づき実施
-    - [Get started with Amazon Bedrock AgentCore](https://docs.aws.amazon.com/ja_jp/bedrock-agentcore/latest/devguide/agentcore-get-started-toolkit.html)
+    - [Amazon Bedrock AgentCore の使用を開始する](https://docs.aws.amazon.com/ja_jp/bedrock-agentcore/latest/devguide/agentcore-get-started-cli.html)
 
 ## 前提条件と準備
 

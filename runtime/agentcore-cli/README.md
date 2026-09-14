@@ -46,13 +46,13 @@
 * AgentCore CLI でデプロイするエージェントのコードや、デプロイした後に呼び出すコードを取得するため Git リポジトリをクローンします。
 
 ```
-git clone https://github.com/tetsuo-nobe/AgentCoreBasic.git
+git clone https://github.com/tetsuo-nobe/BedrockAgentCoreBasic.git
 ```
 
 * フォルダの移動
 
 ```
-cd  ~/environment/AgentCoreBasic/runtime/agentcore-cli
+cd  ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli
 ```
 
 ---
@@ -103,7 +103,7 @@ cd handson
 * AgentCore プロジェクトで作成された main.py に上書きコピーします。
 
 ```
-cp  ~/environment/AgentCoreBasic/runtime/agentcore-cli/main.py   ~/environment/AgentCoreBasic/runtime/agentcore-cli/handson/app/MyAgent/main.py
+cp  ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/main.py   ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/handson/app/MyAgent/main.py
 ```
 ---
 
@@ -175,7 +175,7 @@ pwd
 * エージェントを呼び出すコード (invoke.py) をリポジトリからコピーします。
 
 ```
-cp ~/environment/AgentCoreBasic/runtime/agentcore-cli/invoke.py   ~/environment/AgentCoreBasic/runtime/agentcore-cli/handson/invoke.py
+cp ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/invoke.py   ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/handson/invoke.py
 ```
 
 * invoke.py を編集して、デプロイしたエージェントの ARN をコードに設定します。

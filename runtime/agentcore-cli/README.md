@@ -39,6 +39,22 @@
     curl -LsSf https://astral.sh/uv/install.sh | sh
     ```
 
+
+---
+#### 4-2. Git リポジトリのクローン
+
+* AgentCore CLI でデプロイするエージェントのコードや、デプロイした後に呼び出すコードを取得するため Git リポジトリをクローンします。
+
+```
+git clone https://github.com/tetsuo-nobe/AgentCoreBasic.git
+```
+
+* フォルダの移動
+
+```
+cd  ~/environment/AgentCoreBasic/runtime/agentcore-cli
+```
+
 ---
 #### 4-4. AgentCore プロジェクトの作成
 
@@ -87,7 +103,7 @@ cd handson
 * AgentCore プロジェクトで作成された main.py に上書きコピーします。
 
 ```
-cp ~/StrandsAgentsBasic/agentcore/main.py  ~/StrandsAgentsBasic/agentcore/handson/app/MyAgent/main.py
+cp  ~/environment/AgentCoreBasic/runtime/agentcore-cli/main.py   ~/environment/AgentCoreBasic/runtime/agentcore-cli/handson/app/MyAgent/main.py
 ```
 ---
 
@@ -159,7 +175,7 @@ pwd
 * エージェントを呼び出すコード (invoke.py) をリポジトリからコピーします。
 
 ```
-cp ~/StrandsAgentsBasic/agentcore/invoke.py  ~/StrandsAgentsBasic/agentcore/handson/invoke.py
+cp ~/environment/AgentCoreBasic/runtime/agentcore-cli/invoke.py   ~/environment/AgentCoreBasic/runtime/agentcore-cli/handson/invoke.py
 ```
 
 * invoke.py を編集して、デプロイしたエージェントの ARN をコードに設定します。

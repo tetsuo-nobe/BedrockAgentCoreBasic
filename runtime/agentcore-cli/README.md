@@ -41,7 +41,7 @@
 
 
 ---
-#### 4-2. Git リポジトリのクローン
+## Git リポジトリのクローン
 
 * AgentCore CLI でデプロイするエージェントのコードや、デプロイした後に呼び出すコードを取得するため Git リポジトリをクローンします。
 
@@ -56,7 +56,7 @@ cd  ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli
 ```
 
 ---
-#### 4-4. AgentCore プロジェクトの作成
+## AgentCore プロジェクトの作成
 
 * AgentCore CLI を使用する前に、使用するリージョンを設定します。
 
@@ -94,7 +94,7 @@ cd handson
 ```
 
 ---
-#### 4-5. main.py の編集
+## main.py の編集
 
 * 開発環境の左側のナビゲーターで以下の main.py を開いて内容を確認します。
     - `BedrockAgentCoreBasic/runtime/agentcore-cli/main.py`
@@ -108,7 +108,7 @@ cp  ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/main.py   ~/enviro
 ```
 ---
 
-#### 4-6. AgentCore Runtime へのデプロイ
+## AgentCore Runtime へのデプロイ
 
 * デプロイするエージェントが完成したので、AgentCore Runtime へデプロイします。
 * handson フォルダにいることを確認します。
@@ -127,7 +127,7 @@ agentcore deploy
 > 途中、CDK の bootstrap 実行の確認が求められたら、Enter キーを押してください。
 
 ---
-#### 4-7. (オプション）マネジメントコンソールでのデプロイの確認
+##  (オプション）マネジメントコンソールでのデプロイの確認
 
 * マネジメントコンソールの検索で `agentcore` を入力して、AgentCore のページを表示します。
 * 左側のナビゲーションメニューで [**構築**] - [**ランタイム**] をクリックします。
@@ -138,7 +138,7 @@ agentcore deploy
 
 ---
 
-#### 4-8. AgentCore ラインタイムの ARN の取得
+## AgentCore ラインタイムの ARN の取得
 
 * デプロイしたエージェントを呼び出すためには、エージェントの Amazon Resource Name (ARN) が必要になるため、次のコマンドで取得します。
 
@@ -157,7 +157,7 @@ Agents
 
 
 ---
-#### 4-9. デプロイしたエージェントの呼び出し
+## デプロイしたエージェントの呼び出し
 
 * エージェントを呼び出すコードを用意します。
 * 下記のコマンドで、uv で実行するための準備を行います。

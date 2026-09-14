@@ -278,15 +278,6 @@ agentcore deploy
 aws cloudformation delete-stack --stack-name CDKToolkit
 ```
 
-* ファイルの削除
-
-```
-cd ~
-rm -rf ~/* ~/.[!.]* ~/..?*
-```
-
-* SSM セッションマネージャーを閉じ、マネジメントコンソールからサインアウトします。
-
 
 ---
 

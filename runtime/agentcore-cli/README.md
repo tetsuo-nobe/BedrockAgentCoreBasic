@@ -96,7 +96,8 @@ cd handson
 ---
 #### 4-5. main.py の編集
 
-* GitHub リポジトリで main.py の内容を確認します。
+* 開発環境の左側のナビゲーターで以下の main.py を開いて内容を確認します。
+    - `BedrockAgentCoreBasic/runtime/agentcore-cli/main.py`
     - この　main.py がデプロイするエージェントのコードになります。
     - このコードでは、AgentCore のエンドポイントとして指定した関数から Strands Agents SDK のエージェントを呼び出しています。
 

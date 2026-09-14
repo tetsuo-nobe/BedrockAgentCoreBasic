@@ -1,6 +1,4 @@
-# bedrock-work
-
-* Amazon Bedrock に関するワーク
+# VS Code Server 環境の準備
 
 ## インストラクターのガイドに基づき必要に応じて下記の手順で開発環境を作成して下さい。
 

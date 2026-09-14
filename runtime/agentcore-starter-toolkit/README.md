@@ -3,19 +3,41 @@
 * 下記のドキュメントの手順に基づき実施
     - [Amazon Bedrock AgentCore の使用を開始する](https://docs.aws.amazon.com/ja_jp/bedrock-agentcore/latest/devguide/agentcore-get-started-cli.html)
 
-## 前提条件と準備
+## AgentCore CLI のインストール
 
-* Python 3.10 以上
-* ドキュメントには記載がないが、uv もインストールしておくのが良い。
-  - （agentcore dev コマンドでローカルでの実行時に使用されるため）
+* 今回使用する開発環境の権限の関係上、npm のグローバルパッケージ用ディレクトリを作成する
+
+    ```
+    # ユーザー領域にグローバルパッケージ用ディレクトリを作成
+    mkdir -p ~/.npm-global
+    
+    # npm のグローバルインストール先を変更
+    npm config set prefix '~/.npm-global'
+    
+    # PATH に追加（bash の場合）
+    echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
+    source ~/.bashrc
+    ```
+
+* AgentCore CLI をインストールする
+
+    ```
+    npm install -g @aws/agentcore
+    ```
+
+* AgentCore CLI のインストールを確認する
+
+    ```
+    agentcore --version
+    ```
+
+* バージョン番号が表示されることを確認する
+
+* Python でエージェントを作成するため、uv もインストールする
     ```
     curl -LsSf https://astral.sh/uv/install.sh | sh
     ```
 
-* AgentCore Starter Toolkit がインストールされていること
-    - ```
-      pip install bedrock-agentcore-starter-toolkit
-      ```
 
 ## 手順
 

@@ -117,7 +117,8 @@
 
 1. 新しいターミナルを開きます。
    
-    <img width="646" height="277" alt="image" src="https://github.com/user-attachments/assets/ad2ab7fb-331f-46fc-97b4-fb9733da0b29" />
+    <img width="646" height="277" alt="image" src="https://github.com/user-attachments/assets/7a3a13d5-ebc0-4721-abfb-7e43620b1a35" />
+
 
 
 1. 下記コマンドにより、ローカル実行されている Agent を呼び出せます。

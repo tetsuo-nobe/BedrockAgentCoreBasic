@@ -45,33 +45,32 @@
 
 * AgentCore CLI でデプロイするエージェントのコードや、デプロイした後に呼び出すコードを取得するため Git リポジトリをクローンします。
 
-```
-git clone https://github.com/tetsuo-nobe/BedrockAgentCoreBasic.git
-```
+    ```
+    git clone https://github.com/tetsuo-nobe/BedrockAgentCoreBasic.git
+    ```
 
 * フォルダの移動
 
-```
-cd  ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli
-```
+    ```
+    cd  ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli
+    ```
 
 ---
 ## AgentCore プロジェクトの作成
 
 * AgentCore CLI を使用する前に、使用するリージョンを設定します。
 
-```
-aws configure set region us-west-2
-```
+    ```
+    aws configure set region us-west-2
+    ```
 
 * いよいよ AgentCore CLI を使用します。
 * まずは AgentCore Runtime でエージェントをデプロイするためのリソースを格納したプロジェクトフォルダを作成します。
 * agentcore create コマンドを実行し、フォルダ名や、作成するリソース、デプロイ方法、使用する SDK、Memory の使用有無などを対話的に応答していきます。
 
-
-```
-agentcore create
-```
+    ```
+    agentcore create
+    ```
 
 * 対話モードで下記を選択
     - Project name: `handson` を **入力**
@@ -89,9 +88,9 @@ agentcore create
 
 * プロジェクト作成が完了するまで少し待ち、完了後に下記でプロジェクトフォルダに移動します。
   
-```
-cd handson
-```
+    ```
+    cd handson
+    ```
 
 ---
 ## main.py の編集
@@ -103,18 +102,20 @@ cd handson
 
 * AgentCore プロジェクトで作成された main.py に上書きコピーします。
 
-```
-cp  ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/main.py   ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/handson/app/MyAgent/main.py
-```
+    ```
+    cp  ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/main.py   ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/handson/app/MyAgent/main.py
+    ```
 ---
 ## ローカルで実行
 
-1. まずはローカルで実行してみます。（デフォルトポートは 8080 ですが、使用されている場合は他のポートが使われます）
+1. まずはローカルで実行してみます。（デフォルトポートは 8080 ですが使用されている場合は他のポートが使われます）
     ```
     agentcore dev --logs
     ```
 
-<img width="646" height="277" alt="image" src="https://github.com/user-attachments/assets/ad2ab7fb-331f-46fc-97b4-fb9733da0b29" />
+1. 新しいターミナルを開きます。
+   
+    <img width="646" height="277" alt="image" src="https://github.com/user-attachments/assets/ad2ab7fb-331f-46fc-97b4-fb9733da0b29" />
 
 
 1. 下記コマンドにより、ローカル実行されている Agent を呼び出せます。
@@ -129,21 +130,34 @@ cp  ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/main.py   ~/enviro
     agentcore dev "Hello!"
     ```
 
+1. Agent から下記例のようなメッセージが返されることを確認します。
+   ```
+   "こんにちは！😊\n\nお元気ですか？何かお手伝いできることはありますか？\n"
+   ```
+
+1. 新しく開いたターミナルを閉じます。
+   ```
+   exit
+   ```
+
+1. 元のターミナルで、Ctrl + c を押下し、ローカルサーバーを停止します。
+
+
 ---
 ## AgentCore Runtime へのデプロイ
 
 * デプロイするエージェントが完成したので、AgentCore Runtime へデプロイします。
 * handson フォルダにいることを確認します。
 
-```
-pwd
-```
+    ```
+    pwd
+    ```
 
 * agentcore deploy コマンドでデプロイを実行します。
 
-```
-agentcore deploy
-```
+    ```
+    agentcore deploy
+    ```
 
 > [!NOTE]
 > 途中、CDK の bootstrap 実行の確認が求められたら、Enter キーを押してください。

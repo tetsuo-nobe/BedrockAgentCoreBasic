@@ -34,20 +34,6 @@
 
     * バージョン番号が表示されることを確認します。
 
-* Python でエージェントを作成するため、uv もインストールします。
-    ```
-    curl -LsSf https://astral.sh/uv/install.sh | sh
-    ```
-
-
----
-## Git リポジトリのクローン
-
-* AgentCore CLI でデプロイするエージェントのコードや、デプロイした後に呼び出すコードを取得するため Git リポジトリをクローンします。
-
-    ```
-    git clone https://github.com/tetsuo-nobe/BedrockAgentCoreBasic.git
-    ```
 
 * フォルダの移動
 

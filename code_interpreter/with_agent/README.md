@@ -12,7 +12,7 @@ cd BedrockAgentCoreBasic/code_interpreter/with_agent
 
 ```
 uv init
-uv add bedrock-agentcore playwright strands-agents
+uv add strands-agents bedrock-agentcore
 ```
 
 ```

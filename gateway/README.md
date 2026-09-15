@@ -259,12 +259,12 @@ chmod +x  create-gateway-role.sh
                 "location"
               ]
             },
-            "name": "dummy-weather-12___get_weather",
+            "name": "dummy-weather-99___get_weather",
             "description": "tool to get weather information for a specified location"
           }
         ]
       }
-    ```
+      ```
 
 
 ---

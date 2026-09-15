@@ -47,8 +47,12 @@
 ---
 #### 手順
 
-1. Code Server 環境を開き、ターミナルで下記のコマンドを実行します。
+* Code Server 環境を開き、ターミナルで下記のコマンドを実行します。
 
+  * Cognito ユーザープールの作成と環境変数の設定を実行します。
+    - ```
+      cd  ~/environment/BedrockAgentCoreBasic/identity_inbound_auth
+      ```
 
   * Cognito ユーザープールの作成と環境変数の設定を実行します。
     - ```

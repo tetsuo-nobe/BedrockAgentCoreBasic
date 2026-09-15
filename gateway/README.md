@@ -202,6 +202,18 @@ chmod +x  create-gateway-role.sh
       uv run main.py
       ```
 
+    - 下記の例のような出力を確認します。
+    - ```
+     東京の天気情報を取得します！
+     Tool #1: dummy-weather-99___get_weather
+     東京の天気をお知らせします！ ☀️
+
+     **東京は現在、快晴です。**
+
+     お出かけには最適な天気ですね！何かほかにご質問はありますか？ 
+      ```
+
+
 * 次のコマンドで list_tool.py を実行し、Gateway のツールを表示します。
 
     - ```
@@ -209,6 +221,13 @@ chmod +x  create-gateway-role.sh
       uv run list_tool.py
       ```
 
+    - 下記の例のような出力を確認します。
+    - ```
+      === Gateway から見えるツール一覧 ===
+      - x_amz_bedrock_agentcore_search
+      - dummy-weather-99___get_weather
+      合計 2 個のツール 
+      ```
 ---
 
 ## (参考)

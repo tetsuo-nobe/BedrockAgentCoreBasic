@@ -4,11 +4,55 @@
 
 ### このサンプルは AgentCore Identity Inbound 認証のサンプルでもある
 
+---
+## 環境へのアクセス
+
+* 下記の URL をコピーして、ブラウザの新しいタブで開きます。
+    - `https://d-9567586b55.awsapps.com/start`
+* 講師が URL とユーザー ID やパスワードをご案内します。
+
+* ご自身に割り当てられた sandbox 環境で AWS マネジメントコンソールへアクセスします。
+
+1. AWS マネジメントコンソールで、**オレゴン (us-west-2) リージョン**に切り替えます。
+
+---
 ## 手順
 
-1. ツールとして使用する AWS Lambda 関数の作成
-    - **lambda_function.py**
-    - デモ用としてダミーの天気情報を返す実装にしている
+### ターゲットの Lambda 関数の作成
+
+1. ページ上部の **検索** に `lambda` を入力して Enter キーを押下します。
+
+1. AWS Lambda のページの左側のナビゲーションメニューで **関数** をクリックします。
+
+1. **関数を作成** をクリックします。
+
+1. **基本的な情報** で下記を入力・選択します。
+   - **関数名**: `dummy-weather-99` (99 はご自分の番号に置き換えます）
+   - **ランタイム**: **Python 3.14**
+
+1. **関数を作成** をクリックします。
+
+1. **Getting started** ダイアログが表示された場合は、**Dismiss** をクリックします。
+
+1. **コード** タブのコードをすべて削除して、下記に置き換えます。
+    - デモ用としてダミーの天気情報を返す実装にしています。
+      
+    ```
+    import json
+    
+    def get_weather(location):
+        return f"{location} は快晴です。"
+    
+    def lambda_handler(event, context):
+        toolName = context.client_context.custom['bedrockAgentCoreToolName']
+        delimiter = "___"
+        if delimiter in toolName:
+            toolName = toolName[toolName.index(delimiter) + len(delimiter):]
+        print(toolName)
+        if toolName == 'get_weather':
+            return {'statusCode': 200, 'body': get_weather(event['location'])}
+    ```
+
 
 1. AWS マネジメントコンソールで AgentCore Gateway を作成
     - 「インバウンド認証設定」で下記を設定

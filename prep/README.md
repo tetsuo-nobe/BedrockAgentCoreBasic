@@ -50,7 +50,23 @@
 
 1. メモしておいたパスワードを入力して SUBMIT を選択し、Code Server を表示します。
 
+---
+## uv のインストール
 
+* Code Server のターミナルから下記を実行して uv をインストールします。
+    ```
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
+
+---
+## Git リポジトリのクローン
+
+* Code Server のターミナルから下記を実行して Git リポジトリをクローンします。
+
+    ```
+    git clone https://github.com/tetsuo-nobe/BedrockAgentCoreBasic.git
+    ```
+    
 
       
 

@@ -12,11 +12,15 @@ cd BedrockAgentCoreBasic/browser_browser-use/
 ```
 
 ```
+uv init
+```
+
+```
 uv add strands-agents "strands-agents-tools[browser]" bedrock-agentcore
 
 uv run playwright install chromium
-
 ```
+
 
 ```
 uv run main.py

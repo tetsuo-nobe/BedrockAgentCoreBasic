@@ -115,18 +115,27 @@
 
  https://my-gateway-11-hkval6viaw.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp
 
-1. Strands Agents SDK を使用して Tool として呼び出す
+1. ページを下にスクロールして、**インバウンド認証** に表示されている **検出 URL** をメモしておきます。
+
+https://cognito-idp.us-west-2.amazonaws.com/us-west-2_J1m1pFhGG/.well-known/openid-configuration 
+
+---
+## Strands Agents SDK を使用して Tool として呼び出す
+
+* Code Server 環境を開きます。
+* BedrockAgentCoreBasic/gateway に `.env` ファイルを作成します。
+    - **CUSTOM_SCOPE の 99 の部分はご自分の番号に置き換えてください。**
+    - ```
+      CLIENT_ID=(クライアント ID)
+      CLIENT_SECRET=(クライアントシークレット)
+      DISCOVERY_URL=(検出 URL)
+      CUSTOM_SCOPE=my-gateway-99/(次のスコープを持つリソースサーバー)
+      GATEWAY_URL=(ゲートウェイリソース URL)
+      ```
+  
     - **main.py**
     - モデルはデフォルトの Claude Sonnet 4 を使用。
     - (Nova Lite でも試してみたが、うまく動作しなかった。)
-    - .env を用意し、下記の内容を記述しておく
-    - ```
-      CLIENT_ID=xxxxxxxxxxxxxxxxxxxxxxx
-      CLIENT_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-      DISCOVERY_URL=https://cognito-idp.us-west-2.amazonaws.com/us-west-2_xxxxxxxxx/.well-known/openid-configuration
-      CUSTOM_SCOPE=xxxxxxxxxxxxxxxx/genesis-gateway:invoke
-      GATEWAY_URL=https://xxxxxxxxxxxxxxxxxxxx.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp
-      ```
     - ```
       pip3 install strands-agents mcp dotenv requests asyncio
       ```

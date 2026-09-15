@@ -17,7 +17,6 @@
 ---
 ### このワークは、BedrockAgentCoreBasic/prep/README.md の準備作業の完了後に実施する想定です。
   - よって、 **Code Server 環境が構築され、当リポジトリが clone され、uv もインストールされている前提です。**
-### このワークは AgentCore Identity Inbound 認証の内容にも関連します。も兼ねています。
 
 ---
 ## 1. AgentCore Runtime で動作する Agent の呼び出しに Bearer トークンが必要という構成にする

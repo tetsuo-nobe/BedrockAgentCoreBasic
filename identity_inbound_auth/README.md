@@ -71,6 +71,11 @@
 
   * Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイします。
     - ```
+      export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+      echo $AWS_ACCOUNT_ID
+      ```
+
+    - ```
       agentcore configure --entrypoint agent_example.py \
         --name my_inbound_auth_agent \
         --execution-role arn:aws:iam::123456789012:role/my-AgentCore-runtime-role \

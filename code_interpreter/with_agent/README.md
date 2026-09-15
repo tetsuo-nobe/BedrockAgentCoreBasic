@@ -2,6 +2,21 @@
 
 ![interpreter1](images/code-interpreter2.png)
 
+---
+
+* 下記のコマンドでサンプルを実行できます。
+
 ```
-python main.py
+cd BedrockAgentCoreBasic/code_interpreter/with_agent
 ```
+
+```
+uv init
+uv add bedrock-agentcore playwright strands-agents
+```
+
+```
+uv run main.py 
+```
+
+---

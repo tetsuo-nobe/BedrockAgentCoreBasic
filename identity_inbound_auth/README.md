@@ -15,8 +15,8 @@
     2. AgentCore Identity を使用し Agent が外部サービスを呼び出すときに JWT トークンを取得する
 
 ---
-### このワークは、BedrockAgentCoreBasic/prep/README.md の準備作業の完了後に実施する想定です。
-  - よって、 **Code Server 環境が構築され、当リポジトリが clone され、uv もインストールされている前提です。**
+### このワークは、BedrockAgentCoreBasic/prep/README.md の準備作業が完了し、AgentCore Runtime のワーク完了後に実施する想定です。
+  - よって、 **Code Server 環境が構築され、当リポジトリが clone され、uv もインストールされ、agentcore CLI もインストールされている前提です。**
 
 ---
 ## 1. AgentCore Runtime で動作する Agent の呼び出しに Bearer トークンが必要という構成にする

@@ -23,13 +23,18 @@
 
 ![inbound](images/identity_in.png)
 
-### 構成方法の例
+### ワークのタスク
 
-* [agentcore CLI で Inbound 認証を構成したエージェントをデプロイする例](#cli)
-* [AWS マネジメントコンソール で Inbound 認証を構成したエージェントをデプロイする例](#console)
+* [タスク 1: agentcore CLI で Inbound 認証を構成したエージェントをデプロイする](#cli)
+* [タスク 2: AWS マネジメントコンソール で Inbound 認証を構成したエージェントをデプロイする](#console)
+
 
 ---
-## 環境へのアクセス
+<a id="cli"></a>
+### タスク 1: agentcore CLI で Inbound 認証を構成したエージェントをデプロイする例
+
+---
+#### 環境へのアクセス
 
 * 下記の URL をコピーして、ブラウザの新しいタブで開きます。
     - `https://d-9567586b55.awsapps.com/start`
@@ -39,20 +44,20 @@
 
 1. AWS マネジメントコンソールで、**オレゴン (us-west-2) リージョン**に切り替えます。
 
-1. Code Server 環境を開きます。
-  
 ---
-<a id="cli"></a>
-### agentcore CLI で Inbound 認証を構成したエージェントをデプロイする例
+#### 手順
 
-  * Cognito ユーザープールの作成と環境変数の設定
+1. Code Server 環境を開き、ターミナルで下記のコマンドを実行します。
+
+
+  * Cognito ユーザープールの作成と環境変数の設定を実行します。
     - ```
       ./setup_cognito.sh
       source cognito.env
       ```
-    - (参考）ユーザープールのクライアントでクライアントシークレットも作成する場合は、setup_cognito_with_secret.sh を参考にする
+    - (参考）ユーザープールのクライアントでクライアントシークレットも作成する場合は、setup_cognito_with_secret.sh を参考にしてください。
 
-  * Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイ
+  * Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイします。
     - ```
       agentcore configure --entrypoint agent_example.py \
         --name my_inbound_auth_agent \
@@ -61,21 +66,24 @@
         --requirements-file requirements.txt \
         --authorizer-config "{\"customJWTAuthorizer\":{\"discoveryUrl\":\"$DISCOVERY_URL\",\"allowedClients\":[\"$CLIENT_ID\"]}}"
       ```
-    - リクエストヘッダーのallowListの構成は不要。メモリの設定も不要
+    - リクエストヘッダーのallowListの構成は不要です。メモリの設定も不要です。
 
     - ```
       agentcore launch
       ```
 
-    - マネジメントコンソールでは、作成されたエージェントのインバウンド認証の設定は、「バージョン1」のリンクをクリックすることで確認できる
+    - マネジメントコンソールでは、作成されたエージェントのインバウンド認証の設定は、「バージョン1」のリンクをクリックすることで確認できます。
 
-    - agentcore launch 実行により出力される Agent ARN の値を環境変数に設定しておく
+    - agentcore launch 実行により出力される Agent ARN の値を環境変数に設定します。
         - Agent ARNに含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードする必要あり
     - 下記は例
     - arn:aws:bedrock-agentcore:us-east-1:123456789012:runtime/my_inbound_auth_agent-4CpCfb8Ukn の場合
     - ```
       export ESCAPED_AGENT_ARN=arn%3Aaws%3Abedrock-agentcore%3Aus-east-1%3A123456789012%3Aruntime%2Fmy_inbound_auth_agent-4CpCfb8Ukn 
       ```
+
+---
+#### 確認
 
 *  Cognito で認証してトークンを取得
 
@@ -110,7 +118,7 @@
     -d "${PAYLOAD}"
     ```
 ---
-* 環境のクリア
+* （オプション）環境のクリア
   - AgentCore のコンソールの「エージェントランタイム」からランタイムリソース: my_inbound_auth_agent を削除
   - Cognito のコンソールで「ユーザーエージェント」の MyUserPool を削除
 
@@ -121,13 +129,13 @@
 <a id="console"></a>
 ### AWS マネジメントコンソール で Inbound 認証を構成したエージェントをデプロイする例
 
-* ナビゲーションメニュー 「ラインタイムエージェント」からエージェントをデプロイする際に、「インバウンド認証」セクションで構成してエージェントをデプロイ
-    - 名前に「agent-pool-」という接頭辞がついた Cognito ユーザープールとそのアプリケーションクライアントが自動で作成される
-    - このアプリケーションクライアントは、デフォルトでは **M2M タイプではない。** よってクライアントシークレットも無い。
+* ナビゲーションメニュー 「ラインタイムエージェント」からエージェントをデプロイする際に、「インバウンド認証」セクションで構成してエージェントをデプロイします。
+    - 名前に「agent-pool-」という接頭辞がついた Cognito ユーザープールとそのアプリケーションクライアントが自動で作成されます。
+    - このアプリケーションクライアントは、デフォルトでは **M2M タイプではありません。** よってクライアントシークレットもありません。
 
 ![inbound](images/agent-inbound-console.png)
 
-* デプロイしたエージェントの「ランタイム ARN」の値を環境変数に設定しておく
+* デプロイしたエージェントの「ランタイム ARN」の値を環境変数に設定します。
     - ARN に含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードする必要あり
     - 下記は例
     - arn:aws:bedrock-agentcore:us-east-1:123456789012:runtime/my_inbound_auth_agent-4CpCfb8Ukn  の場合
@@ -135,14 +143,14 @@
       export ESCAPED_AGENT_ARN=arn%3Aaws%3Abedrock-agentcore%3Aus-east-1%3A123456789012%3Aruntime%2Fmy_inbound_auth_agent-4CpCfb8Ukn 
       ```
 
-* またデプロイ後、Cognito ユーザープールとのクライアントが作成されているので、環境変数で POOL_ID にユーザープール ID を、CLIENT_ID に アプリケーションクライアント ID を設定する
+* またデプロイ後、Cognito ユーザープールとのクライアントが作成されているので、環境変数で POOL_ID にユーザープール ID を、CLIENT_ID に アプリケーションクライアント ID を設定します。
 
 ```
 POOL_ID=us-east-1_IIvfidhXZ
 CLIENT_ID=4k8bv0dda0aou82q0mhh2fec5
 ```
 
-* Congnito ユーザープールにユーザーを作成する
+* Congnito ユーザープールにユーザーを作成します。
 
 ```
 aws cognito-idp admin-create-user \
@@ -162,7 +170,7 @@ aws cognito-idp admin-set-user-password \
   --permanent > /dev/null
 ```
 
-*  Cognito で認証してトークンを取得
+*  Cognito で認証してトークンを取得します。
 
 ```
 export TOKEN=$(aws cognito-idp initiate-auth \
@@ -172,7 +180,7 @@ export TOKEN=$(aws cognito-idp initiate-auth \
       --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
 ```
 
-*  Token を使用して呼び出し
+*  Token を使用して呼び出します。
 
 ```
 export PAYLOAD='{"prompt": "こんにちは、 1+1の答えは?"}'
@@ -184,7 +192,7 @@ curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN
     -d "${PAYLOAD}"
 ```
 
-* 無効な Token の場合、エラーになることを確認
+* 無効な Token の場合、エラーになることを確認します。
 
 ```
 export TOKEN=xxx

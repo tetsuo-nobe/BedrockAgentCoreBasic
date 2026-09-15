@@ -130,31 +130,28 @@ chmod +x  create-gateway-role.sh
 1. **ゲートウェイを作成** をクリックします。
    
 1. 青色のメッセージで、作成された Cognito ユーザープール の情報が表示されるので、すべてメモしておきます。
-    - アプリケーションクライアント ID
-    - クライアントシークレット
-    - カスタムスコープ
-        - マネコンのアプリケーションクライアントの [**ログインページ**] タブに表示されている
-    - 検出 URL
-        - マネコンで Gateway のページの [**インバウンド ID**] に表示されている
-        - または Cognito のページの [**概要**] で [**トークン署名キー URL**] として表示されている URL の末尾を `/openid-configuration` に変更したもの
 
-
-Cognito クライアント認証情報 ゲートウェイ用に次の Cognito リソースが作成されました。 
-1.Cognito ユーザープール (ID:us-west-2_P9q5MzRzE) 
-2.ユーザープールドメイン:my-domain-cmr792mf.auth.us-west-2.amazoncognito.com 
-3.次のスコープを持つリソースサーバー: genesis-gateway:invoke 
-4.クライアント認証情報フローを使用するユーザープールクライアント 
-**クライアント ID: ** 74eckne7c6h55s3lkqn4sko0r9 
-クライアントシークレット: gjab9ko9qofefg9pptp20udqpternbg38l8egin908efksj0q2g 重要: 
-これらの認証情報を保存してください。クライアントシークレットは一度だけ表示されます。
+  ```
+  Cognito クライアント認証情報 ゲートウェイ用に次の Cognito リソースが作成されました。 
+  1.Cognito ユーザープール (ID:us-west-2_P9q5MzRzE) 
+  2.ユーザープールドメイン:my-domain-cmr792mf.auth.us-west-2.amazoncognito.com 
+  3.次のスコープを持つリソースサーバー: genesis-gateway:invoke 
+  4.クライアント認証情報フローを使用するユーザープールクライアント 
+  **クライアント ID: ** 74eckne7c6h55s3lkqn4sko0r9 
+  クライアントシークレット: gjab9ko9qofefg9pptp20udqpternbg38l8egin908efksj0q2g 
+  重要: これらの認証情報を保存してください。クライアントシークレットは一度だけ表示されます。
+  ```
 
 1. **ゲートウェイの詳細** に表示されている **ゲートウェイリソース URL** をメモしておきます。
 
-https://my-gateway-11-jmubowswd1.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp
+例: `https://my-gateway-11-jmubowswd1.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp`
 
 1. ページを下にスクロールして、**インバウンド認証** に表示されている **検出 URL** をメモしておきます。
 
-https://cognito-idp.us-west-2.amazonaws.com/us-west-2_P9q5MzRzE/.well-known/openid-configuration 
+例: `https://cognito-idp.us-west-2.amazonaws.com/us-west-2_P9q5MzRzE/.well-known/openid-configuration `
+
+  - 参考: Cognito のページの [**概要**] で [**トークン署名キー URL**] として表示されている URL の末尾を `/openid-configuration` に変更したものです。
+
 
 ---
 ## Strands Agents SDK を使用して Tool として呼び出す
@@ -178,6 +175,9 @@ https://cognito-idp.us-west-2.amazonaws.com/us-west-2_P9q5MzRzE/.well-known/open
       CUSTOM_SCOPE=my-gateway-11/genesis-gateway:invoke
       GATEWAY_URL=https://my-gateway-11-hkval6viaw.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp
       ```
+
+  - 参考: カスタムスコープは、Cognito のコンソールで、ユーザープールのアプリケーションクライアントの [**ログインページ**] タブにも表示されています。
+
 
 * 次のコマンドで main.py を実行し、Gateway のツールを使用します。
     - ```

@@ -21,5 +21,3 @@ uv run main.py "Google のトップページのスクリーンショットを取
 
 ---
 
-* 参考ブログ
-    - https://qiita.com/moritalous/items/c895e15dabb2ef41419c

@@ -4,6 +4,12 @@
 
 ---
 
+* 下記のコマンドでサンプルを実行できます。
+
+```
+cd BedrockAgentCoreBasic/browser_playwright/
+```
+
 ```
 uv init
 uv add bedrock-agentcore playwright strands-agents

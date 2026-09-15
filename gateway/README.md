@@ -2,7 +2,7 @@
 
 ![概要](images/gateway_overview.png)
 
-### このサンプルは AgentCore Identity Inbound 認証のサンプルでもある
+### このサンプルは AgentCore Identity Inbound 認証のサンプルでも兼ねています。
 
 ---
 ## 環境へのアクセス
@@ -191,36 +191,25 @@ https://cognito-idp.us-west-2.amazonaws.com/us-west-2_P9q5MzRzE/.well-known/open
       uv run main.py
       ```
 
-    - **main.py**
-    - モデルはデフォルトの Claude Sonnet 4 を使用。
-    - (Nova Lite でも試してみたが、うまく動作しなかった。)
+* 次のコマンドで list_tool.py を実行し、Gateway のツールを表示します。
+
+    - ```
+      # 実行
+      uv run list_tool.py
+      ```
 
 ---
-## (参考) AgentCore Gateway のコンソールに表示されているサンプルコード
 
-1. マネージメントコンソールで作成した AgentCore Gateway のページの **View invocation code** にも Gateway を使用してツールのリストを取得するコードの例が表示されている。
+## (参考)
+* マネージメントコンソールで作成した AgentCore Gateway のページの View invocation code にも Gateway を使用してツールのリストを取得するコードの例が表示されている。
     - この例には、アプリクライアントやシークレット以外で、環境に応じた値（Gateway や Cognito の URL の値）が設定されているが、環境変数から取得するように変更した。
     - TOKEN_URLは、マネジメントコンソールに表示されているコード例の中から参照できる
-    - .env の内容
-    - ```
-      CLIENT_ID=xxxxxxxxxxxxxxxxxxxxxxx
-      CLIENT_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-      TOKEN_URL=https://my-domain-xxxxxxxx.auth.us-west-2.amazoncognito.com/oauth2/token
-      GATEWAY_URL=https://xxxxxxxxxxxxxxxxxxxx.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp
-      ```
-
-
-
-    - ```
-      pip3 install strands-agents mcp dotenv requests asyncio
-      ```
-      
-- **mcp_python_sdk.py**
-  - mcp パッケージを使用してツールのリストを取得する
-- **python_with_requests.py**
-  - requests パッケージを使用してツールのリストを取得する
-- **strands_mcp_client.py**
-  - Strands Agent が MCP Client としてツールのリストを取得する
+    - **mcp_python_sdk.py**
+      - mcp パッケージを使用してツールのリストを取得する
+    - **python_with_requests.py**
+      - requests パッケージを使用してツールのリストを取得する
+    - **strands_mcp_client.py**
+      - Strands Agent が MCP Client としてツールのリストを取得する
 
 ---
 * 参考情報

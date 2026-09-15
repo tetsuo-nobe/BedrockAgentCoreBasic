@@ -157,7 +157,7 @@ chmod +x  create-gateway-role.sh
 ## Strands Agents SDK を使用して Tool として呼び出す
 
 * Code Server 環境を開きます。
-* BedrockAgentCoreBasic/gateway に `.env` ファイルを作成します。
+* BedrockAgentCoreBasic/gateway に `.env` ファイルを作成して、メモした値を下記のように環境変数として設定します。
     - **CUSTOM_SCOPE の 99 の部分はご自分の番号に置き換えてください。**
     - ```
       CLIENT_ID=(クライアント ID)

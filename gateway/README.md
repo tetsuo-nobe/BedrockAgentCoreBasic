@@ -145,13 +145,13 @@ chmod +x  create-gateway-role.sh
 
 1. **ゲートウェイの詳細** に表示されている **ゲートウェイリソース URL** をメモしておきます。
 
-例: `https://my-gateway-11-jmubowswd1.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp`
+    - 例: `https://my-gateway-11-jmubowswd1.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp`
 
 1. ページを下にスクロールして、**インバウンド認証** に表示されている **検出 URL** をメモしておきます。
 
-例: `https://cognito-idp.us-west-2.amazonaws.com/us-west-2_P9q5MzRzE/.well-known/openid-configuration `
+    - 例: `https://cognito-idp.us-west-2.amazonaws.com/us-west-2_P9q5MzRzE/.well-known/openid-configuration `
 
-  - 参考: Cognito のページの [**概要**] で [**トークン署名キー URL**] として表示されている URL の末尾を `/openid-configuration` に変更したものです。
+    - 参考: Cognito のページの [**概要**] で [**トークン署名キー URL**] として表示されている URL の末尾を `/openid-configuration` に変更したものです。
 
 
 ---

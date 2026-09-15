@@ -227,6 +227,46 @@ chmod +x  create-gateway-role.sh
       - dummy-weather-99___get_weather
       合計 2 個のツール 
       ```
+
+* 次のコマンドで semantic_search.py を実行し、Gateway のツールに対してセマンティック検索を行います。
+    - クエリーは、`東京の天気を調べたい` です。
+
+    - ```
+      # 実行
+      uv run semantic_search.py
+      ```
+
+    - 下記の例のような出力を確認します。
+    - ```
+      === Gateway から見えるツール一覧 ===
+      - x_amz_bedrock_agentcore_search
+      - dummy-weather-12___get_weather
+      合計 2 個のツール
+    
+      === セマンティック検索を実行: query='東京の天気を調べたい' ===
+      {
+        "tools": [
+          {
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "location": {
+                  "description": "The location to get weather information for",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "location"
+              ]
+            },
+            "name": "dummy-weather-12___get_weather",
+            "description": "tool to get weather information for a specified location"
+          }
+        ]
+      }
+    ```
+
+
 ---
 
 ## (参考)

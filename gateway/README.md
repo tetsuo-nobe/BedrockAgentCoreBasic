@@ -15,8 +15,35 @@
 
 1. AWS マネジメントコンソールで、**オレゴン (us-west-2) リージョン**に切り替えます。
 
+1. Code Server 環境を開きます。
+
+---
+## AgentCore Gateway 用のロールの作成
+
+1. Code Server のターミナルで下記を実行します。
+
+```
+cd   ~/environment/BedrockAgentCoreBasic/gateway
+```
+
+```
+chmod +x  create-gateway-role.sh
+```
+
+```
+./create-gateway-role.sh
+```
+
+下記の例のような出力を確認します。
+```
+作成完了: arn:aws:iam::123456789012:role/myAmazonBedrockAgentCoreGatewayDefaultServiceRole
+```
+
+
 ---
 ## ターゲットの Lambda 関数の作成
+
+1. AWS マネジメントコンソールのページに切り替えます。
 
 1. ページ上部の **検索** に `lambda` を入力して Enter キーを押下します。
 

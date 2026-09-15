@@ -182,6 +182,11 @@ chmod +x  create-gateway-role.sh
 
 * 次のコマンドで main.py を実行し、Gateway のツールを使用します。
     - ```
+      # gateway フォルダにいることを確認
+      pwd
+      ```
+      
+    - ```
       # プロジェクト初期化
       uv init
       ```

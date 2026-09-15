@@ -268,6 +268,9 @@ chmod +x  create-gateway-role.sh
 
 
 ---
+### お疲れさまでした！ JWT ベースのインバウンド認証を行い、Lambda 関数をターゲットとした AgentCore Gateway を作成して使用できることを確認できました。
+
+---
 
 ## (参考)
 * マネージメントコンソールで作成した AgentCore Gateway のページの View invocation code にも Gateway を使用してツールのリストを取得するコードの例が表示されている。
@@ -281,5 +284,4 @@ chmod +x  create-gateway-role.sh
       - Strands Agent が MCP Client としてツールのリストを取得する
 
 ---
-* 参考情報
-  - https://tech.nri-net.com/entry/implement_gateway_and_try_it_out
+

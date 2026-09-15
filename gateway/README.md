@@ -132,6 +132,15 @@ https://cognito-idp.us-west-2.amazonaws.com/us-west-2_J1m1pFhGG/.well-known/open
       CUSTOM_SCOPE=my-gateway-99/(次のスコープを持つリソースサーバー)
       GATEWAY_URL=(ゲートウェイリソース URL)
       ```
+
+    - 下記は例です。
+    - ```
+      CLIENT_ID=10dc4pd40kct1bsgfcthtssqec
+      CLIENT_SECRET=umko5pafgnovmqqdemdt8rr7kv1qaknrgjaiqhj4nrktc2rjjag
+      DISCOVERY_URL=https://cognito-idp.us-west-2.amazonaws.com/us-west-2_J1m1pFhGG/.well-known/openid-configuration
+      CUSTOM_SCOPE=my-gateway-11/genesis-gateway:invoke
+      GATEWAY_URL=https://my-gateway-11-hkval6viaw.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp
+      ```
   
     - **main.py**
     - モデルはデフォルトの Claude Sonnet 4 を使用。
@@ -157,7 +166,9 @@ https://cognito-idp.us-west-2.amazonaws.com/us-west-2_J1m1pFhGG/.well-known/open
       TOKEN_URL=https://my-domain-xxxxxxxx.auth.us-west-2.amazoncognito.com/oauth2/token
       GATEWAY_URL=https://xxxxxxxxxxxxxxxxxxxx.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp
       ```
-      
+
+
+
     - ```
       pip3 install strands-agents mcp dotenv requests asyncio
       ```

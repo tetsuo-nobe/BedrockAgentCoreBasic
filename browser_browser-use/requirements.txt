@@ -1,7 +1,0 @@
-boto3
-botocore
-strands-agents
-bedrock-agentcore
-bedrock-agentcore-starter-toolkit
-browser-use<0.3.3
-langchain-aws

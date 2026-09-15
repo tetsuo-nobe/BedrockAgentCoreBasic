@@ -78,7 +78,7 @@
     - ```
       agentcore configure --entrypoint agent_example.py \
         --name my_inbound_auth_agent \
-        --execution-role arn:aws:iam::123456789012:role/my-AgentCore-runtime-role \
+        --execution-role arn:aws:iam::$AWS_ACCOUNT_ID:role/my-AgentCore-runtime-role \
         --disable-otel \
         --requirements-file requirements.txt \
         --authorizer-config "{\"customJWTAuthorizer\":{\"discoveryUrl\":\"$DISCOVERY_URL\",\"allowedClients\":[\"$CLIENT_ID\"]}}"

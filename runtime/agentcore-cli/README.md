@@ -1,8 +1,10 @@
 # AgentCore CLI を使用した Agent のデプロイ
 
-* 下記のドキュメントの手順に基づき実施
-    - [Amazon Bedrock AgentCore の使用を開始する](https://docs.aws.amazon.com/ja_jp/bedrock-agentcore/latest/devguide/agentcore-get-started-cli.html)
+---
+### このワークは、BedrockAgentCoreBasic/prep/README.md の準備作業の完了後に実行します。
+  - **Code Server 環境が構築され、当リポジトリが clone され、uv もインストールされている前提です。**
 
+---
 ## AgentCore CLI のインストール
 
 * ワークで使用する開発環境のターミナルでコマンドを実行します。

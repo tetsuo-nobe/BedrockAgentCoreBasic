@@ -141,20 +141,30 @@ https://cognito-idp.us-west-2.amazonaws.com/us-west-2_J1m1pFhGG/.well-known/open
       CUSTOM_SCOPE=my-gateway-11/genesis-gateway:invoke
       GATEWAY_URL=https://my-gateway-11-hkval6viaw.gateway.bedrock-agentcore.us-west-2.amazonaws.com/mcp
       ```
-  
+
+* 次のコマンドで main.py を実行し、Gateway のツールを使用します。
+    - ```
+      # プロジェクト初期化
+      uv init
+      ```
+    
+    - ```
+      # 依存パッケージを追加
+      #   - mcp は本家 SDK を明示指定（1.x 系）
+      uv add strands-agents "mcp>=1.0,<2" python-dotenv requests
+      ```
+    
+    - ```
+      # 実行
+      uv run main.py
+      ```
+
     - **main.py**
     - モデルはデフォルトの Claude Sonnet 4 を使用。
     - (Nova Lite でも試してみたが、うまく動作しなかった。)
-    - ```
-      pip3 install strands-agents mcp dotenv requests asyncio
-      ```
 
-    - ```
-      python3 main.py
-      ```
-    
 ---
-## AgentCore Gateway のコンソールに表示されているサンプルコード
+## (参考) AgentCore Gateway のコンソールに表示されているサンプルコード
 
 1. マネージメントコンソールで作成した AgentCore Gateway のページの **View invocation code** にも Gateway を使用してツールのリストを取得するコードの例が表示されている。
     - この例には、アプリクライアントやシークレット以外で、環境に応じた値（Gateway や Cognito の URL の値）が設定されているが、環境変数から取得するように変更した。

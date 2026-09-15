@@ -17,7 +17,7 @@ def execute_python(code: str, description: str = "") -> str:
     print(f"\n実行コード: {code}")
     # コードインタープリターセッション内でコードを実行
     try:
-        with code_session("us-east-1") as code_client:
+        with code_session("us-west-2") as code_client:
             response = code_client.invoke(
                 "executeCode",
                 {"code": code, "language": "python", "clearContext": False},

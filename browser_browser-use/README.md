@@ -16,7 +16,7 @@ uv init
 ```
 
 ```
-uv add strands-agents "strands-agents-tools[browser]" bedrock-agentcore
+uv add strands-agents "strands-agents-tools[browser]" bedrock-agentcore playwright nest_asyncio
 
 uv run playwright install chromium
 ```

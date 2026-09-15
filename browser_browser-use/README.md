@@ -7,6 +7,9 @@
 
 * 下記のコマンドでサンプルを実行できます。
 
+```
+cd BedrockAgentCoreBasic/browser_browser-use/
+```
 
 ```
 uv add strands-agents "strands-agents-tools[browser]" bedrock-agentcore

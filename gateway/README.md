@@ -82,6 +82,7 @@ chmod +x  create-gateway-role.sh
         if toolName == 'get_weather':
             return {'statusCode': 200, 'body': get_weather(event['location'])}
     ```
+    
 1. **Deploy** をクリックします。
 
 1. ページ右上あたりに表示されている **関数 ARN** をコピーしてメモしておきます。

@@ -2,7 +2,10 @@
 
 ![概要](images/gateway_overview.png)
 
-### このサンプルは AgentCore Identity Inbound 認証のサンプルでも兼ねています。
+
+### このワークは、AgentCore CLI でエージェントをデプロイするワークの後に実施します。
+    - よって、**Code Server 環境が構築され、当リポジトリが clone され、uv もインストールされている前提です。**
+### このワークは AgentCore Identity Inbound 認証の内容にも関連します。も兼ねています。
 
 ---
 ## 環境へのアクセス

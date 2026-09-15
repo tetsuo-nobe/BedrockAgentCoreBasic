@@ -131,17 +131,17 @@ chmod +x  create-gateway-role.sh
 1. **ゲートウェイを作成** をクリックします。
    
 1. 青色のメッセージで、作成された Cognito ユーザープール の情報が表示されるので、すべてメモしておきます。
-  - 下記は例です。
-  -  ```
-     Cognito クライアント認証情報 ゲートウェイ用に次の Cognito リソースが作成されました。 
-     1.Cognito ユーザープール (ID:us-west-2_P9q5MzRzE) 
-     2.ユーザープールドメイン:my-domain-cmr792mf.auth.us-west-2.amazoncognito.com 
-     3.次のスコープを持つリソースサーバー: genesis-gateway:invoke 
-     4.クライアント認証情報フローを使用するユーザープールクライアント 
-     **クライアント ID: ** 74eckne7c6h55s3lkqn4sko0r9 
-     クライアントシークレット: gjab9ko9qofefg9pptp20udqpternbg38l8egin908efksj0q2g 
-     重要: これらの認証情報を保存してください。クライアントシークレットは一度だけ表示されます。
-     ```
+    - 下記は例です。
+    -  ```
+       Cognito クライアント認証情報 ゲートウェイ用に次の Cognito リソースが作成されました。 
+       1.Cognito ユーザープール (ID:us-west-2_P9q5MzRzE) 
+       2.ユーザープールドメイン:my-domain-cmr792mf.auth.us-west-2.amazoncognito.com 
+       3.次のスコープを持つリソースサーバー: genesis-gateway:invoke 
+       4.クライアント認証情報フローを使用するユーザープールクライアント 
+       **クライアント ID: ** 74eckne7c6h55s3lkqn4sko0r9 
+       クライアントシークレット: gjab9ko9qofefg9pptp20udqpternbg38l8egin908efksj0q2g 
+       重要: これらの認証情報を保存してください。クライアントシークレットは一度だけ表示されます。
+       ```
 
 1. **ゲートウェイの詳細** に表示されている **ゲートウェイリソース URL** をメモしておきます。
 

@@ -15,6 +15,11 @@
     2. AgentCore Identity を使用し Agent が外部サービスを呼び出すときに JWT トークンを取得する
 
 ---
+### このワークは、BedrockAgentCoreBasic/prep/README.md の準備作業の完了後に実施する想定です。
+  - よって、 **Code Server 環境が構築され、当リポジトリが clone され、uv もインストールされている前提です。**
+### このワークは AgentCore Identity Inbound 認証の内容にも関連します。も兼ねています。
+
+---
 ## 1. AgentCore Runtime で動作する Agent の呼び出しに Bearer トークンが必要という構成にする
 
 ![inbound](images/identity_in.png)
@@ -23,6 +28,19 @@
 
 * [agentcore CLI で Inbound 認証を構成したエージェントをデプロイする例](#cli)
 * [AWS マネジメントコンソール で Inbound 認証を構成したエージェントをデプロイする例](#console)
+
+---
+## 環境へのアクセス
+
+* 下記の URL をコピーして、ブラウザの新しいタブで開きます。
+    - `https://d-9567586b55.awsapps.com/start`
+* 講師が URL とユーザー ID やパスワードをご案内します。
+
+* ご自身に割り当てられた sandbox 環境で AWS マネジメントコンソールへアクセスします。
+
+1. AWS マネジメントコンソールで、**オレゴン (us-west-2) リージョン**に切り替えます。
+
+1. Code Server 環境を開きます。
   
 ---
 <a id="cli"></a>

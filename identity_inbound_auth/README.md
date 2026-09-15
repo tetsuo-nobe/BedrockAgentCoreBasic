@@ -55,10 +55,21 @@
       ```
 
   * Cognito ユーザープールの作成と環境変数の設定を実行します。
+
+    - ```
+      chmod +x ./setup_cognito.sh
+
+       ```
+
     - ```
       ./setup_cognito.sh
-      source cognito.env
+      
       ```
+  - ```
+      source cognito.env
+    
+      ```
+
     - (参考）ユーザープールのクライアントでクライアントシークレットも作成する場合は、setup_cognito_with_secret.sh を参考にしてください。
 
   * Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイします。

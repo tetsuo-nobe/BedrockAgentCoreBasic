@@ -58,16 +58,13 @@
 
     - ```
       chmod +x ./setup_cognito.sh
-
-       ```
+      ```
 
     - ```
       ./setup_cognito.sh
-      
       ```
-  - ```
+    - ```
       source cognito.env
-    
       ```
 
     - (参考）ユーザープールのクライアントでクライアントシークレットも作成する場合は、setup_cognito_with_secret.sh を参考にしてください。

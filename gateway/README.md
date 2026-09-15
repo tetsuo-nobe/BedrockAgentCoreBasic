@@ -38,7 +38,8 @@ chmod +x  create-gateway-role.sh
 ./create-gateway-role.sh
 ```
 
-下記の例のような出力を確認します。
+* プロンプトが返ってこない場合は q キーを押下して下さい。
+* 下記の例のような出力を確認します。
 ```
 作成完了: arn:aws:iam::123456789012:role/myAmazonBedrockAgentCoreGatewayDefaultServiceRole
 ```

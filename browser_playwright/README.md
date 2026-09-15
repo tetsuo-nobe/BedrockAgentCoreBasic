@@ -2,6 +2,10 @@
 
 ![browser-playwright](images/browser-playwright.png)
 
+
+---
+### このサンプルは、BedrockAgentCoreBasic/prep/README.md の準備作業の完了後に動作可能です。
+  - **Code Server 環境が構築され、当リポジトリが clone され、uv もインストールされている前提です。**
 ---
 
 * 下記のコマンドでサンプルを実行できます。

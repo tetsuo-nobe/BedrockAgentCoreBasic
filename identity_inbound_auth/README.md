@@ -70,23 +70,34 @@
     - (参考）ユーザープールのクライアントでクライアントシークレットも作成する場合は、setup_cognito_with_secret.sh を参考にしてください。
 
   * Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイします。
+    - エージェントのコードはリポジトリに用意されている `agent_exmple.py` です。
+    
     - ```
       export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
       echo $AWS_ACCOUNT_ID
       ```
-
+ 
     - ```
-      agentcore configure --entrypoint agent_example.py \
-        --name my_inbound_auth_agent \
-        --execution-role arn:aws:iam::$AWS_ACCOUNT_ID:role/my-AgentCore-runtime-role \
-        --disable-otel \
-        --requirements-file requirements.txt \
-        --authorizer-config "{\"customJWTAuthorizer\":{\"discoveryUrl\":\"$DISCOVERY_URL\",\"allowedClients\":[\"$CLIENT_ID\"]}}"
+      agentcore create \
+       --name my_inbound_auth_agent \
+       --framework Strands \
+       --model-provider Bedrock \
+       --no-agent
       ```
-    - リクエストヘッダーのallowListの構成は不要です。メモリの設定も不要です。
+    - ``` 
+      agentcore add agent \
+        --name my_inbound_auth_agent \
+        --type byo \
+        --code-location . \
+        --entrypoint agent_example.py \
+        --language Python \
+        --authorizer-type CUSTOM_JWT \
+        --discovery-url "$DISCOVERY_URL" \
+        --allowed-clients "$CLIENT_ID"
+      ```
 
     - ```
-      agentcore launch
+      agentcore deploy -y
       ```
 
     - マネジメントコンソールでは、作成されたエージェントのインバウンド認証の設定は、「バージョン1」のリンクをクリックすることで確認できます。

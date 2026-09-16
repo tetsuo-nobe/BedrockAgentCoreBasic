@@ -200,23 +200,23 @@
 #### （以降はオプションです）curl コマンドでの確認
 
 * ARN 環境変数 に含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードします。
-  - これは curl コマンドの URL のパスに含む必要があるためです。
-  - ```
-    export ESCAPED_AGENT_ARN=$(echo "$ARN" | sed 's/:/%3A/g; s/\//%2F/g')
-    ```
+    - これは curl コマンドの URL のパスに含む必要があるためです。
+    - ```
+      export ESCAPED_AGENT_ARN=$(echo "$ARN" | sed 's/:/%3A/g; s/\//%2F/g')
+      ```
 
 *  Cognito で認証してトークンを取得
-  - ```
-    export TOKEN=$(aws cognito-idp initiate-auth \
-      --client-id "$CLIENT_ID" \
-      --auth-flow USER_PASSWORD_AUTH \
-      --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
-      --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
-    ```
+    - ```
+      export TOKEN=$(aws cognito-idp initiate-auth \
+        --client-id "$CLIENT_ID" \
+        --auth-flow USER_PASSWORD_AUTH \
+        --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
+        --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
+      ```
     
-  - ```
-    echo $TOKEN
-    ```    
+    - ```
+      echo $TOKEN
+      ```    
 
 * curl コマンドで呼び出します。
     - ```

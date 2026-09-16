@@ -213,6 +213,18 @@ chmod +x  create-gateway-role.sh
       お出かけには最適な天気ですね！何かほかにご質問はありますか？ 
       ```
 
+* 次のコマンドで main2.py を実行し、Gateway のツールを使用します。
+    - main2.py では AgentCore Identity Oudbound 認証の機能を使用してトークンを取得しています。
+    - ```
+      uv add bedrock_agentcore
+      ```
+    
+    - ```
+      # 実行
+      uv run main2.py
+      ```
+
+
 * 次のコマンドで list_tool.py を実行し、Gateway のツールを表示します。
 
     - ```

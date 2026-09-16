@@ -1,15 +1,21 @@
 #!/bin/bash
 
+# 使い方: ./setup_cognito_with_secret.sh [リージョン名]
+# リージョン名を省略した場合は us-west-2 を使用する
+REGION="${1:-us-west-2}"
+
+echo "使用するリージョン: ${REGION}"
+
 # 環境変数を設定
 export USERNAME="testuser"
 export PASSWORD="PERMANENT_PASSWORD"
-export REGION="us-east-1"
+export REGION
 
 # Create User Pool and capture Pool ID directly
 export POOL_ID=$(aws cognito-idp create-user-pool \
   --pool-name "test0224Pool" \
   --policies '{"PasswordPolicy":{"MinimumLength":8}}' \
-  --region us-east-1 | jq -r '.UserPool.Id')
+  --region "${REGION}" | jq -r '.UserPool.Id')
 
 # クライアントシークレットありで作成
 CLIENT_RESPONSE=$(aws cognito-idp create-user-pool-client \
@@ -23,7 +29,7 @@ CLIENT_RESPONSE=$(aws cognito-idp create-user-pool-client \
 
 export CLIENT_ID=$(echo $CLIENT_RESPONSE | jq -r '.ClientId')
 export CLIENT_SECRET=$(echo $CLIENT_RESPONSE | jq -r '.ClientSecret')
-export DISCOVERY_URL="https://cognito-idp.us-east-1.amazonaws.com/$POOL_ID/.well-known/openid-configuration"
+export DISCOVERY_URL="https://cognito-idp.${REGION}.amazonaws.com/$POOL_ID/.well-known/openid-configuration"
 
 # Create User
 aws cognito-idp admin-create-user \

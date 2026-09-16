@@ -18,7 +18,7 @@
 
 ![in1](images/identity_out1.png)
 
-#### サンプル 1
+#### タスク 1
 * **main-apiKey-OpenWeather.py**
 * このサンプルコードでは Agent ではなく通常の Python コードから OpenWeather の API キーを取得し、シアトルの天候情報を取得する
 
@@ -29,10 +29,10 @@
 
 1. AWS マネジメントコンソールで AgentCore Identity の API キーを作成
 
-1. Anthropic の SDK のインストール
+1. Anthropic の SDK のインストール（uv を使用）
 
     ```
-    pip3 install requests asyncio
+    uv add requests
     ```
 
 ##### 実行
@@ -40,10 +40,10 @@
 1. サンプル実行
 
     ```
-    python3 main-apiKey-OpenWeatgher.py
+    uv run main-apiKey-OpenWeatgher.py
     ```
 
-#### サンプル 2 
+#### タスク 2 (実施は不要です) 
 * **main-apiKey.py**
 * このサンプルコードでは Agent ではなく通常の Python コードから API キーを取得し、Anthropic SDK を使用して Claude を呼び出す
 
@@ -53,10 +53,10 @@
 
 1. AWS マネジメントコンソールで AgentCore Identity の API キーを作成
 
-1. Anthropic の SDK のインストール
+1. Anthropic の SDK のインストール（uv を使用）
 
     ```
-    pip3 install anthropic asyncio
+    uv add anthropic
     ```
 
 ##### 実行
@@ -64,7 +64,7 @@
 1. サンプル実行
 
     ```
-    python3 main-apiKey.py
+    uv run main-apiKey.py
     ```
 
 ---
@@ -105,13 +105,14 @@
     GATEWAY_URL=https://get-weather-gw-7fsir8frv5.gateway.bedrock-agentcore.us-east-1.amazonaws.com/mcp
     ```
 
-1. サンプル実行
+1. 依存パッケージのインストール（uv を使用）
     ```
-    pip3 install strands-agents mcp dotenv requests asyncio
+    uv add strands-agents "mcp>=1.9,<2" python-dotenv requests
     ```
 
+1. サンプル実行
     ```
-    python3 main-local.py
+    uv run main-local.py
     ```
 
 

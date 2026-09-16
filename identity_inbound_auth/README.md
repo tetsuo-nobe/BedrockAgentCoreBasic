@@ -75,11 +75,7 @@
     - (参考）ユーザープールのクライアントでクライアントシークレットも作成する場合は、setup_cognito_with_secret.sh を参考にしてください。
 
 * Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイします。
-    - エージェントのコードはリポジトリに用意されている `agent_exmple.py` です。
-    
-* いよいよ AgentCore CLI を使用します。
-* まずは AgentCore Runtime でエージェントをデプロイするためのリソースを格納したプロジェクトフォルダを作成します。
-* agentcore create コマンドを実行し、フォルダ名や、作成するリソース、デプロイ方法、使用する SDK、Memory の使用有無などを対話的に応答していきます。
+    - エージェントのコードはリポジトリに用意されている `main.py` です。
 
     ```
     agentcore create

@@ -89,6 +89,10 @@
     - ```
       cd myInboundAuthAgent
       ```
+   - エージェントのコードのコピー
+    - ```
+      cp  /home/ec2-user/environment/BedrockAgentCoreBasic/identity_inbound_auth/agent_example.py .
+      ``` 
     - エージェントの追加（Inbound 認証を設定）
     - ``` 
       agentcore add agent \

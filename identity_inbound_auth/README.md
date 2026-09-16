@@ -85,7 +85,7 @@
         --model-provider Bedrock \
         --no-agent
       ```
-  　- プロジェクトフォルダへ移動
+    - プロジェクトフォルダへ移動
     - ```
       cd myInboundAuthAgent
       ```

@@ -216,31 +216,29 @@
     
   - ```
     echo $TOKEN
-    ```
-    
-*  Token を使用して呼び出します。 (curl 使用）
+    ```    
 
-  - curl コマンドで呼び出します。
-  - ```
-    export PAYLOAD='{"prompt": "こんにちは、 1+1の答えは?"}'
-    export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-west-2.amazonaws.com"
+* curl コマンドで呼び出します。
+    - ```
+      export PAYLOAD='{"prompt": "こんにちは、 1+1の答えは?"}'
+      export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-west-2.amazonaws.com"
 
-    curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \
-    -H "Authorization: Bearer ${TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "${PAYLOAD}"
-    ```
+      curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \
+      -H "Authorization: Bearer ${TOKEN}" \
+      -H "Content-Type: application/json" \
+      -d "${PAYLOAD}"
+      ```
 
 * 無効な Token の場合、エラーになることを確認します。
 
-  - ```
-    export TOKEN=xxx
+    - ```
+      export TOKEN=xxx
 
-    curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \
-    -H "Authorization: Bearer ${TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "${PAYLOAD}"
-    ```
+      curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \
+      -H "Authorization: Bearer ${TOKEN}" \
+      -H "Content-Type: application/json" \
+      -d "${PAYLOAD}"
+      ```
 
 ---
 

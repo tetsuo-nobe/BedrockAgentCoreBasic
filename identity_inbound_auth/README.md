@@ -191,6 +191,7 @@
     - ```
       uv run python invoke.py "こんにちは"
       ```
+    - `requests.exceptions.HTTPError: 403 Client Error: Forbidden for url:`
 
 #### お疲れさまでした。JWT トークンが必要なエージェントを作成し、呼び出すことができました。
 

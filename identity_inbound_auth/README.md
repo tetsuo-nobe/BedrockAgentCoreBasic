@@ -101,6 +101,8 @@
         --code-location . \
         --entrypoint agent_example.py \
         --language Python \
+        --framework Strands \
+        --model-provider Bedrock \
         --authorizer-type CUSTOM_JWT \
         --discovery-url "$DISCOVERY_URL" \
         --allowed-clients "$CLIENT_ID"

@@ -66,6 +66,11 @@
     - ```
       source cognito.env
       ```
+    - 下記を実行し、DISCOVERY_URL と CLIENT_ID の値をメモしておきます。
+    - ```
+      echo DISCOVERY_URL = $DISCOVERY_URL
+      echo CLIENT_ID = $CLIENT_ID
+      ```
 
     - (参考）ユーザープールのクライアントでクライアントシークレットも作成する場合は、setup_cognito_with_secret.sh を参考にしてください。
 

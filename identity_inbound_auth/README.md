@@ -206,7 +206,6 @@
     ```
 
 *  Cognito で認証してトークンを取得
-
   - ```
     export TOKEN=$(aws cognito-idp initiate-auth \
       --client-id "$CLIENT_ID" \
@@ -214,12 +213,12 @@
       --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
       --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
     ```
+    
   - ```
     echo $TOKEN
     ```
     
 *  Token を使用して呼び出します。 (curl 使用）
-  
 
   - curl コマンドで呼び出します。
   - ```
@@ -242,11 +241,6 @@
     -H "Content-Type: application/json" \
     -d "${PAYLOAD}"
     ```
----
-* （オプション）環境のクリア
-  - AgentCore のコンソールの「エージェントランタイム」からランタイムリソース: my_inbound_auth_agent を削除
-  - Cognito のコンソールで「ユーザーエージェント」の MyUserPool を削除
-
 
 ---
 
@@ -260,8 +254,8 @@
 
 ![inbound](images/agent-inbound-console.png)
 
-* デプロイしたエージェントの「ランタイム ARN」の値を環境変数に設定します。
-  - ARN に含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードします。これは curl で指定する URL 内に含める必要があるためです。
+* ARN 環境変数 に含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードします。
+  - これは curl コマンドの URL のパスに含む必要があるためです。
   - ```
     export ESCAPED_AGENT_ARN=$(echo "$ARN" | sed 's/:/%3A/g; s/\//%2F/g')
     ```

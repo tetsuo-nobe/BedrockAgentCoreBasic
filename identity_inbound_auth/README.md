@@ -345,3 +345,13 @@
 
 * 手順は、[AgentCore Gateway で Lambda 関数を MCP のツールとして使用する](https://github.com/tetsuo-nobe/BedrockAgentCoreBasic/tree/main/gateway) に掲載
 
+---
+
+## 環境のクリアについて
+* (**講師が行います。**）
+* CloudShell から下記を実行
+    ```
+    curl -L -o bedrock-s3-clear.sh https://tnobep-demo-public.s3.amazonaws.com/bedrock-s3-clear.sh && bash bedrock-s3-clear.sh us-west-2
+    ```
+
+

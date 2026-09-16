@@ -79,11 +79,16 @@
  
     - ```
       agentcore create \
-       --name my_inbound_auth_agent \
-       --framework Strands \
-       --model-provider Bedrock \
-       --no-agent
+        --name my_inbound_auth_agent \
+        --project-name myInboundAuthAgent \
+        --framework Strands \
+        --model-provider Bedrock \
+        --no-agent
       ```
+    - ```
+      cd myInboundAuthAgent
+      ```
+      
     - ``` 
       agentcore add agent \
         --name my_inbound_auth_agent \

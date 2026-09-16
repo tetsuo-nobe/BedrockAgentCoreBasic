@@ -177,16 +177,42 @@
   - ```
     uv run python invoke.py "こんにちは"
     ```
+  - 下記例のような出力を確認して、エージェントを呼び出せたことを確認します
+  - ```
+    uv run python invoke.py "こんにちは"
+    ```
+
+* 無効な Token の場合、エラーになることを確認します。
+
+  - ```
+    export TOKEN=xxx
+    ```
+  - ```
+    uv run python invoke.py "こんにちは"
+    ```
+
+#### お疲れさまでした。JWT トークンが必要なエージェントを作成し、呼び出すことができました。
 
 ---
 
+#### （以降はオプションです）
 
-*  Token を使用して呼び出し (curl 使用）
-  
-  - ARN に含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードします。これは curl で指定する URL 内に含める必要があるためです。
+*  Cognito で認証してトークンを取得
+
   - ```
-    export ESCAPED_AGENT_ARN=$(echo "$ARN" | sed 's/:/%3A/g; s/\//%2F/g')
+    export TOKEN=$(aws cognito-idp initiate-auth \
+      --client-id "$CLIENT_ID" \
+      --auth-flow USER_PASSWORD_AUTH \
+      --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
+      --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
     ```
+  - ```
+    echo $TOKEN
+    ```
+    
+*  Token を使用して呼び出します。 (curl 使用）
+  
+
   - curl コマンドで呼び出します。
   - ```
     export PAYLOAD='{"prompt": "こんにちは、 1+1の答えは?"}'

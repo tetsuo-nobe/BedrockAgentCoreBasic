@@ -106,6 +106,9 @@
     cd AuthAgent
     ```
 
+* 下記のファイルを開き、`authorizerType` や `authorizerConfiguration` が設定されていることを確認します。
+    - `BedrockAgentCoreBasic/identity_inbound_auth/AuthAgent/agentcore/agentcore.json`
+
 ---
 #### main.py の編集
 

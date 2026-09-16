@@ -111,18 +111,16 @@
     ```
 
 ---
-## main.py の編集
-
-* 開発環境の左側のナビゲーターで以下の main.py を開いて内容を確認します。
-    - `BedrockAgentCoreBasic/runtime/agentcore-cli/main.py`
-    - この　main.py がデプロイするエージェントのコードになります。
-    - このコードでは、AgentCore のエンドポイントとして指定した関数から Strands Agents SDK のエージェントを呼び出しています。
+#### main.py の編集
 
 * AgentCore プロジェクトで作成された main.py に上書きコピーします。
 
     ```
     cp  ~/environment/BedrockAgentCoreBasic/identity_inbound_auth/main.py    ~/environment/BedrockAgentCoreBasic/identity_inbound_auth/AuthAgent/app/MyAgent/main.py
     ```
+---
+#### エージェントのデプロイと ARN の取得
+
 * エージェントをデプロイします。
     - ```
       agentcore deploy -y

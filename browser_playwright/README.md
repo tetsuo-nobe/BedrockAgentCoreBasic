@@ -11,7 +11,7 @@
 * 下記のコマンドでサンプルを実行できます。
 
 ```
-cd BedrockAgentCoreBasic/browser_playwright/
+cd  ~/environment/BedrockAgentCoreBasic/browser_playwright/
 ```
 
 ```

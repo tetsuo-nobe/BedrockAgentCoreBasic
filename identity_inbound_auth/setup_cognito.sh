@@ -1,10 +1,16 @@
 #!/bin/bash
 
+# 使い方: ./setup_cognito.sh [リージョン名]
+# リージョン名を省略した場合は us-west-2 を使用する
+REGION="${1:-us-west-2}"
+
+echo "使用するリージョン: ${REGION}"
+
 # Create User Pool and capture Pool ID directly
 export POOL_ID=$(aws cognito-idp create-user-pool \
   --pool-name "MyUserPool" \
   --policies '{"PasswordPolicy":{"MinimumLength":8}}' \
-  --region us-east-1 | jq -r '.UserPool.Id')
+  --region "${REGION}" | jq -r '.UserPool.Id')
 
 # Create App Client and capture Client ID directly
 export CLIENT_ID=$(aws cognito-idp create-user-pool-client \
@@ -12,14 +18,14 @@ export CLIENT_ID=$(aws cognito-idp create-user-pool-client \
   --client-name "MyClient" \
   --no-generate-secret \
   --explicit-auth-flows "ALLOW_USER_PASSWORD_AUTH" "ALLOW_REFRESH_TOKEN_AUTH" \
-  --region us-east-1 | jq -r '.UserPoolClient.ClientId')
+  --region "${REGION}" | jq -r '.UserPoolClient.ClientId')
 
 # Create User
 aws cognito-idp admin-create-user \
   --user-pool-id $POOL_ID \
   --username "testuser" \
   --temporary-password "TEMP_PASSWORD" \
-  --region us-east-1 \
+  --region "${REGION}" \
   --message-action SUPPRESS > /dev/null
 
 # Set Permanent Password
@@ -27,7 +33,7 @@ aws cognito-idp admin-set-user-password \
   --user-pool-id $POOL_ID \
   --username "testuser" \
   --password "PERMANENT_PASSWORD" \
-  --region us-east-1 \
+  --region "${REGION}" \
   --permanent > /dev/null
 
 # Authenticate User and capture Access Token
@@ -35,9 +41,9 @@ export BEARER_TOKEN=$(aws cognito-idp initiate-auth \
   --client-id "$CLIENT_ID" \
   --auth-flow USER_PASSWORD_AUTH \
   --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
-  --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
+  --region "${REGION}" | jq -r '.AuthenticationResult.AccessToken')
 
-export DISCOVERY_URL=https://cognito-idp.us-east-1.amazonaws.com/$POOL_ID/.well-known/openid-configuration
+export DISCOVERY_URL=https://cognito-idp.${REGION}.amazonaws.com/$POOL_ID/.well-known/openid-configuration
 
 # Output the required values
 echo "Pool id: $POOL_ID"

@@ -121,22 +121,23 @@
 * AgentCore プロジェクトで作成された main.py に上書きコピーします。
 
     ```
-    cp  ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/main.py   ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/handson/app/MyAgent/main.py
+    cp  ~/environment/BedrockAgentCoreBasic/identity_inbound_auth/main.py    ~/environment/BedrockAgentCoreBasic/identity_inbound_auth/AuthAgent/app/MyAgent/main.py
     ```
-    - エージェントのデプロイ
+* エージェントをデプロイします。
     - ```
       agentcore deploy -y
       ```
 
     - マネジメントコンソールでは、作成されたエージェントのインバウンド認証の設定は、「バージョン1」のリンクをクリックすることで確認できます。
 
-    - エージェントの ARN を取得します。
+* エージェントの ARN を取得します。
     - ```
       agentcore status
       ```
 
-    - agentcore status 実行により出力される Agent ARN の値を環境変数に設定します。
-        - Agent ARNに含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードする必要あり
+
+* agentcore status 実行により出力される Agent ARN の値を環境変数に設定します。
+  - Agent ARNに含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードする必要あり
     - 下記は例
     - arn:aws:bedrock-agentcore:us-east-1:123456789012:runtime/my_inbound_auth_agent-4CpCfb8Ukn の場合
     - ```

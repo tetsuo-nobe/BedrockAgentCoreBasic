@@ -57,11 +57,11 @@
 * Cognito ユーザープールの作成と環境変数の設定を実行します。
 
     - ```
-      chmod +x ./setup_cognito.sh
+      chmod +x ./setup_cognito.sh  us-west-2
       ```
 
     - ```
-      ./setup_cognito.sh
+      ./setup_cognito.sh  us-west-2
       ```
     - ```
       source cognito.env

@@ -119,7 +119,7 @@
     cp  ~/environment/BedrockAgentCoreBasic/identity_inbound_auth/main.py    ~/environment/BedrockAgentCoreBasic/identity_inbound_auth/AuthAgent/app/MyAgent/main.py
     ```
 ---
-#### エージェントのデプロイと ARN の取得
+#### エージェントのデプロイ
 
 * エージェントをデプロイします。
     - ```
@@ -128,18 +128,27 @@
 
     - マネジメントコンソールでは、作成されたエージェントのインバウンド認証の設定は、「バージョン1」のリンクをクリックすることで確認できます。
 
-* エージェントの ARN を取得します。
+---
+## AgentCore ラインタイムの ARN の取得
+
+* デプロイしたエージェントを呼び出すためには、エージェントの Amazon Resource Name (ARN) が必要になるため、次のコマンドで取得します。
+
     - ```
       agentcore status
       ```
 
-
-* agentcore status 実行により出力される Agent ARN の値を環境変数に設定します。
-  - Agent ARNに含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードする必要あり
-    - 下記は例
-    - arn:aws:bedrock-agentcore:us-east-1:123456789012:runtime/my_inbound_auth_agent-4CpCfb8Ukn の場合
+* 下記のような出力の中で ARN の値をメモしておきます。
+    - 下記の例だと、**arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/handson_MyAgent-suHGqe9XiS**　が ARN の値になります。
     - ```
-      export ESCAPED_AGENT_ARN=arn%3Aaws%3Abedrock-agentcore%3Aus-east-1%3A123456789012%3Aruntime%2Fmy_inbound_auth_agent-4CpCfb8Ukn 
+      Agents
+        MyAgent: Deployed - Runtime: READY (arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/handson_MyAgent-suHGqe9XiS)
+        URL: https://bedrock-agentcore.us-west-2.amazonaws.com/runtimes/arn%3Aaws%3Abedrock-agentcore%3Aus-west-2%3A123456789012%3Aruntime%2Fhandson_MyAgent-suHGqe9XiS/invocations
+      ```
+
+*　ARN を環境変数に設定します。
+
+    - ```
+      export ARN=(メモした ARN の値)
       ```
 
 ---

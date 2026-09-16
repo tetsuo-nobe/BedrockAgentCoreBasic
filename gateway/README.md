@@ -213,18 +213,6 @@ chmod +x  create-gateway-role.sh
       お出かけには最適な天気ですね！何かほかにご質問はありますか？ 
       ```
 
-* 次のコマンドで main2.py を実行し、Gateway のツールを使用します。
-    - main2.py では AgentCore Identity Oudbound 認証の機能を使用してトークンを取得しています。
-    - ```
-      uv add bedrock_agentcore
-      ```
-    
-    - ```
-      # 実行
-      uv run main2.py
-      ```
-
-
 * 次のコマンドで list_tool.py を実行し、Gateway のツールを表示します。
 
     - ```
@@ -294,6 +282,54 @@ chmod +x  create-gateway-role.sh
       - requests パッケージを使用してツールのリストを取得する
     - **strands_mcp_client.py**
       - Strands Agent が MCP Client としてツールのリストを取得する
+
+---
+
+## AgentCore Identity Outbound 認証の機能で OAuth クライアント (クレデンシャルプロバイダ）を使用して Gateway へアクセスする
+
+### OAuth クライアント (クレデンシャルプロバイダ）の作成
+1. AWS マネジメントコンソールを表示します。
+1. ページ上部の **検索** に `agentcore` を入力して Enter キーを押下します。
+1. 左側のナビゲーションメニューで **アイデンティティ** をクリックします。
+1. **アウトバウンド認証を追加** をクリックして、**OAuth クライアントを追加** をクリックします。
+1. **名前** に `oauth-client-99` を入力します。(**99 はご自分の番号に置き換えます**）
+1. **プロバイダー** で **カスタムプロバイダー** を選択します。
+1. **設定タイプ** で **検出 URL** を選択します。
+1. **検出 URL** にメモしておいた検出 URLの値を入力します。
+1. **クライアント ID** にメモしておいたクライアント ID の値を入力します。
+1. **クライアントシークレット** にメモしておいたクライアントシークレットの値を入力します。
+1. **OAuth クライアントを追加** にクリックします。
+1. **作成した OAuth クライアントの名前をメモしておきます。**
+
+
+### Gateway へのアクセスを確認
+* Code Server に戻ります。ターミナルから次のコマンドで main2.py を実行し、Gateway のツールを使用します。
+    - main2.py では AgentCore Identity Oudbound 認証の OAuth クライアント (クレデンシャルプロバイダ）を使用してトークンを取得しています。
+    - ```
+      cd   ~/environment/BedrockAgentCoreBasic/gateway
+      ```
+    - ```
+      export PROVIDER_NAME=(作成した OAuth クライアント名)
+      ```
+    - ```
+      uv add bedrock_agentcore
+      ```
+    
+    - ```
+      # 実行
+      uv run main2.py
+      ```
+
+    - 下記例のように正しく Gateway のツールにアクセスできることを確認します。
+    ```
+    Created a workload identity
+    Created an user id
+    リクエストを承りました。東京の天気情報を取得します！
+    Tool #1: dummy-weather-17___get_weather
+    東京の現在の天気は **快晴** です！☀️
+    
+    素晴らしいお天気ですね。お出かけには最適な日になりそうです！他にご質問があればお気軽にどうぞ。
+    ```
 
 
 

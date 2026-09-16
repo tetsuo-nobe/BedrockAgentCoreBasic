@@ -93,7 +93,7 @@
     - Model: `Amazon Bedrock (us.anthropic.claude-sonnet-4-5-20250514-v1:0)` を選択
     - Memory: `None` を選択
     - Customiza advanced settings: **Custom auth (JWT)** を選択
-    - Add Agent: `**Custom JWT**` を選択
+    - Add Agent: **`Custom JWT`** を選択
     - **Discovery URL**: メモしておいた DISCOVERY_URL の値を入力
     - **Allowed Clients**: を選択
     - **Allowed Clients**: メモしておいた CLIENT_ID の値を入力

@@ -156,9 +156,25 @@
     ```
   - ```
     echo $TOKEN
-    ``` 
-
+    ```
+    
 *  Token を使用して呼び出し
+
+  - ```
+    cd  ~/environment/BedrockAgentCoreBasic/identity_inbound_auth/
+    ```
+
+  - ```
+    uv init
+    uv add requests python-dotenv
+    ```
+
+  - ```
+    uv run python invoke.py "こんにちは"
+    ```
+
+
+*  Token を使用して呼び出し (curl 使用）
 
   - ```
     export PAYLOAD='{"prompt": "こんにちは、 1+1の答えは?"}'

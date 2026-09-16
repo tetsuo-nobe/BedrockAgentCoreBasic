@@ -153,7 +153,7 @@
 ---
 #### 確認
 
-*  Cognito で認証してトークンを取得
+*  Cognito で認証してトークンを取得します。
 
     - ```
       export TOKEN=$(aws cognito-idp initiate-auth \
@@ -166,7 +166,7 @@
       echo $TOKEN
       ```
     
-*  Token を使用して呼び出し
+*  トークンを使用してエージェントを呼び出します。
 
     - ```
       cd  ~/environment/BedrockAgentCoreBasic/identity_inbound_auth/
@@ -186,7 +186,7 @@
       "こんにちは！👋 お元気ですか？何かお手伝いできることはありますか？😊\n"
       ```
 
-* 無効な Token の場合、エラーになることを確認します。
+* 無効なトークンの場合、エラーになることを確認します。
 
     - ```
       export TOKEN=xxx
@@ -196,7 +196,7 @@
       ```
     - `requests.exceptions.HTTPError: 403 Client Error: Forbidden for url:`
 
-#### お疲れさまでした。JWT トークンが必要なエージェントを作成し、呼び出すことができました。
+#### お疲れさまでした。JWT のトークンが必要なエージェントを作成し、呼び出すことができました。
 
 ---
 
@@ -236,7 +236,7 @@
       "こんにちは！😊\n\n**1 + 1 = 2** です！\n\n他に何か質問はありますか？\n"
       ```
 
-* 無効な Token の場合、エラーになることを確認します。
+* 無効なトークンの場合、エラーになることを確認します。
 
     - ```
       export TOKEN=xxx
@@ -319,7 +319,7 @@
         -d "${PAYLOAD}"
     ```
 
-* 無効な Token の場合、エラーになることを確認します。
+* 無効なトークンの場合、エラーになることを確認します。
 
     ```
     export TOKEN=xxx

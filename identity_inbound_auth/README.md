@@ -49,12 +49,12 @@
 
 * Code Server 環境を開き、ターミナルで下記のコマンドを実行します。
 
-  * Cognito ユーザープールの作成と環境変数の設定を実行します。
+* Cognito ユーザープールの作成と環境変数の設定を実行します。
     - ```
       cd  ~/environment/BedrockAgentCoreBasic/identity_inbound_auth
       ```
 
-  * Cognito ユーザープールの作成と環境変数の設定を実行します。
+* Cognito ユーザープールの作成と環境変数の設定を実行します。
 
     - ```
       chmod +x ./setup_cognito.sh
@@ -74,52 +74,68 @@
 
     - (参考）ユーザープールのクライアントでクライアントシークレットも作成する場合は、setup_cognito_with_secret.sh を参考にしてください。
 
-  * Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイします。
+* Agent を Cognito のトークンによる認証が必要な構成で AgentCore Runtime にデプロイします。
     - エージェントのコードはリポジトリに用意されている `agent_exmple.py` です。
     
-    - ```
-      export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
-      echo $AWS_ACCOUNT_ID
-      ```
-    - エージェントのプロジェクト作成
-    - ```
-      agentcore create \
-        --name my_inbound_auth_agent \
-        --project-name myInboundAuthAgent \
-        --framework Strands \
-        --model-provider Bedrock \
-        --no-agent
-      ```
-    - プロジェクトフォルダへ移動
-    - ```
-      cd myInboundAuthAgent
-      ```
-   - エージェントのコードのコピー
-    - ```
-      cp  /home/ec2-user/environment/BedrockAgentCoreBasic/identity_inbound_auth/agent_example.py .
-      ``` 
-    - エージェントの追加（Inbound 認証を設定）
-    - ``` 
-      agentcore add agent \
-        --name my_inbound_auth_agent \
-        --type byo \
-        --code-location . \
-        --entrypoint agent_example.py \
-        --language Python \
-        --framework Strands \
-        --model-provider Bedrock \
-        --authorizer-type CUSTOM_JWT \
-        --discovery-url "$DISCOVERY_URL" \
-        --allowed-clients "$CLIENT_ID"
-      ```
+* いよいよ AgentCore CLI を使用します。
+* まずは AgentCore Runtime でエージェントをデプロイするためのリソースを格納したプロジェクトフォルダを作成します。
+* agentcore create コマンドを実行し、フォルダ名や、作成するリソース、デプロイ方法、使用する SDK、Memory の使用有無などを対話的に応答していきます。
+
+    ```
+    agentcore create
+    ```
+
+* 対話モードで下記を選択
+    - Project name: `AuthAgent` を **入力**
+    - What would you like to build?: `Agent` を選択 
+    - Agent name: `MyAgent` (デフォルト) を選択
+    - Select agent type: `Create new agent` を選択
+    - Language: `Python` を選択
+    - Build: `Direct Code Deploy` を選択
+    - Protocol: `HTTP` を選択
+    - Framework: `Strands Agents SDK` を選択
+    - Model: `Amazon Bedrock (us.anthropic.claude-sonnet-4-5-20250514-v1:0)` を選択
+    - Memory: `None` を選択
+    - Customiza advanced settings: **Custom auth (JWT)** を選択
+    - **Custom JWT** を選択
+    - **Discovery URL**: メモしておいた DISCOVERY_URL の値を入力
+    - **Allowed Clients**: を選択
+    - **Allowed Clients**: メモしておいた CLIENT_ID の値を入力
+    - OAuth Client ID: 何も入力せず、Enter
+    - 最後にもう一度 Enter
+
+* プロジェクト作成が完了するまで少し待ち、完了後に下記でプロジェクトフォルダに移動します。
+  
+    ```
+    cd AuthAgent
+    ```
+
+---
+## main.py の編集
+
+* 開発環境の左側のナビゲーターで以下の main.py を開いて内容を確認します。
+    - `BedrockAgentCoreBasic/runtime/agentcore-cli/main.py`
+    - この　main.py がデプロイするエージェントのコードになります。
+    - このコードでは、AgentCore のエンドポイントとして指定した関数から Strands Agents SDK のエージェントを呼び出しています。
+
+* AgentCore プロジェクトで作成された main.py に上書きコピーします。
+
+    ```
+    cp  ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/main.py   ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/handson/app/MyAgent/main.py
+    ```
     - エージェントのデプロイ
     - ```
-      agentcore deploy -y  -v
+      agentcore deploy -y
       ```
 
     - マネジメントコンソールでは、作成されたエージェントのインバウンド認証の設定は、「バージョン1」のリンクをクリックすることで確認できます。
 
-    - agentcore launch 実行により出力される Agent ARN の値を環境変数に設定します。
+    - エージェントの ARN を取得します。
+    - ```
+      agentcore status
+      ```
+
+    - agentcore status 実行により出力される Agent ARN の値を環境変数に設定します。
         - Agent ARNに含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードする必要あり
     - 下記は例
     - arn:aws:bedrock-agentcore:us-east-1:123456789012:runtime/my_inbound_auth_agent-4CpCfb8Ukn の場合

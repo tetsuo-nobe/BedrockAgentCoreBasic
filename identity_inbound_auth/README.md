@@ -182,9 +182,16 @@
     uv run python invoke.py "こんにちは"
     ```
 
+---
+
 
 *  Token を使用して呼び出し (curl 使用）
-
+  
+  - ARN に含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードします。これは curl で指定する URL 内に含める必要があるためです。
+  - ```
+    export ESCAPED_AGENT_ARN=$(echo "$ARN" | sed 's/:/%3A/g; s/\//%2F/g')
+    ```
+  - curl コマンドで呼び出します。
   - ```
     export PAYLOAD='{"prompt": "こんにちは、 1+1の答えは?"}'
     export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-west-2.amazonaws.com"
@@ -195,7 +202,7 @@
     -d "${PAYLOAD}"
     ```
 
-* 無効な Token の場合、エラーになることを確認
+* 無効な Token の場合、エラーになることを確認します。
 
   - ```
     export TOKEN=xxx
@@ -224,12 +231,10 @@
 ![inbound](images/agent-inbound-console.png)
 
 * デプロイしたエージェントの「ランタイム ARN」の値を環境変数に設定します。
-    - ARN に含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードする必要あり
-    - 下記は例
-    - arn:aws:bedrock-agentcore:us-east-1:123456789012:runtime/my_inbound_auth_agent-4CpCfb8Ukn  の場合
-    - ```
-      export ESCAPED_AGENT_ARN=arn%3Aaws%3Abedrock-agentcore%3Aus-east-1%3A123456789012%3Aruntime%2Fmy_inbound_auth_agent-4CpCfb8Ukn 
-      ```
+  - ARN に含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードします。これは curl で指定する URL 内に含める必要があるためです。
+  - ```
+    export ESCAPED_AGENT_ARN=$(echo "$ARN" | sed 's/:/%3A/g; s/\//%2F/g')
+    ```
 
 * またデプロイ後、Cognito ユーザープールとのクライアントが作成されているので、環境変数で POOL_ID にユーザープール ID を、CLIENT_ID に アプリケーションクライアント ID を設定します。
 

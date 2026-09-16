@@ -152,45 +152,45 @@
 
 *  Cognito で認証してトークンを取得
 
-  - ```
-    export TOKEN=$(aws cognito-idp initiate-auth \
-      --client-id "$CLIENT_ID" \
-      --auth-flow USER_PASSWORD_AUTH \
-      --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
-      --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
-    ```
-  - ```
-    echo $TOKEN
-    ```
+    - ```
+      export TOKEN=$(aws cognito-idp initiate-auth \
+        --client-id "$CLIENT_ID" \
+        --auth-flow USER_PASSWORD_AUTH \
+        --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
+        --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
+      ```
+    - ```
+      echo $TOKEN
+      ```
     
 *  Token を使用して呼び出し
 
-  - ```
-    cd  ~/environment/BedrockAgentCoreBasic/identity_inbound_auth/
-    ```
+    - ```
+      cd  ~/environment/BedrockAgentCoreBasic/identity_inbound_auth/
+      ```
 
-  - ```
-    uv init
-    uv add requests python-dotenv
-    ```
+    - ```
+      uv init
+      uv add requests python-dotenv
+      ```
 
-  - ```
-    uv run python invoke.py "こんにちは"
-    ```
-  - 下記例のような出力を確認して、エージェントを呼び出せたことを確認します
-  - ```
-    === エージェントからの応答 ===
-    "こんにちは！👋 お元気ですか？何かお手伝いできることはありますか？😊\n"
-    ```
+    - ```
+      uv run python invoke.py "こんにちは"
+      ```
+    - 下記例のような出力を確認して、エージェントを呼び出せたことを確認します
+    - ```
+      === エージェントからの応答 ===
+      "こんにちは！👋 お元気ですか？何かお手伝いできることはありますか？😊\n"
+      ```
 
 * 無効な Token の場合、エラーになることを確認します。
 
-  - ```
-    export TOKEN=xxx
-    ```
-  - ```
-    uv run python invoke.py "こんにちは"
-    ```
+    - ```
+      export TOKEN=xxx
+      ```
+    - ```
+      uv run python invoke.py "こんにちは"
+      ```
 
 #### お疲れさまでした。JWT トークンが必要なエージェントを作成し、呼び出すことができました。
 

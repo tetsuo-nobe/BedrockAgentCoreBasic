@@ -303,7 +303,7 @@
     export TOKEN=$(aws cognito-idp initiate-auth \
           --client-id "$CLIENT_ID" \
           --auth-flow USER_PASSWORD_AUTH \
-          --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
+          --auth-parameters USERNAME='testuser',PASSWORD='Demo@1234' \
           --region us-west-2 | jq -r '.AuthenticationResult.AccessToken')
     ```
 

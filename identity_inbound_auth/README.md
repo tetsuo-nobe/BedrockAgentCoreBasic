@@ -145,7 +145,7 @@
         URL: https://bedrock-agentcore.us-west-2.amazonaws.com/runtimes/arn%3Aaws%3Abedrock-agentcore%3Aus-west-2%3A123456789012%3Aruntime%2Fhandson_MyAgent-suHGqe9XiS/invocations
       ```
 
-*　ARN を環境変数に設定します。
+* ARN を環境変数に設定します。
 
     - ```
       export ARN=(メモした ARN の値)

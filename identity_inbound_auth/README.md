@@ -271,10 +271,10 @@
     ```
 
 * またデプロイ後、Cognito ユーザープールとのクライアントが作成されているので、環境変数で POOL_ID にユーザープール ID を、CLIENT_ID に アプリケーションクライアント ID を設定します。
-
+    下記は例です。
     ```
-    POOL_ID=us-west-2_IIvfidhXZ
-    CLIENT_ID=4k8bv0dda0aou82q0mhh2fec5
+    export POOL_ID=us-west-2_IIvfidhXZ
+    export CLIENT_ID=4k8bv0dda0aou82q0mhh2fec5
     ```
 
 * Congnito ユーザープールにユーザーを作成します。

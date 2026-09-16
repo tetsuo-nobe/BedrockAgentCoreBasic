@@ -73,47 +73,12 @@
 
 ![in2](images/identity_out2.png)
 
-* **main-local.py**
-* サンプルコードでは Agent ではなく通常の Python コードから Bearer トークンを取得し、AgentCore Gateway で weather を呼び出す。
-    - このリポジトリの gateway フォルダのサンプルで作成した weather を呼び出す前提
-    - gateway サンプルでは Cognito から Bearer トークンを取得したが、このサンプルでは AgentCore Identity の機能を使用して Bearer トークン を取得する
 
-#### 準備
+---
 
-1. このリポジトリの AgentCore Gateway のサンプルを構成しておく
-    - この AgentCore Gateway のサンプルは、ツール呼び出し時に Identity の Inbound 認証が必要と構成されている。
-    - この Inbound 認証に必要な JWT トークンを Identity の Outbound 認証機能で取得する。
+#### [推奨の手順はこちら](https://github.com/tetsuo-nobe/BedrockAgentCoreBasic/tree/main/gateway#agentcore-identity-outbound-%E8%AA%8D%E8%A8%BC%E3%81%AE%E6%A9%9F%E8%83%BD%E3%81%A7-oauth-%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88-%E3%82%AF%E3%83%AC%E3%83%87%E3%83%B3%E3%82%B7%E3%83%A3%E3%83%AB%E3%83%97%E3%83%AD%E3%83%90%E3%82%A4%E3%83%80%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6-gateway-%E3%81%B8%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B)
 
-1. AWS マネジメントコンソールで AgentCore Identity のアウトバウンド認証の OAuth クライアントを作成
-    - 「プロバイダー」で「カスタムプロバイダ」を選択
-    - 「プロバイダーの設定」で、「設定タイプ」に「検出 URL」を選択
-        - 「クライアント ID」に、AgentCore Gateway の Cognito ユーザープールのクライアント ID を入力
-        - 「クライアント シークレットに、AgentCore Gateway の Cognito ユーザープールのクライアントシークレットを入力
-        - 「検出 URL」に、AgentCore Gateway の検出 URL を入力
-    - **作成した OAuth クライアントの名前をメモしておく**
-
-#### 実行
-
-1. .env を作成
-   - **PROVIDER_NAME は、作成した AgentCore Identity のアウトバウンド認証の OAuth クライアントの名前**
-   - CUSTOM_SCOPE は、マネコンで Cognito のアプリケーションクライアントの [ログインページ] タブに表示されている
-   - GATEWAY_URL は、AgentCore Gateway のページに表示されている
-   - 例
-    ```
-    PROVIDER_NAME=resource-provider-oauth-client-pasa8
-    CUSTOM_SCOPE=get-weather-gw/genesis-gateway:invoke
-    GATEWAY_URL=https://get-weather-gw-7fsir8frv5.gateway.bedrock-agentcore.us-east-1.amazonaws.com/mcp
-    ```
-
-1. 依存パッケージのインストール（uv を使用）
-    ```
-    uv add strands-agents "mcp>=1.9,<2" python-dotenv requests
-    ```
-
-1. サンプル実行
-    ```
-    uv run main-local.py
-    ```
+* 上記は AgentCore Gateway を作成、アクセスする一連のワーク手順で、その中で Identity Outbound 認証の OAuth クライアント（クレデンシャルプロバイダ）も使用する手順も含まれている。
 
 
 ---
@@ -126,7 +91,6 @@
 * **test-anthropic.py**
     - スタンドアローンで Anthropic の API キーを使用するサンプル
 ---
-* 参考にしたブログ記事
-  - https://qiita.com/moritalous/items/6c822e68404e93d326a4
+
 
 

@@ -144,7 +144,7 @@
 
   - ```
     export PAYLOAD='{"prompt": "こんにちは、 1+1の答えは?"}'
-    export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-east-1.amazonaws.com"
+    export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-west-2.amazonaws.com"
 
     curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \
     -H "Authorization: Bearer ${TOKEN}" \

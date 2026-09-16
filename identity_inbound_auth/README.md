@@ -160,7 +160,7 @@
         --client-id "$CLIENT_ID" \
         --auth-flow USER_PASSWORD_AUTH \
         --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
-        --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
+        --region us-west-2 | jq -r '.AuthenticationResult.AccessToken')
       ```
     - ```
       echo $TOKEN
@@ -214,7 +214,7 @@
         --client-id "$CLIENT_ID" \
         --auth-flow USER_PASSWORD_AUTH \
         --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
-        --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
+        --region us-west-2 | jq -r '.AuthenticationResult.AccessToken')
       ```
     
     - ```
@@ -273,7 +273,7 @@
 * またデプロイ後、Cognito ユーザープールとのクライアントが作成されているので、環境変数で POOL_ID にユーザープール ID を、CLIENT_ID に アプリケーションクライアント ID を設定します。
 
     ```
-    POOL_ID=us-east-1_IIvfidhXZ
+    POOL_ID=us-west-2_IIvfidhXZ
     CLIENT_ID=4k8bv0dda0aou82q0mhh2fec5
     ```
 
@@ -284,7 +284,7 @@
       --user-pool-id $POOL_ID \
       --username "testuser" \
       --temporary-password "Test@1234" \
-      --region us-east-1 \
+      --region us-west-2 \
       --message-action SUPPRESS > /dev/null
     ```
 
@@ -293,7 +293,7 @@
       --user-pool-id $POOL_ID \
       --username "testuser" \
       --password "Demo@1234" \
-      --region us-east-1 \
+      --region us-west-2 \
       --permanent > /dev/null
     ```
 
@@ -304,14 +304,14 @@
           --client-id "$CLIENT_ID" \
           --auth-flow USER_PASSWORD_AUTH \
           --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
-          --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
+          --region us-west-2 | jq -r '.AuthenticationResult.AccessToken')
     ```
 
 *  Token を使用して呼び出します。
 
     ```
     export PAYLOAD='{"prompt": "こんにちは、 1+1の答えは?"}'
-    export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-east-1.amazonaws.com"
+    export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-west-2.amazonaws.com"
     
     curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \
         -H "Authorization: Bearer ${TOKEN}" \

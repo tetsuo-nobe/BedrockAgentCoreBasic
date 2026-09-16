@@ -139,6 +139,9 @@
       --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
       --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
     ```
+  - ```
+    echo $TOKEN
+    ``` 
 
 *  Token を使用して呼び出し
 

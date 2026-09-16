@@ -261,7 +261,7 @@
 
 * マネジメントコンソールの「**エージェントとツールの詳細**」セクションから「**ランタイム ARN**」の値をコピーして ARN 環境変数に設定します。
   - ```
-    ARN=arn:aws:bedrock-agentcore:us-west-2:864899829214:runtime/hosted_agent_auth-5QLgJP6sF8
+    export ARN=arn:aws:bedrock-agentcore:us-west-2:864899829214:runtime/hosted_agent_auth-5QLgJP6sF8
     ```
 
 * ARN 環境変数 に含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードします。

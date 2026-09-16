@@ -76,7 +76,7 @@
       export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
       echo $AWS_ACCOUNT_ID
       ```
- 
+    - エージェントのプロジェクト作成
     - ```
       agentcore create \
         --name my_inbound_auth_agent \
@@ -85,10 +85,11 @@
         --model-provider Bedrock \
         --no-agent
       ```
+  　- プロジェクトフォルダへ移動
     - ```
       cd myInboundAuthAgent
       ```
-      
+    - エージェントの追加（Inbound 認証を設定）
     - ``` 
       agentcore add agent \
         --name my_inbound_auth_agent \
@@ -100,7 +101,7 @@
         --discovery-url "$DISCOVERY_URL" \
         --allowed-clients "$CLIENT_ID"
       ```
-
+    - エージェントのデプロイ
     - ```
       agentcore deploy -y
       ```

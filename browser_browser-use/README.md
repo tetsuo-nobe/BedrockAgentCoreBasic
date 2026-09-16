@@ -14,7 +14,7 @@
 * 下記のコマンドでサンプルを実行できます。
 
 ```
-cd BedrockAgentCoreBasic/browser_browser-use/
+cd  ~/environment/BedrockAgentCoreBasic/browser_browser-use/
 ```
 
 ```

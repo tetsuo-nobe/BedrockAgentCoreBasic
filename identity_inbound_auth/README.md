@@ -254,7 +254,12 @@
     - 名前に `agent-pool-` という接頭辞がついた Cognito ユーザープールとそのアプリケーションクライアントが自動で作成されます。
     - このアプリケーションクライアントは、デフォルトでは **M2M タイプではありません。** よってクライアントシークレットもありません。
 
-![inbound](images/agent-inbound-console.png)
+<img width="995" height="939" alt="image" src="https://github.com/user-attachments/assets/45ff3e3e-11f6-4bb5-9017-c4af3833c360" />
+
+* マネジメントコンソールの「**エージェントとツールの詳細**」セクションから「**ランタイム ARN**」の値をコピーして ARN 環境変数に設定します。
+  - ```
+    ARN=arn:aws:bedrock-agentcore:us-west-2:864899829214:runtime/hosted_agent_auth-5QLgJP6sF8
+    ```
 
 * ARN 環境変数 に含まれる:（コロン）は%3Aに、 /（スラッシュ）は%2Fにエンコードします。
   - これは curl コマンドの URL のパスに含む必要があるためです。
@@ -264,63 +269,63 @@
 
 * またデプロイ後、Cognito ユーザープールとのクライアントが作成されているので、環境変数で POOL_ID にユーザープール ID を、CLIENT_ID に アプリケーションクライアント ID を設定します。
 
-```
-POOL_ID=us-east-1_IIvfidhXZ
-CLIENT_ID=4k8bv0dda0aou82q0mhh2fec5
-```
+    ```
+    POOL_ID=us-east-1_IIvfidhXZ
+    CLIENT_ID=4k8bv0dda0aou82q0mhh2fec5
+    ```
 
 * Congnito ユーザープールにユーザーを作成します。
 
-```
-aws cognito-idp admin-create-user \
-  --user-pool-id $POOL_ID \
-  --username "testuser" \
-  --temporary-password "Test@1234" \
-  --region us-east-1 \
-  --message-action SUPPRESS > /dev/null
-```
+    ```
+    aws cognito-idp admin-create-user \
+      --user-pool-id $POOL_ID \
+      --username "testuser" \
+      --temporary-password "Test@1234" \
+      --region us-east-1 \
+      --message-action SUPPRESS > /dev/null
+    ```
 
-```
-aws cognito-idp admin-set-user-password \
-  --user-pool-id $POOL_ID \
-  --username "testuser" \
-  --password "Demo@1234" \
-  --region us-east-1 \
-  --permanent > /dev/null
-```
+    ```
+    aws cognito-idp admin-set-user-password \
+      --user-pool-id $POOL_ID \
+      --username "testuser" \
+      --password "Demo@1234" \
+      --region us-east-1 \
+      --permanent > /dev/null
+    ```
 
 *  Cognito で認証してトークンを取得します。
 
-```
-export TOKEN=$(aws cognito-idp initiate-auth \
-      --client-id "$CLIENT_ID" \
-      --auth-flow USER_PASSWORD_AUTH \
-      --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
-      --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
-```
+    ```
+    export TOKEN=$(aws cognito-idp initiate-auth \
+          --client-id "$CLIENT_ID" \
+          --auth-flow USER_PASSWORD_AUTH \
+          --auth-parameters USERNAME='testuser',PASSWORD='PERMANENT_PASSWORD' \
+          --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
+    ```
 
 *  Token を使用して呼び出します。
 
-```
-export PAYLOAD='{"prompt": "こんにちは、 1+1の答えは?"}'
-export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-east-1.amazonaws.com"
-
-curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \
-    -H "Authorization: Bearer ${TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "${PAYLOAD}"
-```
+    ```
+    export PAYLOAD='{"prompt": "こんにちは、 1+1の答えは?"}'
+    export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-east-1.amazonaws.com"
+    
+    curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \
+        -H "Authorization: Bearer ${TOKEN}" \
+        -H "Content-Type: application/json" \
+        -d "${PAYLOAD}"
+    ```
 
 * 無効な Token の場合、エラーになることを確認します。
 
-```
-export TOKEN=xxx
-
-curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \
-    -H "Authorization: Bearer ${TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "${PAYLOAD}"
-```
+    ```
+    export TOKEN=xxx
+    
+    curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \
+        -H "Authorization: Bearer ${TOKEN}" \
+        -H "Content-Type: application/json" \
+        -d "${PAYLOAD}"
+    ```
 
 ---
 

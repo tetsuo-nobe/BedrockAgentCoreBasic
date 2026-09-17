@@ -1,0 +1,9 @@
+[project]
+name = "agentcore-memory-strands-hooks-sample"
+version = "0.1.0"
+description = "AgentCore Memory 短期記憶サンプル (Strands hooks + AgentCore SDK 版)"
+requires-python = ">=3.13"
+dependencies = [
+    "bedrock-agentcore>=0.1.0",
+    "strands-agents>=0.1.0",
+]

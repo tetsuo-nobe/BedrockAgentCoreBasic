@@ -1,0 +1,8 @@
+[project]
+name = "agentcore-memory-aws-sdk-sample"
+version = "0.1.0"
+description = "AgentCore Memory 短期記憶サンプル (AWS SDK for Python / boto3 版)"
+requires-python = ">=3.13"
+dependencies = [
+    "boto3>=1.34.0",
+]

@@ -1,0 +1,8 @@
+[project]
+name = "agentcore-memory-agentcore-sdk-sample"
+version = "0.1.0"
+description = "AgentCore Memory 短期記憶サンプル (AgentCore Python SDK 版)"
+requires-python = ">=3.13"
+dependencies = [
+    "bedrock-agentcore>=0.1.0",
+]

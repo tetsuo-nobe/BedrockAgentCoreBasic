@@ -1,11 +1,4 @@
-"""AgentCore harness を呼び出すサンプル (AWS SDK for Python / boto3 版)。
-
-事前に CreateHarness (AWS CLI や AgentCore CLI) で作成済みの harness に対して、
-InvokeHarness でメッセージを送信し、ストリーミングで応答を受け取ります。
-
-InvokeHarness は IAM (SigV4) 認証で呼び出せるため、boto3 の bedrock-agentcore
-クライアントをそのまま使用できます (identity_inbound_auth の invoke.py のような
-Bearer トークンは不要です)。
+"""AgentCore harness を呼び出すサンプル (AWS SDK for Python / boto3 版)
 
 harness ID / ARN は環境変数 HARNESS_ARN から取得します (harness は事前作成済みが前提)。
 参考: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-get-started.html

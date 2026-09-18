@@ -370,11 +370,14 @@ uv run invoke.py
 * 左側のナビゲーションメニューで [**構築**] - [**ランタイム**] をクリックします。
 * [**ランタイムリソース**] に [**handson2_MyAgent**] が表示され、[**ステータス**] が [**準備完了**] になっていることを確認します。
 
+<img width="1635" height="1093" alt="image" src="https://github.com/user-attachments/assets/5749177b-1e3d-4d72-90e7-f4ee18a927e0" />
 
 
 * マネジメントコンソールの検索で `ecr` を入力して、Elastic Container Registry のページを表示します。
-* 左側のナビゲーションメニューで [**構築**] - [**ランタイム**] をクリックします。
-* [**ランタイムリソース**] に [**handson2_MyAgent**] が表示され、[**ステータス**] が [**準備完了**] になっていることを確認します。
+* 左側のナビゲーションメニューで [**プライベートリポジトリ**] - [**リポジトリ**] をクリックします。
+* [**リポジトリ名**] に [**handson2/myAgent**] が表示されていることを確認します。
+
+<img width="1418" height="405" alt="image" src="https://github.com/user-attachments/assets/8d63ec14-ad54-40a7-a1e6-82aee5e020ca" />
 
 
 ---

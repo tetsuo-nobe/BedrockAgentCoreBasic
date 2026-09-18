@@ -254,7 +254,7 @@ uv run invoke.py
 * 次に、agentcore CLI を使用し、エージェントをコンテナ化して AgentCore Runtime にデプロイしてみます。
 * これを実行するには　Docker の環境が必要ですが、Code Server 環境には Docker はインストールされているので問題ありません。
 ---
-## AgentCore プロジェクトの作成
+## AgentCore プロジェクト(コンテナデプロイ用)の作成
 
 * フォルダを移動します。
 

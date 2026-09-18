@@ -60,7 +60,7 @@ uv run invoke.py
 環境変数 `SESSION_ID` に設定してから再度実行してください。
 
 ```powershell
-$env:SESSION_ID = "(1回目の実行で表示された SessionId の値)"
+export SESSION_ID="(1回目の実行で表示された SessionId の値)"
 uv run python invoke.py "さっきの続きで、予算をもう少し抑えたプランにしてください。"
 ```
 

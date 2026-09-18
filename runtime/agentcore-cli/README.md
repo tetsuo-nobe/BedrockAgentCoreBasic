@@ -377,7 +377,7 @@ uv run invoke.py
 
 
 * マネジメントコンソールの検索で `ecr` を入力して、Elastic Container Registry のページを表示します。
-* 左側のナビゲーションメニューで [**プライベートリポジトリ**] - [**リポジトリ**] をクリックします。
+* 左側のナビゲーションメニューで [**プライベートレジストリ**] - [**リポジトリ**] をクリックします。
 * [**リポジトリ名**] に [**handson2/myAgent**] が表示されていることを確認します。
 
 <img width="1418" height="405" alt="image" src="https://github.com/user-attachments/assets/8d63ec14-ad54-40a7-a1e6-82aee5e020ca" />

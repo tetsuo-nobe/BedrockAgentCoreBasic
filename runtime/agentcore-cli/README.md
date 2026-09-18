@@ -12,7 +12,7 @@
 * フォルダの移動
 
     ```
-    cd  ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli
+    cd  ~/environment/BedrockAgentCoreBasic
     ```
 
 * 今回使用する開発環境の権限の関係上、npm のグローバルパッケージ用ディレクトリを作成します。

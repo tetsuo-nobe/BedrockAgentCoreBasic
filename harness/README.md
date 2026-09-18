@@ -13,9 +13,13 @@ AWS SDK for Python (boto3) を直接使って、事前に作成済みの AgentCo
 - [uv](https://docs.astral.sh/uv/) がインストールされていること
 - AWS認証情報が設定済みであること (`aws configure` など)
 - 呼び出す IAM プリンシパルに `bedrock-agentcore:InvokeHarness` の権限があること
-- AgentCore harness が作成済みであること (未作成の場合は下記「harness の作成」を参照)
+- AgentCore harness が作成済みであること (未だ作成していない場合は下記「harness の作成」を参照)
 
 ## セットアップ
+
+```powershell
+cd  ~/environment/BedrockAgentCoreBasic/harness
+```
 
 ```powershell
 uv sync
@@ -43,13 +47,13 @@ $env:QUALIFIER = "DEFAULT"     # 省略時は DEFAULT エンドポイントが�
 ## 実行方法
 
 ```powershell
-uv run python invoke.py "5日間の東京旅行の予算内プランを考えてください。"
+uv run invoke.py "5日間の東京旅行の予算内プランを考えてください。"
 ```
 
 引数を省略した場合は既定のプロンプト(「こんにちは」)を送信します。
 
 ```powershell
-uv run python invoke.py
+uv run invoke.py
 ```
 
 同じ会話を継続したい場合は、1回目に使われた `SessionId`(実行時に標準出力へ表示されます)を

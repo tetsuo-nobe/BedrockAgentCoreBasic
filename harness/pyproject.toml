@@ -1,0 +1,9 @@
+[project]
+name = "harness"
+version = "0.1.0"
+description = "AgentCore harness を呼び出すサンプル (AWS SDK for Python / boto3 版)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "boto3>=1.43.0",
+]

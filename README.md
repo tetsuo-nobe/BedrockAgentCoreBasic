@@ -42,6 +42,11 @@
     - tech-learning-assistant
         - Long-term memory を使用した技術学習支援アシスタント
 
+## Harness
+
+* harness
+    - 事前に作成済みの AgentCore harness を InvokeHarness で呼び出す (AWS SDK / boto3 版)
+
 ## Policy
 
 * agentcore-policy-quickstart

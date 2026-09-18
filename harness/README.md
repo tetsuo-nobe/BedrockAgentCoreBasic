@@ -71,7 +71,7 @@ uv run python invoke.py "さっきの続きで、予算をもう少し抑えた�
 
 ---
 
-## (参考) harness の作成
+## (参考) AgentCore harness の作成
 
 このサンプルは呼び出し専用のため、harness 自体は別途作成しておく必要があります。
 

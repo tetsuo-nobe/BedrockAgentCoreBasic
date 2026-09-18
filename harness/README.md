@@ -23,6 +23,17 @@ uv sync
 
 ## 環境変数の設定
 
+* 作成した AgentCore harness の ARN を環境変数に設定します。
+
+```bash
+export HARNESS_ARN="arn:aws:bedrock-agentcore:us-west-2:123456789012:harness/MyHarness-XyZ123"  # 作成済み harness の ARN
+export AWS_REGION="us-west-2"  # 省略時は us-west-2 が使われます
+export QUALIFIER="DEFAULT"     # 省略時は DEFAULT エンドポイントが使われます
+
+```
+
+* 下記は Windows の場合
+
 ```powershell
 $env:HARNESS_ARN = "arn:aws:bedrock-agentcore:us-west-2:123456789012:harness/MyHarness-XyZ123"  # 作成済み harness の ARN
 $env:AWS_REGION = "us-west-2"  # 省略時は us-west-2 が使われます

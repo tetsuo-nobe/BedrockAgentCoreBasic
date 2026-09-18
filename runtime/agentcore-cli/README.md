@@ -245,6 +245,215 @@ uv run invoke.py
 お元気ですか？何かお手伝いできることはありますか？😊
 ```
 
+---
+---
+---
+
+## エージェントをコンテナ化してデプロイする
+
+* 次に、agentcore CLI を使用し、エージェントをコンテナ化して AgentCore Runtime にデプロイしてみます。
+* これを実行するには　Docker の環境が必要ですが、Code Server 環境には Docker はインストールされているので問題ありません。
+---
+## AgentCore プロジェクトの作成
+
+* フォルダを移動します。
+
+    ```
+    cd  ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli
+    ```
+
+*  AgentCore CLI を使用してプロジェクトを作成していきます。
+
+    ```
+    agentcore create
+    ```
+
+* 対話モードで下記を選択
+    - Project name: `handson2` を **入力**
+    - What would you like to build?: `Agent` を選択 
+    - Agent name: `MyAgent` (デフォルト) を選択
+    - Select agent type: `Create new agent` を選択
+    - Language: `Python` を選択
+    - Build: **`Container`** を選択
+    - Protocol: `HTTP` を選択
+    - Framework: `Strands Agents SDK` を選択
+    - Model: `Amazon Bedrock (us.anthropic.claude-sonnet-4-5-20250514-v1:0)` を選択
+    - Memory: `None` を選択
+    - Customiza advanced settings: (何も選択せず Enter)
+    - 最後にもう一度 Enter
+
+* プロジェクト作成が完了するまで少し待ち、完了後に下記でプロジェクトフォルダに移動します。
+  
+    ```
+    cd handson2
+    ```
+
+---
+## main.py の編集
+
+* 開発環境の左側のナビゲーターで以下の main.py を開いて内容を確認します。
+    - `BedrockAgentCoreBasic/runtime/agentcore-cli/main.py`
+    - この　main.py がデプロイするエージェントのコードになります。
+    - このコードでは、AgentCore のエンドポイントとして指定した関数から Strands Agents SDK のエージェントを呼び出しています。
+
+* AgentCore プロジェクトで作成された main.py に上書きコピーします。
+
+    ```
+    cp  ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/main.py   ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/handson2/app/MyAgent/main.py
+    ```
+---
+## ローカルで実行
+
+1. まずはローカルで実行してみます。
+    - （デフォルトポートは 8080 ですが使用されている場合は他のポートが使われます。）
+    - **出力内容から使用しているポートを確認しておきます。**
+    ```
+    agentcore dev --logs
+    ```
+
+    * この段階で Docker のコンテナイメージがビルドされます。
+
+1. 新しいターミナルを開きます。
+   
+    <img width="646" height="277" alt="image" src="https://github.com/user-attachments/assets/7a3a13d5-ebc0-4721-abfb-7e43620b1a35" />
+
+
+
+1. 下記コマンドにより、ローカル実行されている Agent を呼び出せます。
+
+    * ポートを指定する場合は下記
+    ```
+    agentcore dev "こんにちは!" --port 8081
+    ```
+
+    * ポート 8080 を使用している場合は下記
+    ```
+    agentcore dev "Hello!"
+    ```
+
+1. Agent から下記例のようなメッセージが返されることを確認します。
+   ```
+   "こんにちは！😊\n\nお元気ですか？何かお手伝いできることはありますか？\n"
+   ```
+
+1. 新しく開いたターミナルを閉じます。
+   ```
+   exit
+   ```
+
+1. 元のターミナルで、Ctrl + c を押下し、ローカルサーバーを停止します。
+
+
+---
+## AgentCore Runtime へのデプロイ
+
+* デプロイするエージェントが完成したので、AgentCore Runtime へデプロイします。
+* handson2 フォルダにいることを確認します。
+
+    ```
+    pwd
+    ```
+
+* agentcore deploy コマンドでデプロイを実行します。
+
+    ```
+    agentcore deploy
+    ```
+
+> [!NOTE]
+> 途中、CDK の bootstrap 実行の確認が求められたら、Enter キーを押してください。
+
+---
+##  (オプション）マネジメントコンソールでのデプロイの確認
+
+* マネジメントコンソールの検索で `agentcore` を入力して、AgentCore のページを表示します。
+* 左側のナビゲーションメニューで [**構築**] - [**ランタイム**] をクリックします。
+* [**ランタイムリソース**] に [**handson2_MyAgent**] が表示され、[**ステータス**] が [**準備完了**] になっていることを確認します。
+
+
+
+* マネジメントコンソールの検索で `ecr` を入力して、Elastic Container Registry のページを表示します。
+* 左側のナビゲーションメニューで [**構築**] - [**ランタイム**] をクリックします。
+* [**ランタイムリソース**] に [**handson2_MyAgent**] が表示され、[**ステータス**] が [**準備完了**] になっていることを確認します。
+
+
+---
+
+## AgentCore ラインタイムの ARN の取得
+
+* デプロイしたエージェントを呼び出すためには、エージェントの Amazon Resource Name (ARN) が必要になるため、次のコマンドで取得します。
+
+```
+agentcore status
+```
+
+* 下記のような出力の中で ARN の値をメモしておきます。
+    - 下記の例だと、**arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/handson2_MyAgent-suHGqe9XiS**　が ARN の値になります。
+```
+Agents
+  MyAgent: Deployed - Runtime: READY (arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/handson2_MyAgent-suHGqe9XiS)
+  URL: https://bedrock-agentcore.us-west-2.amazonaws.com/runtimes/arn%3Aaws%3Abedrock-agentcore%3Aus-west-2%3A123456789012%3Aruntime%2Fhandson2_MyAgent-suHGqe9XiS/invocations
+```
+
+
+
+
+---
+## デプロイしたエージェントの呼び出し
+
+* エージェントを呼び出すコードを用意します。
+* 下記のコマンドで、uv で実行するための準備を行います。
+
+```
+uv init --python 3.14
+uv add "boto3[crt]==1.42.96"
+```
+
+* handson2 フォルダにいることを確認して下さい。
+
+```
+pwd
+```
+
+* エージェントを呼び出すコード (invoke.py) をリポジトリからコピーします。
+
+```
+cp ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/invoke.py   ~/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/handson2/invoke.py
+```
+
+* invoke.py を編集して、デプロイしたエージェントの ARN をコードに設定します。
+
+```
+ARN=メモしたARN
+```
+
+```
+sed -i "s|YOUR_AGENT_RUNTIME_ARN|$ARN|g" invoke.py
+```
+
+* ARN が正しく設定されていることを確認します。
+    - `# ランタイム ARN を記載` というコメントがある行で、`agentRuntimeArn=` に ARN の値が設定されているか確認します。
+```
+cat invoke.py
+```
+ 
+
+* 呼び出しを実行します。
+
+```
+uv run invoke.py
+```
+
+* エージェントから回答が返ってくることを確認します。(下記は例です。）
+
+```
+こんにちは！👋
+
+お元気ですか？何かお手伝いできることはありますか？😊
+```
+
+
+
 ### お疲れさまでした！ 
 #### AgentCore CLI を使用し、Strands Agents SDK で作成したエージェントを AgentCore ランタイムへデプロイして呼び出すことができました。
 

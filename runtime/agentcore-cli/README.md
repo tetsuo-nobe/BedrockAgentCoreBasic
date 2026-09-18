@@ -455,10 +455,11 @@ uv run invoke.py
 お元気ですか？何かお手伝いできることはありますか？😊
 ```
 
-
+#### コンテナでデプロイする場合でも、agentcore CLI を使用することで、効率的に AgentCore Runtime へデプロイできることが確認できました。
 
 ### お疲れさまでした！ 
-#### AgentCore CLI を使用し、Strands Agents SDK で作成したエージェントを AgentCore ランタイムへデプロイして呼び出すことができました。
+
+#### AgentCore CLI を使用し、Strands Agents SDK で作成したエージェントを AgentCore ランタイムへデプロイするワークはここで終了です。
 
 ---
 

@@ -289,7 +289,7 @@ uv run invoke.py
     ```
 
 * コンテナイメージをビルドするために下記の Docker ファイルが用意されていることを確認します。
-    - `/home/ec2-user/environment/BedrockAgentCoreBasic/runtime/agentcore-cli/handson2/app/MyAgent/Dockerfile`
+    - `BedrockAgentCoreBasic/runtime/agentcore-cli/handson2/app/MyAgent/Dockerfile`
   
 ---
 ## main.py の編集

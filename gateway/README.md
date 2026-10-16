@@ -52,9 +52,9 @@ chmod +x  create-gateway-role.sh
 
 1. ページ上部の **検索** に `lambda` を入力して Enter キーを押下します。
 
-1. AWS Lambda のページの左側のナビゲーションメニューで **関数** をクリックします。
+1. AWS Lambda のページの左側のナビゲーションメニューで **Event Funtions** をクリックします。
 
-1. **関数を作成** をクリックします。
+1. **Create Event Function** をクリックします。
 
 1. **基本的な情報** で下記を入力・選択します。
    - **関数名**: `dummy-weather-99` (**99 はご自分の番号に置き換えます**）

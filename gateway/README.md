@@ -60,7 +60,7 @@ chmod +x  create-gateway-role.sh
    - **関数名**: `dummy-weather-99` (**99 はご自分の番号に置き換えます**）
    - **ランタイム**: **Python 3.14**
 
-1. **関数を作成** をクリックします。
+1. **Create Event Function** をクリックします。
 
 1. **Getting started** ダイアログが表示された場合は、**Dismiss** をクリックします。
 

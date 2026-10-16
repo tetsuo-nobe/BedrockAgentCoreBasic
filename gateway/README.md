@@ -302,8 +302,8 @@ chmod +x  create-gateway-role.sh
 1. **設定タイプ** で **検出 URL** を選択します。
 1. **検出 URL** に .env の DISCOVERY_URLの値を入力します。
 1. **クライアント ID** に .env の CLIENT_ID の値を入力します。
-1. **クライアントシークレット** .env の CLIENT_SECRERT の値を入力します。
-1. **OAuth クライアントを追加** にクリックします。
+1. **クライアントシークレット** に .env の CLIENT_SECRERT の値を入力します。
+1. **OAuth クライアントを追加** をクリックします。
 1. **作成した OAuth クライアントの名前をメモしておきます。**
 
 

@@ -32,7 +32,8 @@
 * AgentCore CLI をインストールします。
 
     ```
-    npm install -g @aws/agentcore
+    npm install -g @aws/agentcore@0.31.1
+
     ```
 
 * AgentCore CLI のインストールを確認します。

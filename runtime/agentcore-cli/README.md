@@ -161,14 +161,6 @@
 > [!NOTE]
 > 途中、CDK の bootstrap 実行の確認が求められたら、Enter キーを押してください。
 
----
-##  (オプション）マネジメントコンソールでのデプロイの確認
-
-* マネジメントコンソールの検索で `agentcore` を入力して、AgentCore のページを表示します。
-* 左側のナビゲーションメニューで [**構築**] - [**ランタイム**] をクリックします。
-* [**ランタイムリソース**] に [**handson_MyAgent**] が表示され、[**ステータス**] が [**準備完了**] になっていることを確認します。
-
-<img width="1417" height="809" alt="image" src="https://github.com/user-attachments/assets/e70ec4c9-2e87-452b-af4e-3ab208ea14bd" />
 
 
 ---
@@ -368,13 +360,7 @@ uv run invoke.py
 > 途中、CDK の bootstrap 実行の確認が求められたら、Enter キーを押してください。
 
 ---
-##  (オプション）マネジメントコンソールでのデプロイの確認
-
-* マネジメントコンソールの検索で `agentcore` を入力して、AgentCore のページを表示します。
-* 左側のナビゲーションメニューで [**構築**] - [**ランタイム**] をクリックします。
-* [**ランタイムリソース**] に [**handson2_MyAgent**] が表示され、[**ステータス**] が [**準備完了**] になっていることを確認します。
-
-<img width="1635" height="1093" alt="image" src="https://github.com/user-attachments/assets/5749177b-1e3d-4d72-90e7-f4ee18a927e0" />
+##  (オプション）マネジメントコンソールでコンテナイメージの確認
 
 
 * マネジメントコンソールの検索で `ecr` を入力して、Elastic Container Registry のページを表示します。

@@ -13,9 +13,48 @@ AWS SDK for Python (boto3) を直接使って、事前に作成済みの AgentCo
 - [uv](https://docs.astral.sh/uv/) がインストールされていること
 - AWS認証情報が設定済みであること (`aws configure` など)
 - 呼び出す IAM プリンシパルに `bedrock-agentcore:InvokeHarness` の権限があること
-- AgentCore harness が作成済みであること (**未だ作成していない場合は下記「harness の作成」を参照**)
+
+## AgentCore harness の作成
+
+このサンプルは呼び出し専用のため、harness を最初に作成しておく必要があります。
+
+### AWS マネジメントコンソールを使用した AgentCore harness の作成手順
+- 検索で `agentcore` と入力して **Amazon Bedrock AgentCore** のページを開きます。
+- 左側のナビゲーションメニューから **構築** - **ハーネス** を選択します。
+- **ハーネスをクイック作成** - **ハーネスをクイック作成** をクリックします。
+- **ハーネス名** に `harness_99` と入力します。(**99 の部分はご自分の番号に置き換えます。**)
+- **作成** をクリックします。
+- **ハーネスプレイグラウンド** が表示されます。ページ下部で任意のプロンプトを入力して、正常に動作することを確認します。
+- 左側のナビゲーションメニューから **構築** - **ハーネス** を選択します。
+- 作成した AgentCore harness の名前のリンクをクリックします。
+- **ハーネスの詳細** セクションで、**ハーネス ARN** の値をコピーしてメモしておきます。
+
+---
+* 以降は参考です。
+
+### AWS CLI の場合、最小構成であれば次のように作成できます。
+
+```powershell
+aws bedrock-agentcore-control create-harness `
+  --harness-name "MyHarness" `
+  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole"
+```
+
+作成状況は `get-harness` で確認できます。`status` が `READY` になったら呼び出し可能です。
+
+```powershell
+aws bedrock-agentcore-control get-harness --harness-id "MyHarness-XyZ123"
+```
+
+レスポンスに含まれる `arn` の値を、上記「環境変数の設定」の `HARNESS_ARN` に設定してください。
+
+参考: [AgentCore harness の使用開始](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-get-started.html)
+
+---
 
 ## セットアップ
+
+* Code Server のターミナルから下記を実行します。
 
 ```powershell
 cd  ~/environment/BedrockAgentCoreBasic/harness
@@ -75,38 +114,4 @@ uv run python invoke.py "さっきの続きで、予算をもう少し抑えた�
 
 ---
 
-## (参考) AgentCore harness の作成
 
-このサンプルは呼び出し専用のため、harness 自体は別途作成しておく必要があります。
-
-### AWS マネジメントコンソールを使用した AgentCore harness の作成手順
-- 検索で `agentcore` と入力して **Amazon Bedrock AgentCore** のページを開きます。
-- 左側のナビゲーションメニューから **構築** - **ハーネス** を選択します。
-- **ハーネスをクイック作成** - **ハーネスをクイック作成** をクリックします。
-- **ハーネス名** に `harness_99` と入力します。(**99 の部分はご自分の番号に置き換えます。**)
-- **作成** をクリックします。
-- **ハーネスプレイグラウンド** が表示されます。ページ下部で任意のプロンプトを入力して、正常に動作することを確認します。
-- 左側のナビゲーションメニューから **構築** - **ハーネス** を選択します。
-- 作成した AgentCore harness の名前のリンクをクリックします。
-- **ハーネスの詳細** セクションで、**ハーネス ARN** の値をコピーしてメモしておきます。
-
----
-* 以降は参考です。
-
-### AWS CLI の場合、最小構成であれば次のように作成できます。
-
-```powershell
-aws bedrock-agentcore-control create-harness `
-  --harness-name "MyHarness" `
-  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole"
-```
-
-作成状況は `get-harness` で確認できます。`status` が `READY` になったら呼び出し可能です。
-
-```powershell
-aws bedrock-agentcore-control get-harness --harness-id "MyHarness-XyZ123"
-```
-
-レスポンスに含まれる `arn` の値を、上記「環境変数の設定」の `HARNESS_ARN` に設定してください。
-
-参考: [AgentCore harness の使用開始](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-get-started.html)

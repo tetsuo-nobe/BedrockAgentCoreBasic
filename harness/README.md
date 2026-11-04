@@ -1,9 +1,7 @@
 # AgentCore harness サンプル (AWS SDK / boto3 版)
 
-AWS SDK for Python (boto3) を直接使って、事前に作成済みの AgentCore harness を
-`InvokeHarness` で呼び出す最小サンプルです。
+AWS SDK for Python (boto3) を直接使って、AgentCore harness を `InvokeHarness` で呼び出す最小サンプルです。
 
-- 使用する harness は**事前に作成済み**であることを前提とします(このサンプルでは harness の作成は行いません)。
 - `bedrock-agentcore` (データプレーン) クライアントの `invoke_harness` のみを使用します。
 - `InvokeHarness` は IAM (SigV4) 認証で呼び出せるため、Bearer トークンの取得などは不要です。
 

@@ -12,6 +12,7 @@ AWS SDK for Python (boto3) を直接使って、AgentCore harness を `InvokeHar
 - AWS認証情報が設定済みであること (`aws configure` など)
 - 呼び出す IAM プリンシパルに `bedrock-agentcore:InvokeHarness` の権限があること
 
+
 ## AgentCore harness の作成
 
 このサンプルは呼び出し専用のため、harness を最初に作成しておく必要があります。
@@ -82,6 +83,7 @@ $env:AWS_REGION = "us-west-2"  # 省略時は us-west-2 が使われます
 $env:QUALIFIER = "DEFAULT"     # 省略時は DEFAULT エンドポイントが使われます
 ```
 
+
 ## 実行
 
 ```bash
@@ -96,7 +98,7 @@ export SESSION_ID="(1回目の実行で表示された SessionId の値)"
 uv run python invoke.py "さっきの続きで、予算をもう少し抑えたプランにしてください。"
 ```
 
-## 実行内容
+## invoke.py の内容
 
 1. `boto3.client("bedrock-agentcore")` を作成します。
 2. `invoke_harness` に harness の ARN・セッションID・ユーザーメッセージを渡して呼び出します。

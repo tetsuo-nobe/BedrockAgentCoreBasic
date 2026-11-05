@@ -18,14 +18,15 @@ AWS SDK for Python (boto3) を直接使って、AgentCore harness を `InvokeHar
 
 ### AWS マネジメントコンソールを使用した AgentCore harness の作成手順
 - 検索で `agentcore` と入力して **Amazon Bedrock AgentCore** のページを開きます。
-- 左側のナビゲーションメニューから **構築** - **ハーネス** を選択します。
-- **ハーネスをクイック作成** - **ハーネスをクイック作成** をクリックします。
+- 左側のナビゲーションメニューから **ハーネスプレイグラウンド** を選択します。
+- **新しいハーネスを作成** をクリックします。
 - **ハーネス名** に `harness_99` と入力します。(**99 の部分はご自分の番号に置き換えます。**)
 - **作成** をクリックします。
 - **ハーネスプレイグラウンド** が表示されます。ページ下部で任意のプロンプトを入力して、正常に動作することを確認します。
-- 左側のナビゲーションメニューから **構築** - **ハーネス** を選択します。
+- 左側のナビゲーションメニューから **エージェント** を選択します。
 - 作成した AgentCore harness の名前のリンクをクリックします。
-- **ハーネスの詳細** セクションで、**ハーネス ARN** の値をコピーしてメモしておきます。
+- **設定** タブをクリックし、**ハーネスの詳細** セクションを展開表示します。
+- **ハーネス ARN** の値をコピーしてメモしておきます。
 
 ---
 * 以降は参考です。
@@ -54,11 +55,11 @@ aws bedrock-agentcore-control get-harness --harness-id "MyHarness-XyZ123"
 
 * Code Server のターミナルから下記を実行します。
 
-```powershell
+```bash
 cd  ~/environment/BedrockAgentCoreBasic/harness
 ```
 
-```powershell
+```bash
 uv sync
 ```
 
@@ -81,22 +82,16 @@ $env:AWS_REGION = "us-west-2"  # 省略時は us-west-2 が使われます
 $env:QUALIFIER = "DEFAULT"     # 省略時は DEFAULT エンドポイントが使われます
 ```
 
-## 実行方法
+## 実行
 
-```powershell
+```bash
 uv run invoke.py "5日間の東京旅行の予算内プランを考えてください。"
-```
-
-引数を省略した場合は既定のプロンプト(「こんにちは」)を送信します。
-
-```powershell
-uv run invoke.py
 ```
 
 同じ会話を継続したい場合は、1回目に使われた `SessionId`(実行時に標準出力へ表示されます)を
 環境変数 `SESSION_ID` に設定してから再度実行してください。
 
-```powershell
+```bash
 export SESSION_ID="(1回目の実行で表示された SessionId の値)"
 uv run python invoke.py "さっきの続きで、予算をもう少し抑えたプランにしてください。"
 ```
